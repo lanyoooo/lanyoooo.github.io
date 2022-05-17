@@ -1,0 +1,1166 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="lanyo blog coding">
+    <meta name="description" content="lanyo的博客">
+    <meta name="author" content="lanyoooo">
+    
+    <title>
+        
+            SpringBoot学习（Runoob） |
+        
+        Lanyo&#39;s Blog
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/images/logo.svg">
+    
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"lanyoooo.github.io","root":"/","language":"zh-CN"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"质胜文则野，文胜质则史。文质彬彬，然后君子。"},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":true}}},"local_search":{"enable":false,"preload":false},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.5"};
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
+  </script>
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                Lanyo&#39;s Blog
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/tags"
+                            >
+                                标签
+                            </a>
+                        </li>
+                    
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/tags">标签</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">SpringBoot学习（Runoob）</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/avatar.svg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">lanyoooo</span>
+                        
+                            <span class="author-label">Lv1</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;
+        <span class="pc">2022-05-16 14:42:52</span>
+        <span class="mobile">2022-05-16 14:42</span>
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/%E5%AD%A6%E4%B9%A0/">学习</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/java/">java</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <!-- toc -->
+
+<h2 id="1-SpringBoot是什么"><a href="#1-SpringBoot是什么" class="headerlink" title="1.SpringBoot是什么"></a>1.SpringBoot是什么</h2><p>由于spring的配置太过繁琐，所以有了SpringBoot来简化spring的配置的同时，保留spring的可用性。</p>
+<p>Spring Boot 具有 Spring 一切优秀特性，Spring 能做的事，Spring Boot 都可以做，而且使用更加简单，功能更加丰富，性能更加稳定而健壮</p>
+<p>Spring Boot 提供了大量<strong>开箱即用</strong>（out-of-the-box）的依赖模块，例如 spring-boot-starter-redis、spring-boot-starter-data-mongodb 和 spring-boot-starter-data-elasticsearch 等。这些依赖模块为 Spring Boot 应用<strong>提供了大量的自动配置</strong>，使得 Spring Boot 应用只需要非常少量的配置甚至零配置，便可以运行起来，让开发人员从 Spring 的“配置地狱”中解放出来，有更多的精力专注于业务逻辑的开发。</p>
+<h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><ol>
+<li><p>独立运行的 Spring 项目</p>
+</li>
+<li><p>内嵌 Servlet 容器 </p>
+<p><em>嵌入了 Tomcat 等</em></p>
+</li>
+<li><p>提供 starter 简化 Maven 配置</p>
+<p><em>提供了一系列的“starter”项目对象模型（POMS）来简化 Maven 配置。</em></p>
+</li>
+<li><p>提供了大量的自动配置</p>
+</li>
+<li><p>自带应用监控</p>
+<p><em>可以对正在运行的项目提供监控。</em></p>
+</li>
+<li><p>无代码生成和 xml 配置</p>
+</li>
+</ol>
+<h2 id="2-starter入门"><a href="#2-starter入门" class="headerlink" title="2.starter入门"></a>2.starter入门</h2><p>Spring Boot 将日常企业应用研发中的各种<strong>场景都抽取出来</strong>，做成一个个的 starter（启动器），<strong>starter 中整合了该场景下各种可能用到的依赖</strong>，用户<strong>只需要在 Maven 中引入 starter 依赖</strong>，SpringBoot <strong>就能自动扫描到要加载的信息并启动相应的默认配置</strong>。starter 提供了大量的自动配置，让用户摆脱了处理各种依赖和配置的困扰。所有这些 starter 都遵循着约定成俗的默认配置，并允许用户调整这些配置，即<strong>遵循“约定大于配置”的原则</strong>。</p>
+<p>以 <strong>spring-boot-starter-web</strong> 为例，它能够为提供 Web 开发场景所需要的几乎所有依赖，因此在使用 Spring Boot 开发 Web 项目时，只需要引入该 Starter 即可，而不需要额外导入 Web 服务器和其他的 Web 依赖。</p>
+<h3 id="spring-boot-starter-parent"><a href="#spring-boot-starter-parent" class="headerlink" title="spring-boot-starter-parent"></a>spring-boot-starter-parent</h3><p>spring-boot-starter-parent 是所有 Spring Boot 项目的父级依赖，它被称为 Spring Boot 的&#x3D;&#x3D;版本仲裁中心&#x3D;&#x3D;，可以<strong>对项目内的部分常用依赖进行统一管理</strong>。</p>
+<p>因为starter中不设有依赖的版本，所以需要一个同一的版本管理中心来管理所有的依赖各自的版本。</p>
+<p>Spring Boot 项目通过继承 spring-boot-starter-parent 来获得一些合理的默认配置，它主要提供了以下特性：</p>
+<ul>
+<li>默认 <strong>JDK 版本</strong>（Java 8）</li>
+<li>默认<strong>字符集</strong>（UTF-8）</li>
+<li><strong>依赖管理</strong>功能</li>
+<li><strong>资源过滤</strong></li>
+<li>默认<strong>插件配置</strong></li>
+<li><strong>识别</strong> application.properties 和 application.yml 类型的<strong>配置文件</strong></li>
+</ul>
+<h2 id="YAML"><a href="#YAML" class="headerlink" title="YAML"></a>YAML</h2><p>application.yml 是一种使用 YAML 语言编写的文件，它与 application.properties 一样，可以在 Spring Boot 启动时被自动读取，修改 Spring Boot 自动配置的默认值。</p>
+<p>YAML 全称 YAML Ain’t Markup Language，它是一种以数据为中心的标记语言，比 XML 和 JSON 更适合作为配置文件。</p>
+<p>使用YAML只需要引入spring-boot-starter-&#x3D;&#x3D;web&#x3D;&#x3D; 或 <strong>spring-boot-starter</strong>即可。</p>
+<h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><p>YAML 的语法如下：</p>
+<ul>
+<li>使用缩进表示层级关系。</li>
+<li>缩进时不允许使用 Tab 键，只允许使用空格。</li>
+<li>缩进的空格数不重要，但同级元素必须左侧对齐。</li>
+<li>大小写敏感。</li>
+</ul>
+<p>例如：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">profiles:</span> <span class="string">dev</span></span><br><span class="line"></span><br><span class="line">  <span class="attr">datasource:</span></span><br><span class="line">    <span class="attr">url:</span> <span class="string">jdbc:mysql://127.0.01/banchengbang_springboot</span></span><br><span class="line">    <span class="attr">username:</span> <span class="string">root</span></span><br><span class="line">    <span class="attr">password:</span> <span class="string">root</span></span><br><span class="line">    <span class="attr">driver-class-name:</span> <span class="string">com.mysql.jdbc.Driver</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="常用写法"><a href="#常用写法" class="headerlink" title="常用写法"></a>常用写法</h3><p>YAML 支持以下三种数据结构：</p>
+<ul>
+<li>对象：<strong>键值对</strong>的<strong>集合</strong></li>
+<li>数组：一组按次序排列的值</li>
+<li>字面量：单个的、不可拆分的值</li>
+</ul>
+<h4 id="字面量"><a href="#字面量" class="headerlink" title="字面量"></a>字面量</h4><p><strong>默认情况下字符串是不需要使用单引号或双引号的</strong></p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="string">bianchengbang</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>若字符串使用单引号，则会转义特殊字符。</strong></p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="string">zhangsan</span> <span class="string">\n</span> <span class="string">lisi</span></span><br><span class="line"><span class="string">输出:</span> <span class="string">zhangsan</span> <span class="string">\n</span> <span class="string">lisi</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>若字符串使用双引号，则不会转义特殊字符，特殊字符会输出为其本身想表达的含义</strong></p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="string">zhangsan</span> <span class="string">\n</span> <span class="string">lisi</span></span><br><span class="line"><span class="string">输出:</span> <span class="string">zhangsan</span> </span><br><span class="line"><span class="string">lisi</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h4><p>YAML 为对象提供了 2 种写法：</p>
+<p><strong>普通写法，使用缩进表示对象与属性的层级关系。</strong></p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">website:</span> </span><br><span class="line">  <span class="attr">name:</span> <span class="string">bianchengbang</span></span><br><span class="line">  <span class="attr">url:</span> <span class="string">www.biancheng.net</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>行内写法：大括号括起来全部，键值对表示一种属性，逗号分开</strong></p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">website:</span> &#123;<span class="attr">name:</span> <span class="string">bianchengbang</span>,<span class="attr">url:</span> <span class="string">www.biancheng.net</span>&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="YAML-数组写法"><a href="#YAML-数组写法" class="headerlink" title="YAML 数组写法"></a>YAML 数组写法</h4><p><strong>YAML 使用“-”表示数组中的元素，普通写法如下：</strong></p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">pets:</span></span><br><span class="line">  <span class="string">-dog</span></span><br><span class="line">  <span class="string">-cat</span></span><br><span class="line">  <span class="string">-pig</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>行内写法:中括号括起来，逗号分开，没有空格（有也可以）</strong></p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">pets:</span> [<span class="string">dog</span>,<span class="string">cat</span>,<span class="string">pig</span>]</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="复合结构"><a href="#复合结构" class="headerlink" title="复合结构"></a>复合结构</h4><p>以上<strong>三种数据结构可以任意组合使用，以实现不同的用户需求</strong>，例如：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">person:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">zhangsan</span></span><br><span class="line">  <span class="attr">age:</span> <span class="number">30</span></span><br><span class="line">  <span class="attr">pets:</span></span><br><span class="line">    <span class="string">-dog</span></span><br><span class="line">    <span class="string">-cat</span></span><br><span class="line">    <span class="string">-pig</span></span><br><span class="line">  <span class="attr">car:</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">QQ</span></span><br><span class="line">  <span class="attr">child:</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">zhangxiaosan</span></span><br><span class="line">    <span class="attr">age:</span> <span class="number">2</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="YAML-组织结构"><a href="#YAML-组织结构" class="headerlink" title="YAML 组织结构"></a>YAML 组织结构</h4><p>一个 YAML 文件<strong>可以由一个或多个文档组成</strong>，文档之间使用&#x3D;&#x3D;“—<strong>”</strong>作为分隔符&#x3D;&#x3D;，且个文档相互独立，互不干扰。如果 YAML 文件只包含一个文档，则“—<strong>”</strong>分隔符可以省略。</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">website:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">bianchengbang</span></span><br><span class="line">  <span class="attr">url:</span> <span class="string">www.biancheng.net</span></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">website:</span> &#123;<span class="attr">name:</span> <span class="string">bianchengbang</span>,<span class="attr">url:</span> <span class="string">www.biancheng.net</span>&#125;</span><br><span class="line"><span class="attr">pets:</span></span><br><span class="line">  <span class="string">-dog</span></span><br><span class="line">  <span class="string">-cat</span></span><br><span class="line">  <span class="string">-pig</span></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">pets:</span> [<span class="string">dog</span>,<span class="string">cat</span>,<span class="string">pig</span>]</span><br><span class="line"><span class="attr">name:</span> <span class="string">&quot;zhangsan \n lisi&quot;</span></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">name:</span> <span class="string">&#x27;zhangsan \n lisi&#x27;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="配置绑定"><a href="#配置绑定" class="headerlink" title="配置绑定"></a>配置绑定</h2><p>把<strong>配置文件中的值</strong>与 <strong>JavaBean 中对应的属性</strong>进行绑定</p>
+<p>SpringBoot 提供了以下 2 种方式进行配置绑定：</p>
+<ul>
+<li>使用 <strong>@ConfigurationProperties</strong> 注解</li>
+<li>使用 <strong>@Value</strong> 注解</li>
+</ul>
+<h3 id="ConfigurationProperties"><a href="#ConfigurationProperties" class="headerlink" title="@ConfigurationProperties"></a>@ConfigurationProperties</h3><p>通过 Spring Boot 提供的 @ConfigurationProperties 注解，可以将全局配置文件中的配置数据绑定到 JavaBean 中。下面我们以 Spring Boot 项目 helloworld 为例，演示如何通过 @ConfigurationProperties 注解进行配置绑定。</p>
+<p>1.在properties文件中自定义配置</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">person:</span></span><br><span class="line">  <span class="attr">lastName:</span> <span class="string">张三</span></span><br><span class="line">  <span class="attr">age:</span> <span class="number">18</span></span><br><span class="line">  <span class="attr">boss:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">birth:</span> <span class="number">1990</span><span class="string">/12/12</span></span><br><span class="line">  <span class="attr">maps:</span> &#123; <span class="attr">k1:</span> <span class="string">v1</span>,<span class="attr">k2:</span> <span class="number">12</span> &#125;</span><br><span class="line">  <span class="attr">lists:</span></span><br><span class="line">    <span class="string">‐</span> <span class="string">lisi</span></span><br><span class="line">    <span class="string">‐</span> <span class="string">zhaoliu</span></span><br><span class="line">  <span class="attr">dog:</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">迪迪</span></span><br><span class="line">    <span class="attr">age:</span> <span class="number">5</span></span><br></pre></td></tr></table></figure>
+
+<p>2.创建实体类，并将配置文件中的属性映射到这个实体类上面</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="meta">@ConfigurationProperties(prefix = &quot;person&quot;)</span></span><br><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="meta">@AllConstructor</span></span><br><span class="line"><span class="meta">@NoConstructor</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Person</span> &#123;</span><br><span class="line">	<span class="keyword">private</span> String lastName;</span><br><span class="line">    <span class="keyword">private</span> Integer age;</span><br><span class="line">    <span class="keyword">private</span> Boolean boss;</span><br><span class="line">    <span class="keyword">private</span> Date birth;</span><br><span class="line">    <span class="keyword">private</span> Map&lt;String, Object&gt; maps;</span><br><span class="line">    <span class="keyword">private</span> List&lt;Object&gt; lists;</span><br><span class="line">    <span class="keyword">private</span> Dog dog;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>注意：</p>
+<ul>
+<li>只有在容器中的组件，才会拥有 SpringBoot 提供的强大功能。如果我们想要使用 @ConfigurationProperties 注解进行配置绑定，那么<strong>首先就要保证该对 JavaBean 对象在 IoC 容器中，所以需要用到 @Component 注解来添加组件到容器中</strong>。</li>
+<li>JavaBean 上使用了注解 @ConfigurationProperties(prefix &#x3D; “person”) ，它表示将这个 JavaBean 中的所有属性与配置文件中以“person”为前缀的配置进行绑定。</li>
+</ul>
+<p>3.<strong>由于person中有Dog，所以还需要创建一个Dog的javaBean</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Dog</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> String age;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>4.<strong>在调用了Person的地方进行自动装配</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">HelloController</span> &#123;</span><br><span class="line">    <span class="meta">@Autowired</span>	<span class="comment">//将配置文件中的配置装配给Bean</span></span><br><span class="line">    <span class="keyword">private</span> Person person;</span><br><span class="line">    <span class="meta">@ResponseBody</span>	<span class="comment">//只返回数据，不跳转页面</span></span><br><span class="line">    <span class="meta">@RequestMapping(&quot;/hello&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> Person <span class="title function_">hello</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> person;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="Value"><a href="#Value" class="headerlink" title="@Value"></a>@Value</h3><p>当我们&#x3D;&#x3D;只需要&#x3D;&#x3D;读取配置文件中的&#x3D;&#x3D;某一个&#x3D;&#x3D;配置时，可以通过 <strong>@Value</strong> 注解获取。</p>
+<p>修改上面person的代码为例子</p>
+<p><strong>在需要特定取值的属性上面用@Value来取值即可。</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Person</span> &#123;</span><br><span class="line">    <span class="meta">@Value(&quot;$&#123;person.lastName&#125;&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> String lastName;</span><br><span class="line">    <span class="meta">@Value(&quot;$&#123;person.age&#125;&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> Integer age;</span><br><span class="line">    <span class="meta">@Value(&quot;$&#123;person.boss&#125;&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> Boolean boss;</span><br><span class="line">    <span class="meta">@Value(&quot;$&#123;person.birth&#125;&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> Date birth;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="Value-与-ConfigurationProperties-对比"><a href="#Value-与-ConfigurationProperties-对比" class="headerlink" title="@Value 与 @ConfigurationProperties 对比"></a>@Value 与 @ConfigurationProperties 对比</h3><p>两个都能读取配置文件中的信息并绑定到javaBean中，但有以下不同：</p>
+<ol>
+<li><p><strong>使用位置不同</strong>：</p>
+<ul>
+<li>@ConfigurationProperties：标注在 JavaBean 的**&#x3D;&#x3D;类名上&#x3D;&#x3D;**；</li>
+<li>@Value：标注在 JavaBean 的**&#x3D;&#x3D;属性上&#x3D;&#x3D;**。</li>
+</ul>
+</li>
+<li><p><strong>功能不同</strong></p>
+<ul>
+<li>@ConfigurationProperties：用于&#x3D;&#x3D;批量绑定&#x3D;&#x3D;配置文件中的配置；</li>
+<li>@Value：只能一个&#x3D;&#x3D;一个的指定&#x3D;&#x3D;需要绑定的配置。</li>
+</ul>
+</li>
+<li><p><strong>松散绑定支持不同</strong></p>
+<ul>
+<li>@ConfigurationProperties：支持<strong>松散绑定（<u><em>松散语法</em></u>）</strong>，例如实体类 Person 中有一个属性为 firstName，那么配置文件中的属性名支持以下写法：<ul>
+<li>person.firstName</li>
+<li>person.first-name</li>
+<li>person.first_name</li>
+<li>PERSON_FIRST_NAME</li>
+</ul>
+</li>
+<li>而@Vaule：不支持松散绑定</li>
+</ul>
+</li>
+<li><p><strong>SpEL 支持不同</strong></p>
+<ul>
+<li>@ConfigurationProperties：不支持 SpEL 表达式;</li>
+<li>@Value：支持 SpEL 表达式。</li>
+</ul>
+</li>
+<li><p><strong>复杂类型封装</strong></p>
+<ul>
+<li>@ConfigurationProperties：支持<strong>所有类型数</strong>据的封装，例如 Map、List、Set、以及对象等；</li>
+<li>@Value：<strong>只支持基本数据类型</strong>的封装，例如字符串、布尔值、整数等类型。</li>
+</ul>
+</li>
+<li><p><strong>应用场景不同</strong></p>
+<p>@Value 和 @ConfigurationProperties 两个注解之间，并<strong>没有明显的优劣之分</strong>，它们只是<strong>适合的应用场景不同</strong>而已。</p>
+<ul>
+<li>若只是获取配置文件中的某项值，则推荐使用 @Value 注解；</li>
+<li>若专门编写了一个 JavaBean 来和配置文件进行映射，则建议使用 @ConfigurationProperties 注解。</li>
+</ul>
+</li>
+</ol>
+<h3 id="PropertySource"><a href="#PropertySource" class="headerlink" title="@PropertySource"></a>@PropertySource</h3><p>如果将所有的配置都集中到 application.properties 或 application.yml 中，那么这个配置文件会十分的臃肿且难以维护，因此我们通常会<strong>将与 Spring Boot 无关的配置（例如自定义配置）提取出来，写在一个单独的配置文件中，并在对应的 JavaBean 上使用 @PropertySource 注解指向该配置文件。</strong></p>
+<p>1.<strong>编写配置文件</strong></p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">lanyo:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">linxu</span></span><br><span class="line">  <span class="attr">gender:</span> <span class="number">1</span></span><br><span class="line">  <span class="attr">age:</span> <span class="number">21</span></span><br></pre></td></tr></table></figure>
+
+<p>2.<strong>编写实体类，绑定配置文件</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="meta">@PropertySource(value = &quot;classpath:text.yml&quot;)</span></span><br><span class="line"><span class="meta">@ConfigurationProperties(prefix = &quot;lanyo&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">lanyoText</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> String name;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> gender;</span><br><span class="line">    <span class="keyword">public</span> Integer age;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>3.<strong>在调用时注入数据</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Autowired</span></span><br><span class="line"><span class="keyword">public</span> lanyoText lanyo;</span><br><span class="line"></span><br><span class="line"><span class="meta">@RequestMapping(&quot;/lanyo&quot;)</span></span><br><span class="line"><span class="keyword">public</span> lanyoText <span class="title function_">lanyo</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> lanyo;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="springboot导入spring配置"><a href="#springboot导入spring配置" class="headerlink" title="springboot导入spring配置"></a>springboot导入spring配置</h2><p><strong>默认情况下，Spring Boot 中是不包含任何的 Spring 配置文件的</strong>，即使我们手动添加 Spring 配置文件到项目中，也不会被识别。</p>
+<p>Spring Boot 为了我们提供了以下 2 种方式来导入 Spring 配置：</p>
+<ul>
+<li>使用 <strong>@ImportResource</strong> 注解加载 Spring 配置文件</li>
+<li>使用<strong>全注解方式</strong>加载 Spring 配置</li>
+</ul>
+<h3 id="ImportResource-导入-Spring-配置文件"><a href="#ImportResource-导入-Spring-配置文件" class="headerlink" title="@ImportResource 导入 Spring 配置文件"></a>@ImportResource 导入 Spring 配置文件</h3><p>在&#x3D;&#x3D;主启动类&#x3D;&#x3D;上使用 @ImportResource 注解可以导入<u>一个或多个</u> Spring 配置文件，并使其中的内容生效。</p>
+<ol>
+<li><p>新建一个接口类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">PersonService</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> Person <span class="title function_">getPersonInfo</span><span class="params">()</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+</li>
+<li><p>新建一个接口的实现类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">PersonServiceImpl</span> <span class="keyword">implements</span> <span class="title class_">PersonService</span> &#123;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> Person person;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> Person <span class="title function_">getPersonInfo</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> person;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+</li>
+<li><p>在该项目的 resources 下添加一个名为 beans.xml 的 Spring 配置文件</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;UTF-8&quot;</span>?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">beans</span> <span class="attr">xmlns</span>=<span class="string">&quot;http://www.springframework.org/schema/beans&quot;</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xmlns:xsi</span>=<span class="string">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xsi:schemaLocation</span>=<span class="string">&quot;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;personService&quot;</span> <span class="attr">class</span>=<span class="string">&quot;net.biancheng.www.service.impl.PersonServiceImpl&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+</li>
+<li><p>校验 IOC 容器是否已经加入 personService</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootTest</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">HelloworldApplicationTests</span> &#123;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    Person person;</span><br><span class="line">    <span class="comment">//IOC 容器</span></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    ApplicationContext ioc;</span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">testHelloService</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="comment">//校验 IOC 容器中是否包含组件 personService</span></span><br><span class="line">        <span class="type">boolean</span> <span class="variable">b</span> <span class="operator">=</span> ioc.containsBean(<span class="string">&quot;personService&quot;</span>);</span><br><span class="line">        <span class="keyword">if</span> (b) &#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;personService 已经添加到 IOC 容器中&quot;</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;personService 没添加到 IOC 容器中&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">contextLoads</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(person);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+</li>
+<li><p>在<strong>主启动程序类</strong>上使用 @<strong>ImportResource</strong> 注解，将 Spring 配置文件 beans.xml 加载到项目中</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@ImportResource(locations = &#123;&quot;classpath:/beans.xml&quot;&#125;)</span></span><br><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">HelloworldApplication</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        SpringApplication.run(HelloworldApplication.class, args);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="全注解方式加载-Spring-配置"><a href="#全注解方式加载-Spring-配置" class="headerlink" title="全注解方式加载 Spring 配置"></a>全注解方式加载 Spring 配置</h3><p>&#x3D;&#x3D;Spring Boot 推荐我们使用全注解的方式加载 Spring 配置&#x3D;&#x3D;</p>
+<ol>
+<li><p>使用 @<strong>Configuration</strong> 注解定义配置类，替换 Spring 的配置文件；</p>
+</li>
+<li><p>配置类内部可以包含有一个或多个被 @<strong>Bean</strong> 注解的方法，这些方法会被 AnnotationConfigApplicationContext 或 AnnotationConfigWebApplicationContext 类扫描，构建 bean 定义（相当于 Spring 配置文件中的<bean></bean>标签），方法的返回值会以组件的形式添加到容器中，组件的 id 就是方法名。</p>
+<p>参考第一个文档中关于MyConfig的使用方式，通过自定义配置来驱动项目。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MyAppConfig</span> &#123;</span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="keyword">public</span> PersonService <span class="title function_">personService</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;在容器中添加了一个组件:peronService&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">PersonServiceImpl</span>();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>&#x3D;&#x3D;全注解方式其实就是在配置类里面，写一个方法，返回想要的组件，同时用@Bean来注释这个方法即可。&#x3D;&#x3D;</p>
+</li>
+</ol>
+<h2 id="Spring-Boot-Profile（多环境配置）"><a href="#Spring-Boot-Profile（多环境配置）" class="headerlink" title="Spring Boot Profile（多环境配置）"></a>Spring Boot Profile（多环境配置）</h2><p>在实际的项目开发中，<strong>一个项目通常会存在多个环境</strong>，例如，<strong>开发环境</strong>、<strong>测试环境和生产环境等</strong>。不同环境的配置也不尽相同，例如开发环境使用的是开发数据库，测试环境使用的是测试数据库，而生产环境使用的是线上的正式数据库。</p>
+<p><strong>Profile 为在不同环境下使用不同的配置提供了支持，我们可以通过激活、指定参数等方式快速切换环境。</strong></p>
+<h3 id="多-Profile-的文件方式"><a href="#多-Profile-的文件方式" class="headerlink" title="多 Profile 的文件方式"></a>多 Profile 的文件方式</h3><p>Spring Boot 的配置文件共有两种形式：.<strong>properties</strong> 文件和 <strong>.yml</strong> 文件，不管哪种形式，它们都能通过文件名的命名形式区分出不同的环境的配置，文件命名格式为：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">application-&#123;profile&#125;.properties/yml</span><br></pre></td></tr></table></figure>
+
+<p>其中，{profile} 一般为<strong>各个环境的名称或简称</strong>，例如 dev、test 和 prod 等等。</p>
+<p><u><em>如果没有在默认的配置文件中指出激活哪个配置文件，那么项目将以默认的配置运行。</em></u></p>
+<p><strong>properties文件</strong>:</p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#激活指定的profile</span></span><br><span class="line"><span class="attr">spring.profiles.active</span>=<span class="string">prod #prod就是配置文件中的简称</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>yaml文件</strong>同理:</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#切换配置</span></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">profiles:</span></span><br><span class="line">    <span class="attr">active:</span> <span class="string">dev</span> <span class="comment">#激活开发环境配置</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="多-Profile-的文档块模式"><a href="#多-Profile-的文档块模式" class="headerlink" title="多 Profile 的文档块模式"></a>多 Profile 的文档块模式</h3><p>在 YAML 配置文件中，可以使用“—”把配置文件分割成了多个文档块，因此我们可以<strong>在不同的文档块中针对不同的环境进行不同的配置，并在<u>第一个文档</u>块内对配置进行切换</strong>。</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#默认配置</span></span><br><span class="line"><span class="attr">server:</span></span><br><span class="line">  <span class="attr">port:</span> <span class="number">8080</span></span><br><span class="line"><span class="comment">#切换配置</span></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">profiles:</span></span><br><span class="line">    <span class="attr">active:</span> <span class="string">test</span></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="comment">#开发环境</span></span><br><span class="line"><span class="attr">server:</span></span><br><span class="line">  <span class="attr">port:</span> <span class="number">8081</span></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">config:</span></span><br><span class="line">    <span class="attr">activate:</span></span><br><span class="line">      <span class="attr">on-profile:</span> <span class="string">dev</span></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="comment">#测试环境</span></span><br><span class="line"><span class="attr">server:</span></span><br><span class="line">  <span class="attr">port:</span> <span class="number">8082</span></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">config:</span></span><br><span class="line">    <span class="attr">activate:</span></span><br><span class="line">      <span class="attr">on-profile:</span> <span class="string">test</span></span><br></pre></td></tr></table></figure>
+
+<p>&#x3D;&#x3D;yaml的profile实现，文件方式和文档快方式的写法不一样&#x3D;&#x3D;</p>
+<h3 id="激活-Profile"><a href="#激活-Profile" class="headerlink" title="激活 Profile"></a>激活 Profile</h3><p>除了可以在配置文件中激活指定 Profile，Spring Boot 还为我们提供了另外 2 种激活 Profile 的方式：</p>
+<ul>
+<li>命令行激活</li>
+<li>虚拟机参数激活</li>
+</ul>
+<h2 id="Spring-Boot配置文件"><a href="#Spring-Boot配置文件" class="headerlink" title="Spring Boot配置文件"></a>Spring Boot配置文件</h2><p>通常情况下，Spring Boot 在启动时会将 resources 目录下的 application.properties 或 apllication.yml 作为其默认配置文件，我们可以在该配置文件中对项目进行配置，<u><em>但这并不意味着 Spring Boot 项目中只能存在一个 application.properties 或 application.yml。</em></u></p>
+<h3 id="默认配置文件"><a href="#默认配置文件" class="headerlink" title="默认配置文件"></a>默认配置文件</h3><p>Spring Boot 项目中可以存在多个 application.properties 或 apllication.yml。</p>
+<p>Spring Boot 启动时会扫描以下 5 个位置的 application.properties 或 apllication.yml 文件，并将它们作为 Spring boot 的默认配置文件。</p>
+<ol>
+<li>file:.&#x2F;config&#x2F;</li>
+<li>file:.&#x2F;config&#x2F;*&#x2F;</li>
+<li>file:.&#x2F;</li>
+<li>classpath:&#x2F;config&#x2F;</li>
+<li>classpath:&#x2F;</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">注：file: 指当前项目根目录；classpath: 指当前项目的类路径，即 resources 目录。</span><br></pre></td></tr></table></figure>
+
+<p>以上所有位置的配置文件都会被加载，且它们<strong>优先级依次降低</strong>，序号越小优先级越高。其次，位于<strong>相同位置的 application.properties 的优先级高于 application.yml</strong>。</p>
+<h3 id="外部配置文件"><a href="#外部配置文件" class="headerlink" title="外部配置文件"></a>外部配置文件</h3><p>除了默认配置文件，Spring Boot 还可以加载一些位于项目外部的配置文件。我们可以通过如下 2 个参数，指定外部配置文件的路径：</p>
+<ul>
+<li>spring.config.location </li>
+<li>spring.config.<strong>additional</strong>-location</li>
+</ul>
+<p><strong>使用外部配置文件需要先将项目打包成为jar包。</strong></p>
+<p>但与 –spring.config.location 不同，–spring.config.<strong>additional</strong>-location <strong>不会使项目默认的配置文件失效</strong>，使用该命令行参数添加的外部配置文件会与项目默认的配置文件共同生效，<strong>形成互补配置，且其优先级是最高的，比所有默认配置文件的优先级都高</strong>。</p>
+<p>Spring Boot 不仅可以通过配置文件进行配置，<strong>还可以通过<u>环境变量</u>、<u>命令行参数</u>等多种形式进行配置</strong>。这些配置都可以<strong>让开发人员在不修改任何代码的前提下，直接将一套 Spring Boot 应用程序在&#x3D;&#x3D;不同的环境&#x3D;&#x3D;中运行</strong>。</p>
+<h3 id="配置优先级"><a href="#配置优先级" class="headerlink" title="配置优先级"></a>配置优先级</h3><p>以下是常用的 Spring Boot 配置形式及其加载顺序（优先级由高到低）：</p>
+<ol>
+<li>命令行参数</li>
+<li>来自 java:comp&#x2F;env 的 JNDI 属性</li>
+<li>Java 系统属性（System.getProperties()）</li>
+<li>操作系统环境变量</li>
+<li>RandomValuePropertySource 配置的 random.* 属性值</li>
+<li>配置文件（YAML 文件、Properties 文件）</li>
+<li>@Configuration 注解类上的 @PropertySource 指定的配置文件</li>
+<li>通过 SpringApplication.setDefaultProperties 指定的默认属性</li>
+</ol>
+<h2 id="自动配置原理"><a href="#自动配置原理" class="headerlink" title="自动配置原理"></a>自动配置原理</h2><p>我们知道，Spring Boot 项目创建完成后，即使不进行任何的配置，也能够顺利地运行，这都要归功于 Spring Boot 的<strong>自动化配置</strong>。</p>
+<h2 id="统一日志框架"><a href="#统一日志框架" class="headerlink" title="统一日志框架"></a>统一日志框架</h2><p>在项目开发中，日志十分的重要，不管是记录运行情况还是定位线上问题，都离不开对日志的分析。在 Java 领域里存在着多种日志框架，如 JCL、SLF4J、Jboss-logging、jUL、log4j、log4j2、logback 等等。</p>
+<h3 id="日志框架的选择"><a href="#日志框架的选择" class="headerlink" title="日志框架的选择"></a>日志框架的选择</h3><p>市面上常见的日志框架有很多，它们可以被分为两类：<strong>日志门面</strong>（日志抽象层）<strong>和日志实现</strong>，如下表。</p>
+<table>
+<thead>
+<tr>
+<th>日志分类</th>
+<th>描述</th>
+<th>举例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>日志门面（日志抽象层）</td>
+<td>为 Java 日志访问提供一套标准和规范的 API 框架，其主要意义在于<strong>提供接口</strong>。</td>
+<td>JCL（Jakarta Commons Logging）、SLF4j（Simple Logging Facade for Java）、jboss-logging</td>
+</tr>
+<tr>
+<td>日志实现</td>
+<td><strong>日志门面的具体的实现</strong></td>
+<td><strong>Log4j</strong>、JUL（java.util.logging）、Log4j2、Logback</td>
+</tr>
+</tbody></table>
+<p>通常情况下，日志由一个日志门面与一个日志实现组合搭建而成，<strong>Spring Boot 选用 SLF4J + Logback 的组合</strong>来搭建日志系统。</p>
+<p><strong>SLF4J 是目前市面上最流行的日志门面</strong>，使用 Slf4j 可以很灵活的使用占位符进行参数占位，简化代码，拥有更好的可读性。</p>
+<p>Logback 是 Slf4j 的原生实现框架，它<u>与 Log4j 出自一个人之手，但拥有比 log4j 更多的优点、特性和更做强的性能</u>，现在基本都用来代替 log4j 成为主流。</p>
+<h3 id="SLF4J-的使用"><a href="#SLF4J-的使用" class="headerlink" title="SLF4J 的使用"></a>SLF4J 的使用</h3><p><strong>SLF4J——simple logging facade for java</strong></p>
+<p>在项目开发中，记录日志时<strong>不应该直接调用日志实现层</strong>的方法，<strong>而应该调用日志门面</strong>（日志抽象层）的方法。</p>
+<p>在使用 SLF4J 记录日志时，我们<strong>需要在应用中导入 SLF4J 及日志实现，并在记录日志时调用 SLF4J 的方法</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.slf4j.Logger;</span><br><span class="line"><span class="keyword">import</span> org.slf4j.LoggerFactory;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">HelloWorld</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">Logger</span> <span class="variable">logger</span> <span class="operator">=</span> LoggerFactory.getLogger(HelloWorld.class);</span><br><span class="line">       <span class="comment">//调用 sl4j 的 info() 方法，而非调用 logback 的方法</span></span><br><span class="line">        logger.info(<span class="string">&quot;Hello World&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>SLF4J 作为一款优秀的日志门面或者日志抽象层，它可以与各种日志实现框架组合使用，以达到记录日志的目的。</p>
+<p>从 SLF4J 官方给出的方案可以看出：</p>
+<ul>
+<li>Logback 作为 Slf4j 的原生实现框架，<u>当应用使用 SLF4J+Logback 的组合记录日志时，只需要引入 SLF4J 和 Logback 的 Jar 包即可；</u></li>
+<li>Log4j 虽然与 Logback 出自同一个人之手，但是 Log4j 出现要早于 SLF4J，因而 Log4j 没有直接实现 SLF4J，<u>当应用使用 SLF4J+Log4j 的组合记录日志时，不但需要引入 SLF4J 和 Log4j 的 Jar 包，还必须引入它们之间的<strong>适配层</strong>（Adaptation layer）slf4j-log4j12.jar</u>，该适配层可谓“上有老下有小”，它既要实现 SLF4J 的方法，还有调用 Log4j 的方法，以达到承上启下的作用；</li>
+<li>当应用使用 SLF4J+<strong>JUL</strong> 记录日志时，与 SLF4J+Log4j 一样，不但需要引入 SLF4J 和 JUL 的对应的 Jar 包，还要引入<strong>适配层 slf4j-jdk14.jar</strong>。</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">这里我们需要注意一点，每一个日志的实现框架都有自己的配置文件。使用 slf4j 记录日志时，配置文件应该使用日志实现框架（例如 logback、log4j 和 JUL 等等）自己本身的配置文件。</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="统一日志框架（通用）"><a href="#统一日志框架（通用）" class="headerlink" title="统一日志框架（通用）"></a>统一日志框架（通用）</h3><p>通常一个完整的应用下会依赖于多种不同的框架，而且它们记录日志使用的日志框架也不尽相同，例如，Spring Boot（slf4j+logback），Spring（commons-logging）、Hibernate（jboss-logging）等等。那么如何统一日志框架的使用呢？</p>
+<p>统一日志框架一共需要以下 3 步 ：</p>
+<ol>
+<li><strong>排除应用中的原来的日志框架</strong>；</li>
+<li>引入**&#x3D;&#x3D;替换包&#x3D;&#x3D;**替换被排除的日志框架；</li>
+<li><strong>导入 SLF4J 实现</strong>。</li>
+</ol>
+<p>SLF4J 官方给出的统一日志框架的方案是“狸猫换太子”，即使<strong>用一个替换包来替换原来的日志框架</strong>，例如 log4j-over-slf4j 替换 Log4j（Commons Logging API）、jul-to-slf4j.jar 替换 JUL（java.util.logging API）等等。</p>
+<p><strong>替换包内包含被替换的日志框架中的所有类，这样就可以保证应用不会报错，但替换包内部实际使用的是 SLF4J API，以达到统一日主框架的目的。</strong></p>
+<h3 id="统一日志框架-1"><a href="#统一日志框架-1" class="headerlink" title="统一日志框架"></a>统一日志框架</h3><p>我们在使用 Spring Boot 时，<strong>同样可能用到其他的框架</strong>，例如 Mybatis、Spring MVC、 Hibernate 等等，这些框架的底层都有自己的日志框架，<strong>此时我们也需要对日志框架进行统一</strong>。</p>
+<p>我们知道，统一日志框架的使用一共分为 3 步，Soring Boot 作为一款优秀的开箱即用的框架，<strong>已经为用户完成了其中 2 步：引入替换包和导入 SLF4J 实现</strong>。</p>
+<p>Spring Boot 的<strong>核心启动器 spring-boot-starter 引入了 spring-boot-starter-logging</strong>，使用 IDEA 查看其依赖关系，如下图。</p>
+<img src="http://c.biancheng.net/uploads/allimg/210726/154Z34204-2.png" alt="Spring Boot 依赖关系图"  />
+
+<p>从图可知，<strong>spring-boot-starter-logging</strong> 的 Maven 依赖不但引入了 logback-classic （包含了日志框架 SLF4J 的实现），还引入了 log4j-to-slf4j（log4j 的替换包），jul-to-slf4j （JUL 的替换包），即 Spring Boot 已经为我们完成了统一日志框架的 3 个步骤中的 2 步。</p>
+<p>SpringBoot 底层使用 slf4j+logback 的方式记录日志，当我们引入了依赖了其他日志框架的第三方框架（例如 Hibernate）时，<strong>只需要把这个框架所依赖的日志框架排除</strong>，即可实现日志框架的统一，示例代码如下。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.activemq<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>activemq-console<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;activemq.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">exclusions</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">exclusion</span>&gt;</span>    <span class="comment">&lt;!--排除掉其他框架的日志框架--&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>commons-logging<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>commons-logging<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">exclusion</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">exclusions</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="Spring-Boot日志配置及输出"><a href="#Spring-Boot日志配置及输出" class="headerlink" title="Spring Boot日志配置及输出"></a>Spring Boot日志配置及输出</h2><h3 id="默认配置"><a href="#默认配置" class="headerlink" title="默认配置"></a>默认配置</h3><p>Spring Boot <strong>默认使用 SLF4J+Logback</strong> 记录日志，并提供了默认配置，即使我们不进行任何额外配，也可以使用 SLF4J+Logback 进行日志输出。</p>
+<p>常见的日志配置包括<strong>日志级别</strong>、<strong>日志的输入出格式</strong>等内容。</p>
+<h4 id="日志级别"><a href="#日志级别" class="headerlink" title="日志级别"></a>日志级别</h4><p>日志的输出都是分级别的，<strong>当一条日志信息的级别大于或等于配置文件的级别时，就对这条日志进行记录</strong>。</p>
+<p>常见的日志级别如下（优先级依次升高）。</p>
+<table>
+<thead>
+<tr>
+<th>序号</th>
+<th>日志级别</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>trace(低)</td>
+<td>追踪，指明程序运行轨迹。</td>
+</tr>
+<tr>
+<td>2</td>
+<td>debug</td>
+<td><strong>调试</strong>，实际应用中一般将其作为最低级别，而 trace 则很少使用。</td>
+</tr>
+<tr>
+<td>3</td>
+<td>info</td>
+<td><strong>输出重要的信息</strong>，使用较多。</td>
+</tr>
+<tr>
+<td>4</td>
+<td>warn</td>
+<td><strong>警告</strong>，使用较多。</td>
+</tr>
+<tr>
+<td>5</td>
+<td>error(高)</td>
+<td><strong>错误信息</strong>，使用较多。</td>
+</tr>
+</tbody></table>
+<h4 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h4><p>我们可以通过以下常用日志参数对日志的输出格式进行修改，如下表。</p>
+<table>
+<thead>
+<tr>
+<th>序号</th>
+<th>输出格式</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>%d{yyyy-MM-dd HH:mm:ss, SSS}</td>
+<td><strong>日志生产时间</strong>,输出到毫秒的时间</td>
+</tr>
+<tr>
+<td>2</td>
+<td>%-5level</td>
+<td><strong>输出日志级别</strong>，-5 表示左对齐并且固定输出 5 个字符，如果不足在右边补 0</td>
+</tr>
+<tr>
+<td>3</td>
+<td>%logger 或 %c</td>
+<td><strong>logger 的名称</strong></td>
+</tr>
+<tr>
+<td>4</td>
+<td>%thread 或 %t</td>
+<td>输出<strong>当前线程名称</strong></td>
+</tr>
+<tr>
+<td>5</td>
+<td>%p</td>
+<td><strong>日志输出格式</strong></td>
+</tr>
+<tr>
+<td>6</td>
+<td>%message 或 %msg 或 %m</td>
+<td><strong>日志内容</strong>，即 logger.info(“message”)</td>
+</tr>
+<tr>
+<td>7</td>
+<td>%n</td>
+<td>换行符</td>
+</tr>
+<tr>
+<td>8</td>
+<td>%class 或 %C</td>
+<td>输出 Java 类名</td>
+</tr>
+<tr>
+<td>9</td>
+<td>%file 或 %F</td>
+<td>输出文件名</td>
+</tr>
+<tr>
+<td>10</td>
+<td>%L</td>
+<td>输出错误行号</td>
+</tr>
+<tr>
+<td>11</td>
+<td>%method 或 %M</td>
+<td>输出方法名</td>
+</tr>
+<tr>
+<td>12</td>
+<td>%l</td>
+<td>输出语句所在的行数, 包括类名、方法名、文件名、行数</td>
+</tr>
+<tr>
+<td>13</td>
+<td>hostName</td>
+<td>本地机器名</td>
+</tr>
+<tr>
+<td>14</td>
+<td>hostAddress</td>
+<td>本地 ip 地址</td>
+</tr>
+</tbody></table>
+<p>Spring Boot 日志<strong>默认级别为 info</strong>，日志输出内容默认包含以下元素：</p>
+<ul>
+<li>时间日期</li>
+<li>日志级别</li>
+<li>进程 ID</li>
+<li>分隔符：—</li>
+<li>线程名：方括号括起来（可能会截断控制台输出）</li>
+<li>Logger 名称</li>
+<li>日志内容</li>
+</ul>
+<h3 id="修改默认日志配置"><a href="#修改默认日志配置" class="headerlink" title="修改默认日志配置"></a>修改默认日志配置</h3><p>我们可以根据自身的需求，通过全局配置文件（application.properties&#x2F;yml）修改 Spring Boot 日志级别和显示格式等默认配置。</p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#日志级别</span></span><br><span class="line"><span class="attr">logging.level.net.biancheng.www</span>=<span class="string">trace</span></span><br><span class="line"><span class="comment">#使用相对路径的方式设置日志输出的位置（项目根目录目录\my-log\mylog\spring.log）</span></span><br><span class="line"><span class="comment">#logging.file.path=my-log/myLog</span></span><br><span class="line"><span class="comment">#绝对路径方式将日志文件输出到 【项目所在磁盘根目录\springboot\logging\my\spring.log】</span></span><br><span class="line"><span class="attr">logging.file.path</span>=<span class="string">/spring-boot/logging</span></span><br><span class="line"><span class="comment">#控制台日志输出格式</span></span><br><span class="line"><span class="attr">logging.pattern.console</span>=<span class="string">%d&#123;yyyy-MM-dd hh:mm:ss&#125; [%thread] %-5level %logger&#123;50&#125; - %msg%n</span></span><br><span class="line"><span class="comment">#日志文件输出格式</span></span><br><span class="line"><span class="attr">logging.pattern.file</span>=<span class="string">%d&#123;yyyy-MM-dd&#125; === [%thread] === %-5level === %logger&#123;50&#125; === - %msg%n</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="自定义日志配置"><a href="#自定义日志配置" class="headerlink" title="自定义日志配置"></a>自定义日志配置</h3><p>在 Spring Boot 的配置文件 application.porperties&#x2F;yml 中，可以对日志的<strong>一些默认配置</strong>进行修改，但这种方式只能修改个别的日志配置，想要修改<strong>更多的</strong>配置或者使用<strong>更高级</strong>的功能，则需要通过日志实现<strong>框架的配置文件</strong>进行配置。</p>
+<p>Spring 官方提供了各个日志实现<strong>框架所需的配置文件</strong>，用户只要将指定的配置文件放置到**项目的&#x3D;&#x3D;类路径&#x3D;&#x3D;**下即可。</p>
+<table>
+<thead>
+<tr>
+<th>日志框架</th>
+<th>配置文件</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Logback</td>
+<td>logback-spring.xml、logback-spring.groovy、logback.xml、logback.groovy</td>
+</tr>
+<tr>
+<td>Log4j2</td>
+<td>log4j2-spring.xml、log4j2.xml</td>
+</tr>
+<tr>
+<td>JUL (Java Util Logging)</td>
+<td>logging.properties</td>
+</tr>
+</tbody></table>
+<p>从上表可以看出，日志框架的配置文件基本上被分为 2 类：</p>
+<ul>
+<li><strong>普通日志配置文件</strong>，即<u>不带 srping 标识</u>的配置文件，例如 logback.xml；</li>
+<li><strong>带有 spring 表示的日志配置文件</strong>，例如 logback-spring.xml。</li>
+</ul>
+<h4 id="普通日志配置文件"><a href="#普通日志配置文件" class="headerlink" title="普通日志配置文件"></a>普通日志配置文件</h4><p>我们将 logback.xml、log4j2.xml 等不带 spring 标识的普通日志配置文件，放在项目的类路径下后，这些配置文件会跳过 Spring Boot，直接被日志框架加载。通过这些配置文件，我们就可以达到自定义日志配置的目的。</p>
+<h4 id="带有-spring-标识的日志配置文件"><a href="#带有-spring-标识的日志配置文件" class="headerlink" title="带有 spring 标识的日志配置文件"></a>带有 spring 标识的日志配置文件</h4><p>Spring Boot <strong>推荐</strong>用户使用 logback-spring.xml、log4j2-spring.xml 等这种<strong>带有 spring 标识的配置文件</strong>。这种配置文件被放在项目类路径后，<strong>不会直接被日志框架加载，而是由 Spring Boot 对它们进行解析，这样就可以使用 Spring Boot 的高级功能 Profile，实现在不同的环境中使用不同的日志配置。</strong></p>
+<p>&#x3D;&#x3D;两个自定义日志配置的示例见<a class="link"   target="_blank" rel="noopener" href="http://c.biancheng.net/spring_boot/log-config.html" >链接<i class="fas fa-external-link-alt"></i></a>&#x3D;&#x3D;</p>
+<h2 id="WEB启动器"><a href="#WEB启动器" class="headerlink" title="WEB启动器"></a>WEB启动器</h2><p><strong>Spring MVC 是 Spring 提供的一个基于 MVC 设计模式的轻量级 Web 开发框架，其本身就是 Spring 框架的一部分，可以与 Spring 无缝集成，性能方面具有先天的优越性，是当今业界最主流的 Web 开发框架之一。</strong></p>
+<p><strong>Spring Boot 是在 Spring 的基础上创建一款开源框架，它提供了 spring-boot-starter-web（Web 场景启动器） 来为 Web 开发予以支持。spring-boot-starter-web 为我们&#x3D;&#x3D;提供了嵌入的 Servlet 容器以及 SpringMVC 的依赖，并为 Spring MVC 提供了大量自动配置&#x3D;&#x3D;，可以适用于大多数 Web 开发场景。</strong></p>
+<h3 id="Spring-Boot-Web-快速开发"><a href="#Spring-Boot-Web-快速开发" class="headerlink" title="Spring Boot Web 快速开发"></a>Spring Boot Web 快速开发</h3><p>Spring Boot 为 Spring MVC 提供了自动配置，并在 Spring MVC 默认功能的基础上添加了以下特性：</p>
+<ul>
+<li>引入了 ContentNegotiatingViewResolver 和 <strong>BeanNameViewResolver</strong>（视图解析器）</li>
+<li>对包括 WebJars 在内的<strong>静态资源的支持</strong></li>
+<li>自动注册 Converter、GenericConverter 和 Formatter （<strong>转换器和格式化器</strong>）</li>
+<li>对 <strong>HttpMessageConverters</strong> 的支持（Spring MVC 中用于转换 HTTP 请求和响应的消息转换器）</li>
+<li>自动注册 MessageCodesResolver（用于定义错误代码生成规则）</li>
+<li>支持对静态首页（index.html）的访问</li>
+<li>自动使用 ConfigurableWebBindingInitializer</li>
+</ul>
+<p>只要我们在 Spring Boot 项目中的 pom.xml 中<strong>引入了 spring-boot-starter-web</strong> ，即使<strong>不进行任何配置，也可以直接使用 Spring MVC 进行 Web 开发</strong>。</p>
+<p>由于 <strong>spring-boot-starter-web</strong> 默认替我们引入了核心启动器 <strong>spring-boot-starter</strong>，因此，当 Spring Boot 项目中的 pom.xml 引入了 spring-boot-starter-web 的依赖后，就无须在引入 spring-boot-starter 核心启动器的依赖了。</p>
+<h2 id="静态资源映射"><a href="#静态资源映射" class="headerlink" title="静态资源映射"></a>静态资源映射</h2><p>在 Web 应用中会涉及到大量的静态资源，例如 JS、CSS 和 HTML 等。我们知道，Spring MVC 导入静态资源文件时，需要配置静态资源的映射；但在 SpringBoot 中则不再需要进行此项配置，因为 <strong>SpringBoot 已经默认完成</strong>了这一工作。</p>
+<p>Spring Boot 默认为我们提供了 3 种静态资源映射规则：</p>
+<ul>
+<li>WebJars 映射</li>
+<li>默认资源映射</li>
+<li>静态首页（欢迎页）映射</li>
+</ul>
+<h3 id="WebJars-映射"><a href="#WebJars-映射" class="headerlink" title="WebJars 映射"></a>WebJars 映射</h3><p>为了让页面更加美观，让用户有更多更好的体验，Web 应用中通常会使用大量的 JS 和 CSS，例如 jQuery，Backbone.js 和 Bootstrap 等等。通常我们会将这些 Web 前端资源拷贝到 Java Web 项目的 webapp 相应目录下进行管理。但是 <strong>Spring Boot 项目是以 JAR 包的形式进行部署的</strong>，不存在 webapp 目录，那么 Web 前端资源该如何引入到 Spring Boot 项目中呢？</p>
+<p>WebJars 可以完美的解决上面的问题，它可以 Jar 形式为 Web 项目提供资源文件。</p>
+<p>WebJars 可以将 Web 前端资源（JS，CSS 等）打成一个个的 Jar 包，然后<strong>将这些 Jar 包部署到 Maven 中央仓库中进行统一管理</strong>，当 Spring Boot 项目中需要引入 Web 前端资源时，只需要访问 <a class="link"   target="_blank" rel="noopener" href="https://www.webjars.org/" >WebJars 官网<i class="fas fa-external-link-alt"></i></a>，找到所需资源的 pom 依赖，将其导入到项目中即可。</p>
+<p>所有通过 WebJars 引入的前端资源都存放在当前项目类路径（classpath）下的“&#x2F;META-INF&#x2F;resources&#x2F;webjars&#x2F;” 目录中。（以jar包的形式）</p>
+<p>Spring Boot通过 <strong>MVC 的自动配置类 WebMvcAutoConfiguration</strong>为这些WebJars前端资源提供了默认映射规则</p>
+<p>WebJars 的映射路径为“&#x2F;webjars&#x2F;<strong>”，即所有访问“&#x2F;webjars&#x2F;<strong>”的请求，都会去“</strong>classpath:&#x2F;META-INF&#x2F;resources&#x2F;webjars&#x2F;”</strong>查找 WebJars 前端资源。</p>
+<h3 id="默认静态资源映射"><a href="#默认静态资源映射" class="headerlink" title="默认静态资源映射"></a>默认静态资源映射</h3><p>当访问项目中的任意资源（即“&#x2F;**”）时，Spring Boot 会默认从以下路径中查找资源文件（优先级依次降低）：</p>
+<ol>
+<li>classpath:&#x2F;META-INF&#x2F;resources&#x2F;</li>
+<li>classpath:&#x2F;resources&#x2F;</li>
+<li>classpath:&#x2F;static&#x2F;</li>
+<li>classpath:&#x2F;public&#x2F;</li>
+</ol>
+<p>这些路径又被称为静态资源文件夹，它们的优先级顺序为：classpath:&#x2F;META-INF&#x2F;resources&#x2F; &gt; classpath:&#x2F;resources&#x2F; &gt; classpath:&#x2F;static&#x2F; &gt; classpath:&#x2F;public&#x2F; 。</p>
+<p>当我们请求某个<strong>静态资源（即以“.html”结尾的请求）</strong>时，Spring Boot 会先查找优先级高的文件夹，再查找优先级低的文件夹，直到找到指定的静态资源为止。</p>
+<h3 id="静态首页（欢迎页）映射"><a href="#静态首页（欢迎页）映射" class="headerlink" title="静态首页（欢迎页）映射"></a>静态首页（欢迎页）映射</h3><p>静态资源文件夹下的<strong>所有 index.html 被称为静态首页或者欢迎页</strong>，它们会被 &#x2F;** 映射，换句话说就是，<strong>当我们访问“&#x2F;”或者“&#x2F;index.html”时，都会跳转到静态首页（欢迎页）</strong>。</p>
+<p>注意，<strong>访问静态首页或欢迎页时，其查找顺序也遵循默认静态资源的查找顺序</strong>，即先查找优先级高的目录，在查找优先级低的目录，直到找到 index.html 为止。</p>
+<h2 id="Thymeleaf"><a href="#Thymeleaf" class="headerlink" title="Thymeleaf"></a>Thymeleaf</h2><p>Thymeleaf 是一款<strong>用于渲染 XML&#x2F;XHTML&#x2F;HTML5 内容的&#x3D;&#x3D;模板引擎&#x3D;&#x3D;<strong>。它与 JSP，Velocity，FreeMaker 等模板引擎类似，也<u>可以轻易地与 Spring MVC 等 Web 框架集成</u>。与其它模板引擎相比，</strong>Thymeleaf 最大的特点是，即使不启动 Web 应用，也可以直接在浏览器中打开并正确显示模板页面</strong> 。</p>
+<p>Thymeleaf 通过在 html 标签中，**&#x3D;&#x3D;增加额外属性来达到“模板+数据”的展示方式&#x3D;&#x3D;**</p>
+<h3 id="Thymeleaf-的特点"><a href="#Thymeleaf-的特点" class="headerlink" title="Thymeleaf 的特点"></a>Thymeleaf 的特点</h3><p>Thymeleaf 模板引擎具有以下特点：</p>
+<ul>
+<li>动静结合：Thymeleaf <strong>既可以直接使用浏览器打开，查看页面的<u>静态效果</u>，也可以通过 Web 应用程序进行访问，查看<u>动态页面</u>效果</strong>。</li>
+<li>开箱即用：Thymeleaf 提供了 Spring 标准方言以及一个与 SpringMVC 完美集成的可选模块，<u><em>可以快速的实现表单绑定、属性编辑器、国际化等功能</em></u>。</li>
+<li>多方言支持：它<strong>提供了 Thymeleaf 标准和 Spring 标准两种方言</strong>，可以直接套用模板实现 JSTL、 OGNL 表达式；必要时，开发人员也可以扩展和创建自定义的方言。</li>
+<li><strong>与 SpringBoot 完美整合</strong>：SpringBoot 为 Thymeleaf 提供了默认配置，并且还为 Thymeleaf 设置了视图解析器，因此 Thymeleaf 可以与 Spring Boot 完美整合。</li>
+</ul>
+<h3 id="Thymeleaf-语法规则"><a href="#Thymeleaf-语法规则" class="headerlink" title="Thymeleaf 语法规则"></a>Thymeleaf 语法规则</h3><p>在使用 Thymeleaf 之前，首先要在页面的 html 标签中声明名称空间</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xmlns:th=&quot;http://www.thymeleaf.org&quot;</span><br></pre></td></tr></table></figure>
+
+<p>在 html 标签中声明此名称空间，<strong>可避免编辑器出现 html 验证错误</strong>，但这一步并非必须进行的，&#x3D;&#x3D;即使我们不声明该命名空间，也不影响 Thymeleaf 的使用&#x3D;&#x3D;。</p>
+<p>Thymeleaf 作为一种模板引擎，它拥有自己的语法规则。Thymeleaf 语法分为以下 2 类：</p>
+<ul>
+<li>标准表达式语法</li>
+<li>th 属性</li>
+</ul>
+<h4 id="标准表达式语法"><a href="#标准表达式语法" class="headerlink" title="标准表达式语法"></a>标准表达式语法</h4><p>Thymeleaf 模板引擎支持多种表达式：</p>
+<ul>
+<li><strong>变量表达式：${…}</strong></li>
+<li><em><em>选择变量表达式：</em>{…}</em>*</li>
+<li><strong>链接表达式：@{…}</strong></li>
+<li><strong>国际化表达式：#{…}</strong></li>
+<li><strong>片段引用表达式：~{…}</strong></li>
+</ul>
+<h5 id="变量表达式"><a href="#变量表达式" class="headerlink" title="变量表达式"></a>变量表达式</h5><p>使用 <strong>${}</strong> 包裹的表达式被称为变量表达式，该表达式具有以下功能：</p>
+<ul>
+<li><p><strong>获取对象的属性和方法</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$&#123;person.lastName&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用**<u><em>内置的基本对象</em></u>**</p>
+<p>使用内置基本对象，获取内置对象的属性，调用内置对象的方法</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$&#123;#session.getAttribute(&#x27;map&#x27;)&#125;</span><br><span class="line">$&#123;session.map&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用**<u><em>内置的工具对象</em></u>**</p>
+<p>strings、numbers、bools、arrays、lists&#x2F;sets、maps、dates</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$&#123;#strings.equals(&#x27;编程帮&#x27;,name)&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h5 id="选择变量表达式"><a href="#选择变量表达式" class="headerlink" title="选择变量表达式"></a>选择变量表达式</h5><p>选择变量表达式与变量表达式功能基本一致，只是在变量表达式的基础上<strong>增加了与 th:object 的配合使用</strong>。当使用 th:object &#x3D;&#x3D;存储&#x3D;&#x3D;一个对象后，我们可以在其后代中使用选择变量表达式（*{…}）获取该对象中的属性，其中，<strong>星号即代表该对象。</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">th:object</span>=<span class="string">&quot;$&#123;session.user&#125;&quot;</span> &gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span> <span class="attr">th:text</span>=<span class="string">&quot;*&#123;fisrtName&#125;&quot;</span>&gt;</span>firstname<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><u>th:object 用于存储一个<strong>临时变量</strong>，该变量只在该标签及其后代中有效</u></p>
+<h5 id="链接表达式"><a href="#链接表达式" class="headerlink" title="链接表达式"></a>链接表达式</h5><p>不管是<strong>静态资源的引用</strong>，还是 <strong>form 表单的请求</strong>，凡是&#x3D;&#x3D;链接&#x3D;&#x3D;都可以用链接表达式 （@{…}）。</p>
+<p>链接表达式的形式结构如下：</p>
+<ul>
+<li>无参请求：@{&#x2F;xxx}</li>
+<li>有参请求：@{&#x2F;xxx(k1&#x3D;v1,k2&#x3D;v2)}</li>
+</ul>
+<p>例如使用链接表达式引入 css 样式表</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">&quot;asserts/css/signin.css&quot;</span> <span class="attr">th:href</span>=<span class="string">&quot;@&#123;/asserts/css/signin.css&#125;&quot;</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="片段引用表达式"><a href="#片段引用表达式" class="headerlink" title="片段引用表达式"></a>片段引用表达式</h5><p>&#x3D;&#x3D;用来模板化开发页面&#x3D;&#x3D;</p>
+<p>片段引用表达式<u>用于在模板页面中引用<strong>其他的模板片段</strong></u>，该表达式支持以下 2 种语法结构：</p>
+<ul>
+<li>推荐：~{templatename::fragmentname}</li>
+<li>支持：~{templatename::#id}</li>
+</ul>
+<p>以上语法结构说明如下：</p>
+<ul>
+<li>templatename：<strong>模版名</strong>，Thymeleaf 会根据模版名解析完整路径：&#x2F;resources&#x2F;templates&#x2F;templatename.html，要注意文件的路径。</li>
+<li>fragmentname：<strong>片段名</strong>，Thymeleaf 通过 &#x3D;&#x3D;th:fragment 声明定义代码块&#x3D;&#x3D;，即：th:fragment&#x3D;”fragmentname”</li>
+<li>id：HTML 的 id 选择器，使用时要在前面加上 # 号，不支持 class 选择器。</li>
+</ul>
+<h3 id="Thymeleaf-公共页面抽取"><a href="#Thymeleaf-公共页面抽取" class="headerlink" title="Thymeleaf 公共页面抽取"></a>Thymeleaf 公共页面抽取</h3><p>在 Web 项目中，通常会存在一些公共页面片段（重复代码），例如<strong>头部导航栏、侧边菜单栏和公共的 js css</strong> 等。我们一般会把这些<strong>公共页面片段抽取出来，存放在一个独立的页面中，然后再由其他页面根据需要进行引用</strong>，这样可以消除代码重复，使页面更加简洁。</p>
+<h4 id="1-抽取公共页面"><a href="#1-抽取公共页面" class="headerlink" title="1 抽取公共页面"></a>1 抽取公共页面</h4><p>Thymeleaf 作为一种优雅且高度可维护的模板引擎，同样支持公共页面的抽取和引用。我们可以将公共页面片段抽取出来，存放到一个独立的页面中，并使用 Thymeleaf 提供的 th:fragment 属性为这些抽取出来的公共页面片段命名。</p>
+<p>将公共页面片段抽取出来，存放在 commons.html 中，代码如下。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">纯文本复制</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">th:fragment</span>=<span class="string">&quot;fragment-name&quot;</span> <span class="attr">id</span>=<span class="string">&quot;fragment-id&quot;</span>&gt;</span>    <span class="tag">&lt;<span class="name">span</span>&gt;</span>公共页面片段<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="2-引用公共页面"><a href="#2-引用公共页面" class="headerlink" title="2 引用公共页面"></a>2 引用公共页面</h4><p>在 Thymeleaf 中，我们可以使用以下 3 个属性，将公共页面片段引入到当前页面中。</p>
+<ul>
+<li>th:<strong>insert</strong>：将代码块片段<strong>整个插入</strong>到使用了 th:insert 属性的 HTML 标签中；</li>
+<li>th:<strong>replace</strong>：将代码块片段<strong>整个替换</strong>使用了 th:replace 属性的 HTML 标签中；</li>
+<li>th:<strong>include</strong>：将代码块片段包含的内容插入到使用了 th:include 属性的 HTML 标签中。</li>
+</ul>
+<p>使用上 3 个属性引入页面片段，都可以通过以下 2 种方式实现。</p>
+<ul>
+<li>~{templatename::selector}：模板名::选择器</li>
+<li>~{templatename::fragmentname}：模板名::片段名</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">通常情况下，~&#123;&#125; 可以省略，其行内写法为 [[~&#123;...&#125;]] 或 [(~&#123;...&#125;)]，其中  [[~&#123;...&#125;]] 会转义特殊字符，[(~&#123;...&#125;)] 则不会转义特殊字符。</span><br></pre></td></tr></table></figure>
+
+
+
+<p> 在页面 <strong>fragment.html 中引入 commons.html</strong> 中声明的页面片段，可以通过以下方式实现。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--th:insert 片段名引入--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">th:insert</span>=<span class="string">&quot;commons::fragment-name&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--th:insert id 选择器引入--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">th:insert</span>=<span class="string">&quot;commons::#fragment-id&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">------------------------------------------------</span><br><span class="line"><span class="comment">&lt;!--th:replace 片段名引入--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">th:replace</span>=<span class="string">&quot;commons::fragment-name&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--th:replace id 选择器引入--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">th:replace</span>=<span class="string">&quot;commons::#fragment-id&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">------------------------------------------------</span><br><span class="line"><span class="comment">&lt;!--th:include 片段名引入--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">th:include</span>=<span class="string">&quot;commons::fragment-name&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--th:include id 选择器引入--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">th:include</span>=<span class="string">&quot;commons::#fragment-id&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="3-传递参数"><a href="#3-传递参数" class="headerlink" title="3 传递参数"></a>3 传递参数</h4><p>Thymeleaf 在<strong>抽取和引入公共页面片段时，还可以进行参数传递</strong>，大致步骤如下：</p>
+<ol>
+<li>传入参数；</li>
+<li>使用参数。</li>
+</ol>
+<p><strong>传入参数</strong></p>
+<p>引用公共页面片段时，我们可以通过以下 2 种方式，将参数传入到被引用的页面片段中：</p>
+<ul>
+<li>模板名::选择器名或片段名(参数1&#x3D;参数值1,参数2&#x3D;参数值2)</li>
+<li>模板名::选择器名或片段名(参数值1,参数值2)</li>
+</ul>
+<p>注：</p>
+<ul>
+<li>若传入<strong>参数较少</strong>时，一般采用第二种方式，直接将参数值传入页面片段中；</li>
+<li>若<strong>参数较多</strong>时，建议使用第一种方式，明确指定参数名和参数值。</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--th:insert 片段名引入--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">th:insert</span>=<span class="string">&quot;commons::fragment-name(var1=&#x27;insert-name&#x27;,var2=&#x27;insert-name2&#x27;)&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--th:insert id 选择器引入--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">th:insert</span>=<span class="string">&quot;commons::#fragment-id(var1=&#x27;insert-id&#x27;,var2=&#x27;insert-id2&#x27;)&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">------------------------------------------------</span><br><span class="line"><span class="comment">&lt;!--th:replace 片段名引入--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">th:replace</span>=<span class="string">&quot;commons::fragment-name(var1=&#x27;replace-name&#x27;,var2=&#x27;replace-name2&#x27;)&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--th:replace id 选择器引入--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">th:replace</span>=<span class="string">&quot;commons::#fragment-id(var1=&#x27;replace-id&#x27;,var2=&#x27;replace-id2&#x27;)&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p> <strong>使用参数</strong></p>
+<p>在声明页面片段时，我们可以在片段中声明并使用这些参数，例如：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--使用 var1 和 var2 声明传入的参数，并在该片段中直接使用这些参数 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">th:fragment</span>=<span class="string">&quot;fragment-name(var1,var2)&quot;</span> <span class="attr">id</span>=<span class="string">&quot;fragment-id&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span> <span class="attr">th:text</span>=<span class="string">&quot;&#x27;参数1:&#x27;+$&#123;var1&#125; + &#x27;-------------------参数2:&#x27; + $&#123;var2&#125;&quot;</span>&gt;</span>...<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>​	</p>
+<h2 id="整合Thymeleaf"><a href="#整合Thymeleaf" class="headerlink" title="整合Thymeleaf"></a>整合Thymeleaf</h2><p>Spring Boot 推荐使用 Thymeleaf 作为其模板引擎。SpringBoot 为 Thymeleaf 提供了一系列默认配置，<strong>项目中一但导入了 Thymeleaf 的依赖，相对应的自动配置 （ThymeleafAutoConfiguration） 就会自动生效</strong>，因此 Thymeleaf 可以与 Spring Boot 完美整合 。</p>
+<p>Spring Boot 整合 Thymeleaf 模板引擎，需要以下步骤：</p>
+<ol>
+<li><strong>引入 Starter 依赖</strong></li>
+<li>创建模板文件，并放在在指定目录下</li>
+</ol>
+<p><strong>引入依赖：</strong></p>
+<p>Spring Boot 整合 Thymeleaf 的第一步，就是在项目的 pom.xml 中添加 Thymeleaf 的 Starter 依赖，代码如下。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--Thymeleaf 启动器--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-thymeleaf<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>创建模板文件:</strong></p>
+<p>Spring Boot <strong>通过 ThymeleafAutoConfiguration 自动配置类</strong>对 Thymeleaf 提供了一整套的自动化配置方案。</p>
+<p>ThymeleafAutoConfiguration 使用 <strong>@EnableConfigurationProperties</strong> 注解导入了 <strong>ThymeleafProperties</strong> 类，该类包含了与 Thymeleaf 相关的自动配置属性</p>
+<p>ThymeleafProperties 通过 @<strong>ConfigurationProperties</strong> 注解将配置文件（application.properties&#x2F;yml） 中前缀为 spring.thymeleaf 的配置和这个类中的属性绑定。</p>
+<p>Thymeleaf 模板的默认位置在 resources&#x2F;templates 目录下，默认的后缀是 html，即只要将 HTML 页面放在“classpath:&#x2F;templates&#x2F;”下，Thymeleaf 就能自动进行渲染。</p>
+<p>与 Spring Boot 其他自定义配置一样，我们<strong>可以在 application.properties&#x2F;yml 中修改以 spring.thymeleaf 开始的属性，以实现修改 Spring Boot 对 Thymeleaf 的自动配置</strong>的目的。</p>
+<h2 id="定制Spring-MVC"><a href="#定制Spring-MVC" class="headerlink" title="定制Spring MVC"></a>定制Spring MVC</h2><p>Spring Boot <strong>抛弃了传统 xml 配置文件</strong>，通过&#x3D;&#x3D;<strong>配置类</strong>&#x3D;&#x3D;（<strong>标注 @Configuration</strong> 的类，相当于一个 xml 配置文件）<strong>以 JavaBean 形式</strong>进行相关配置。</p>
+<p>Spring Boot 对 Spring MVC 的<strong>自动配置可以满足我们的大部分需求</strong>，但是我们也可以通过自定义配置类（标注 @Configuration 的类）并**&#x3D;&#x3D;实现 WebMvcConfigurer 接口&#x3D;&#x3D;**来定制 Spring MVC 配置，例如<u><em>拦截器、格式化程序、视图控制器</em></u>等等。</p>
+<p>WebMvcConfigurer 是一个<strong>基于 Java 8</strong> 的接口，该接口定义了许多与 Spring MVC 相关的方法，其中大部分方法都是 <strong>default</strong> 类型的，且都是<strong>空实现</strong>。因此我们只需要定义一个配置类实现 WebMvcConfigurer 接口，并重写相应的方法便可以定制 Spring MVC 的配置。</p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>default void addResourceHandlers(ResourceHandlerRegistry registry) {}</td>
+<td>添加或修改静态资源（例如图片，js，css 等）映射； Spring Boot 默认设置的静态资源文件夹就是通过重写该方法设置的。</td>
+</tr>
+<tr>
+<td>default void addViewControllers(ViewControllerRegistry registry) {}</td>
+<td>主要用于实现无业务逻辑跳转，例如主页跳转，简单的请求重定向，错误页跳转等</td>
+</tr>
+<tr>
+<td>default void configureViewResolvers(ViewResolverRegistry registry) {}</td>
+<td>配置视图解析器，将 Controller 返回的字符串（视图名称），转换为具体的视图进行渲染。</td>
+</tr>
+<tr>
+<td>default void configureAsyncSupport(AsyncSupportConfigurer configurer) {}</td>
+<td>处理异步请求。</td>
+</tr>
+<tr>
+<td>default void addInterceptors(InterceptorRegistry registry) {}</td>
+<td>添加 Spring MVC 生命周期拦截器，对请求进行拦截处理。</td>
+</tr>
+</tbody></table>
+<p>在 Spring Boot 项目中，我们可以通过以下 2 中形式定制 Spring MVC:</p>
+<ul>
+<li>扩展 Spring MVC</li>
+<li>全面接管 Spring MVC</li>
+</ul>
+<h3 id="x3D-x3D-扩展-x3D-x3D-Spring-MVC"><a href="#x3D-x3D-扩展-x3D-x3D-Spring-MVC" class="headerlink" title="&#x3D;&#x3D;扩展&#x3D;&#x3D; Spring MVC"></a>&#x3D;&#x3D;扩展&#x3D;&#x3D; Spring MVC</h3><p>如果 Spring Boot 对 Spring MVC 的自动配置不能满足我们的需要，我们还可以通过自定义一个 WebMvcConfigurer 类型（实现 WebMvcConfigurer 接口）的配置类（标注 @Configuration，但&#x3D;&#x3D;<strong>不标注 @EnableWebMvc</strong>&#x3D;&#x3D; 注解的类），来扩展 Spring MVC。这样不但能够<strong>保留 Spring Boot 对 Spring MVC 的自动配置，享受 Spring Boot 自动配置带来的便利，还能额外增加自定义的 Spring MVC 配置</strong>。</p>
+<h3 id="全面接管-Spring-MVC"><a href="#全面接管-Spring-MVC" class="headerlink" title="全面接管 Spring MVC"></a>全面接管 Spring MVC</h3><p>在一些<strong>特殊情况下</strong>，我们可能需要<strong>抛弃 Spring Boot 对 Spring MVC 的全部自动配置</strong>，**<u><em>完全接管</em></u>** Spring MVC。此时我们可以自定义一个 WebMvcConfigurer 类型<strong>（实现 WebMvcConfigurer 接口）的配置类</strong>，并在该类上标注 &#x3D;&#x3D;@EnableWebMvc 注解&#x3D;&#x3D;，来实现**<u><em>完全接管</em></u>** Spring MVC。</p>
+<p><u><em>完全接管 Spring MVC 后，Spring Boot 对 Spring MVC 的自动配置将全部失效。</em></u></p>
+<p>Spring Boot 能够访问位于静态资源文件夹中的静态文件，这是在 Spring Boot 对 Spring MVC 的默认自动配置中定义的，当我们全面接管 Spring MVC 后，Spring Boot 对 Spring MVC 的默认配置都会失效，此时再访问静态资源文件夹中的静态资源就会报 404 错误。</p>
+<h2 id="国际化"><a href="#国际化" class="headerlink" title="国际化"></a>国际化</h2><h2 id="拦截器"><a href="#拦截器" class="headerlink" title="拦截器"></a>拦截器</h2><p>我们对拦截器并不陌生，无论是 Struts 2 还是 Spring MVC 中都提供了拦截器功能，它<strong>可以根据 URL 对请求进行拦截</strong>，主要应用于&#x3D;&#x3D;<strong>登陆校验、权限验证、乱码解决、性能监控和异常处理</strong>&#x3D;&#x3D;等功能上。Spring Boot 同样提供了拦截器功能。 </p>
+<p>在 Spring Boot 项目中，使用拦截器功能通常需要以下 3 步：</p>
+<ol>
+<li><strong>定义</strong>拦截器；</li>
+<li><strong>注册</strong>拦截器；</li>
+<li>指定<strong>拦截规则</strong>（如果是拦截所有，静态资源也会被拦截）。</li>
+</ol>
+<h3 id="定义拦截器"><a href="#定义拦截器" class="headerlink" title="定义拦截器"></a>定义拦截器</h3><p>在 Spring Boot 中定义拦截器十分的简单，只需要<strong>创建一个拦截器类，并实现 HandlerInterceptor 接口即可</strong>。</p>
+<p>HandlerInterceptor 接口中定义以下 3 个方法，如下表。</p>
+<table>
+<thead>
+<tr>
+<th>返回值类型</th>
+<th>方法声明</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>boolean</td>
+<td>preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)</td>
+<td>该方法在控制器**&#x3D;&#x3D;处理请求方法前执行&#x3D;&#x3D;<strong>，其返回值表示</strong>是否中断后续操作**，返回 true 表示继续向下执行，返回 false 表示中断后续操作。</td>
+</tr>
+<tr>
+<td>void</td>
+<td>postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView)</td>
+<td>该方法在控制器处理请求方法调用之后、解析视图之前执行，可以<strong>通过此方法对请求域中的模型和视图做进一步修改</strong>。</td>
+</tr>
+<tr>
+<td>void</td>
+<td>afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex)</td>
+<td>该方法在视图渲染结束后执行，可以通过此方法实现<strong>资源清理、记录日志信息</strong>等工作。</td>
+</tr>
+</tbody></table>
+<p>一般登录校验、权限验证用第一个方法比较多，也足够了。</p>
+<h3 id="注册拦截器"><a href="#注册拦截器" class="headerlink" title="注册拦截器"></a>注册拦截器</h3><p>在配置类中，重写 addInterceptors() 方法，并在该方法中调用 registry.addInterceptor() 方法将自定义的拦截器注册到容器中。</p>
+<h3 id="指定拦截规则"><a href="#指定拦截规则" class="headerlink" title="指定拦截规则"></a>指定拦截规则</h3><p>修改 MyMvcConfig 配置类中 addInterceptors() 方法的代码，继续指定拦截器的拦截规则。</p>
+<p>在指定拦截器拦截规则时，调用了两个方法，这两个方法的说明如下：</p>
+<ul>
+<li><strong>addPathPatterns</strong>：该方法用于<strong>指定拦截路径</strong>，例如拦截路径为“&#x2F;**”，表示拦截所有请求，包括对静态资源的请求。</li>
+<li><strong>excludePathPatterns</strong>：该方法用于<strong>排除拦截路径</strong>，即指定不需要被拦截器拦截的请求。</li>
+</ul>
+<p><a class="link"   target="_blank" rel="noopener" href="http://c.biancheng.net/spring_boot/interceptor.html" >实现登录功能<i class="fas fa-external-link-alt"></i></a></p>
+<h2 id="默认异常处理"><a href="#默认异常处理" class="headerlink" title="默认异常处理"></a>默认异常处理</h2><h2 id="全局异常处理"><a href="#全局异常处理" class="headerlink" title="全局异常处理"></a>全局异常处理</h2>
+        </div>
+
+        
+
+        
+            <ul class="post-tags-box">
+                
+                    <li class="tag-item">
+                        <a href="/tags/java/">#java</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+            <div class="article-nav">
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2022/05/16/SpringBoot%E5%AD%A6%E4%B9%A0/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">SpringBoot学习</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2020</span>
+              -
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">lanyoooo</a>
+        </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
+        </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-SpringBoot%E6%98%AF%E4%BB%80%E4%B9%88"><span class="nav-text">1.SpringBoot是什么</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%89%B9%E7%82%B9"><span class="nav-text">特点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-starter%E5%85%A5%E9%97%A8"><span class="nav-text">2.starter入门</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#spring-boot-starter-parent"><span class="nav-text">spring-boot-starter-parent</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#YAML"><span class="nav-text">YAML</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%AD%E6%B3%95"><span class="nav-text">语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E5%86%99%E6%B3%95"><span class="nav-text">常用写法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AD%97%E9%9D%A2%E9%87%8F"><span class="nav-text">字面量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AF%B9%E8%B1%A1"><span class="nav-text">对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#YAML-%E6%95%B0%E7%BB%84%E5%86%99%E6%B3%95"><span class="nav-text">YAML 数组写法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A4%8D%E5%90%88%E7%BB%93%E6%9E%84"><span class="nav-text">复合结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#YAML-%E7%BB%84%E7%BB%87%E7%BB%93%E6%9E%84"><span class="nav-text">YAML 组织结构</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E7%BB%91%E5%AE%9A"><span class="nav-text">配置绑定</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ConfigurationProperties"><span class="nav-text">@ConfigurationProperties</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Value"><span class="nav-text">@Value</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Value-%E4%B8%8E-ConfigurationProperties-%E5%AF%B9%E6%AF%94"><span class="nav-text">@Value 与 @ConfigurationProperties 对比</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PropertySource"><span class="nav-text">@PropertySource</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#springboot%E5%AF%BC%E5%85%A5spring%E9%85%8D%E7%BD%AE"><span class="nav-text">springboot导入spring配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ImportResource-%E5%AF%BC%E5%85%A5-Spring-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="nav-text">@ImportResource 导入 Spring 配置文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%A8%E6%B3%A8%E8%A7%A3%E6%96%B9%E5%BC%8F%E5%8A%A0%E8%BD%BD-Spring-%E9%85%8D%E7%BD%AE"><span class="nav-text">全注解方式加载 Spring 配置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring-Boot-Profile%EF%BC%88%E5%A4%9A%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%EF%BC%89"><span class="nav-text">Spring Boot Profile（多环境配置）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%9A-Profile-%E7%9A%84%E6%96%87%E4%BB%B6%E6%96%B9%E5%BC%8F"><span class="nav-text">多 Profile 的文件方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%9A-Profile-%E7%9A%84%E6%96%87%E6%A1%A3%E5%9D%97%E6%A8%A1%E5%BC%8F"><span class="nav-text">多 Profile 的文档块模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%BF%80%E6%B4%BB-Profile"><span class="nav-text">激活 Profile</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring-Boot%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="nav-text">Spring Boot配置文件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%BB%98%E8%AE%A4%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="nav-text">默认配置文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%96%E9%83%A8%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="nav-text">外部配置文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E4%BC%98%E5%85%88%E7%BA%A7"><span class="nav-text">配置优先级</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%87%AA%E5%8A%A8%E9%85%8D%E7%BD%AE%E5%8E%9F%E7%90%86"><span class="nav-text">自动配置原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%9F%E4%B8%80%E6%97%A5%E5%BF%97%E6%A1%86%E6%9E%B6"><span class="nav-text">统一日志框架</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%97%A5%E5%BF%97%E6%A1%86%E6%9E%B6%E7%9A%84%E9%80%89%E6%8B%A9"><span class="nav-text">日志框架的选择</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SLF4J-%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="nav-text">SLF4J 的使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%9F%E4%B8%80%E6%97%A5%E5%BF%97%E6%A1%86%E6%9E%B6%EF%BC%88%E9%80%9A%E7%94%A8%EF%BC%89"><span class="nav-text">统一日志框架（通用）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%9F%E4%B8%80%E6%97%A5%E5%BF%97%E6%A1%86%E6%9E%B6-1"><span class="nav-text">统一日志框架</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring-Boot%E6%97%A5%E5%BF%97%E9%85%8D%E7%BD%AE%E5%8F%8A%E8%BE%93%E5%87%BA"><span class="nav-text">Spring Boot日志配置及输出</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%BB%98%E8%AE%A4%E9%85%8D%E7%BD%AE"><span class="nav-text">默认配置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%97%A5%E5%BF%97%E7%BA%A7%E5%88%AB"><span class="nav-text">日志级别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E6%A0%BC%E5%BC%8F"><span class="nav-text">输出格式</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E9%BB%98%E8%AE%A4%E6%97%A5%E5%BF%97%E9%85%8D%E7%BD%AE"><span class="nav-text">修改默认日志配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E6%97%A5%E5%BF%97%E9%85%8D%E7%BD%AE"><span class="nav-text">自定义日志配置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%99%AE%E9%80%9A%E6%97%A5%E5%BF%97%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="nav-text">普通日志配置文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B8%A6%E6%9C%89-spring-%E6%A0%87%E8%AF%86%E7%9A%84%E6%97%A5%E5%BF%97%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="nav-text">带有 spring 标识的日志配置文件</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#WEB%E5%90%AF%E5%8A%A8%E5%99%A8"><span class="nav-text">WEB启动器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring-Boot-Web-%E5%BF%AB%E9%80%9F%E5%BC%80%E5%8F%91"><span class="nav-text">Spring Boot Web 快速开发</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E6%98%A0%E5%B0%84"><span class="nav-text">静态资源映射</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#WebJars-%E6%98%A0%E5%B0%84"><span class="nav-text">WebJars 映射</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%BB%98%E8%AE%A4%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E6%98%A0%E5%B0%84"><span class="nav-text">默认静态资源映射</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9D%99%E6%80%81%E9%A6%96%E9%A1%B5%EF%BC%88%E6%AC%A2%E8%BF%8E%E9%A1%B5%EF%BC%89%E6%98%A0%E5%B0%84"><span class="nav-text">静态首页（欢迎页）映射</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Thymeleaf"><span class="nav-text">Thymeleaf</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Thymeleaf-%E7%9A%84%E7%89%B9%E7%82%B9"><span class="nav-text">Thymeleaf 的特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Thymeleaf-%E8%AF%AD%E6%B3%95%E8%A7%84%E5%88%99"><span class="nav-text">Thymeleaf 语法规则</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A0%87%E5%87%86%E8%A1%A8%E8%BE%BE%E5%BC%8F%E8%AF%AD%E6%B3%95"><span class="nav-text">标准表达式语法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8F%98%E9%87%8F%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="nav-text">变量表达式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%80%89%E6%8B%A9%E5%8F%98%E9%87%8F%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="nav-text">选择变量表达式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%93%BE%E6%8E%A5%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="nav-text">链接表达式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%89%87%E6%AE%B5%E5%BC%95%E7%94%A8%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="nav-text">片段引用表达式</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Thymeleaf-%E5%85%AC%E5%85%B1%E9%A1%B5%E9%9D%A2%E6%8A%BD%E5%8F%96"><span class="nav-text">Thymeleaf 公共页面抽取</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E6%8A%BD%E5%8F%96%E5%85%AC%E5%85%B1%E9%A1%B5%E9%9D%A2"><span class="nav-text">1 抽取公共页面</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E5%BC%95%E7%94%A8%E5%85%AC%E5%85%B1%E9%A1%B5%E9%9D%A2"><span class="nav-text">2 引用公共页面</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E4%BC%A0%E9%80%92%E5%8F%82%E6%95%B0"><span class="nav-text">3 传递参数</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B4%E5%90%88Thymeleaf"><span class="nav-text">整合Thymeleaf</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E5%88%B6Spring-MVC"><span class="nav-text">定制Spring MVC</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#x3D-x3D-%E6%89%A9%E5%B1%95-x3D-x3D-Spring-MVC"><span class="nav-text">&#x3D;&#x3D;扩展&#x3D;&#x3D; Spring MVC</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%A8%E9%9D%A2%E6%8E%A5%E7%AE%A1-Spring-MVC"><span class="nav-text">全面接管 Spring MVC</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%BD%E9%99%85%E5%8C%96"><span class="nav-text">国际化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8B%A6%E6%88%AA%E5%99%A8"><span class="nav-text">拦截器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89%E6%8B%A6%E6%88%AA%E5%99%A8"><span class="nav-text">定义拦截器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B3%A8%E5%86%8C%E6%8B%A6%E6%88%AA%E5%99%A8"><span class="nav-text">注册拦截器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8C%87%E5%AE%9A%E6%8B%A6%E6%88%AA%E8%A7%84%E5%88%99"><span class="nav-text">指定拦截规则</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%BB%98%E8%AE%A4%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86"><span class="nav-text">默认异常处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%A8%E5%B1%80%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86"><span class="nav-text">全局异常处理</span></a></li></ol>
+    </div>
+</div>
+        </aside>
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+
+
+
+
+
+<div class="post-scripts">
+    
+        
+<script src="/js/left-side-toggle.js"></script>
+
+<script src="/js/libs/anime.min.js"></script>
+
+<script src="/js/toc.js"></script>
+
+    
+</div>
+
+
+
+</body>
+</html>
