@@ -16,14 +16,14 @@
     
 <link rel="stylesheet" href="/css/style.css">
 
-    <link rel="shortcut icon" href="/images/logo.svg">
+    <link rel="shortcut icon" href="/images/favicon.jpg">
     
 <link rel="stylesheet" href="/css/font-awesome.min.css">
 
     <script id="hexo-configurations">
     let KEEP = window.KEEP || {};
-    KEEP.hexo_config = {"hostname":"lanyoooo.github.io","root":"/","language":"zh-CN"};
-    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"质胜文则野，文胜质则史。文质彬彬，然后君子。"},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":true}}},"local_search":{"enable":false,"preload":false},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.5"};
+    KEEP.hexo_config = {"hostname":"lanyoooo.github.io","root":"/","language":"zh-CN","path":"search.json"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0099CC","avatar":"/images/头像.jpg","favicon":"/images/favicon.jpg","article_img_align":"center","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":true},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"质胜文则野，文胜质则史。文质彬彬，然后君子。"},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":true}}},"local_search":{"enable":true,"preload":false},"code_copy":{"enable":true,"style":"mac"},"pjax":{"enable":true},"lazyload":{"enable":false},"version":"3.4.5"};
     KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
   </script>
 <meta name="generator" content="Hexo 6.2.0"></head>
@@ -35,6 +35,11 @@
         <span class="scroll-progress-bar"></span>
     
 
+    
+        <span class="pjax-progress-bar"></span>
+        <span class="pjax-progress-icon">
+            <i class="fas fa-circle-notch fa-spin"></i>
+        </span>
     
 </div>
 
@@ -93,9 +98,15 @@
                         </li>
                     
                     
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
                 </ul>
             </div>
             <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
                 
                 <div class="icon-item menu-bar">
                     <div class="menu-bar-middle"></div>
@@ -152,13 +163,13 @@
         
             <div class="article-header">
                 <div class="avatar">
-                    <img src="/images/avatar.svg">
+                    <img src="/images/%E5%A4%B4%E5%83%8F.jpg">
                 </div>
                 <div class="info">
                     <div class="author">
                         <span class="name">lanyoooo</span>
                         
-                            <span class="author-label">Lv1</span>
+                            <span class="author-label">Trainee</span>
                         
                     </div>
                     <div class="meta-info">
@@ -174,7 +185,7 @@
             <ul>
                 
                     <li>
-                        <a href="/categories/%E5%AD%A6%E4%B9%A0/">学习</a>&nbsp;
+                        <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>&nbsp;
                     </li>
                 
             </ul>
@@ -195,7 +206,15 @@
 
     
     
+        <span class="article-wordcount article-meta-item">
+            <i class="fas fa-file-word"></i>&nbsp;<span>12.4k 字</span>
+        </span>
     
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
     
 </div>
 
@@ -307,7 +326,7 @@
 <li>Redis有着<strong>更为复杂的数据结构</strong>并且提供对他们的原子性操作，这是一个不同于其他数据库的进化路径。Redis的数据类型都是<strong>基于基本数据结构的同时对程序员透明</strong>，无需进行额外的抽象。</li>
 <li>Redis<strong>运行在内存中但是可以持久化到磁盘</strong>，所以在对不同数据集进行高速读写时需要权衡内存，因为数据量不能大于硬件内存。在内存数据库方面的另一个优点是，<strong>相比在磁盘上相同的复杂的数据结构，在内存中操作起来非常简单</strong>，这样Redis可以做很多内部复杂性很强的事情。同时，<strong>在磁盘格式方面他们是紧凑的以追加的方式产生的，因为他们并不需要进行随机访问</strong>。</li>
 </ul>
-<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>github上有windows的迁移版本，但是没有最新的Redis6。可以参照<a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/redis-install.html" >这篇笔记<i class="fas fa-external-link-alt"></i></a>来安装。</p>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>github上有windows的迁移版本，但是没有最新的Redis6。可以参照<a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/redis-install.html">这篇笔记<i class="fas fa-external-link-alt"></i></a>来安装。</p>
 <p>目前本机上已经装配了**<u>Redis 5.0.14</u>**。</p>
 <p>一些注意事项：</p>
 <ul>
@@ -321,7 +340,7 @@
 
 
 
-<h4 id="常用参数："><a href="#常用参数：" class="headerlink" title="常用参数："></a>常用参数：</h4><p><strong><a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/redis-conf.html" >参数说明<i class="fas fa-external-link-alt"></i></a></strong></p>
+<h4 id="常用参数："><a href="#常用参数：" class="headerlink" title="常用参数："></a>常用参数：</h4><p><strong><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/redis-conf.html">参数说明<i class="fas fa-external-link-alt"></i></a></strong></p>
 <ul>
 <li><p>port	端口号（默认6379）</p>
 </li>
@@ -337,7 +356,7 @@
 </li>
 <li><p>dbfilename：指定本地数据库文件名，默认值为 <strong><u><em>dump.rdb</em></u></strong></p>
 </li>
-<li><p>requirepass：设置 Redis 连接密码，如果配置了连接密码，客户端在连接 Redis 时需要通过 AUTH <password> 命令提供密码，默认关闭</p>
+<li><p>requirepass：设置 Redis 连接密码，如果配置了连接密码，客户端在连接 Redis 时需要通过 AUTH <password> 命令提供密码，默认关闭</password></p>
 </li>
 <li><p>maxclients：设置同一时间最大客户端连接数，默认无限制。<u>Redis 可以同时打开的客户端连接数为 Redis 进程可以打开的<strong>最大文件描述符数</strong></u>，如果设置 maxclients 0，表示不作限制。当客户端连接数到达限制时，Redis 会<strong>关闭新的连接并向客户端返回 max number of clients reached 错误信息</strong></p>
 </li>
@@ -354,7 +373,7 @@
 
 <p>修改完成后，需要重新启动 redis 服务。</p>
 <p>修改 Linux 的防火墙(iptables)，开启你的 redis 服务端口，默认是 6379。</p>
-<p><strong><a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/w3cnote/redis-external-network.html" >详情<i class="fas fa-external-link-alt"></i></a></strong></p>
+<p><strong><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/w3cnote/redis-external-network.html">详情<i class="fas fa-external-link-alt"></i></a></strong></p>
 <p>（那既然是windows移植版本，就暂且不考虑这部分内容）</p>
 <h3 id="Redis数据类型"><a href="#Redis数据类型" class="headerlink" title="Redis数据类型"></a>Redis数据类型</h3><p>Redis支持五种数据类型：string（字符串），hash（哈希），list（列表），set（集合）及zset(sorted set：有序集合)。</p>
 <h4 id="string"><a href="#string" class="headerlink" title="string"></a>string</h4><p>string 是 redis <strong>最基本</strong>的类型，你可以理解成与 Memcached 一模一样的类型，<strong>一个 key 对应一个 value</strong>。</p>
@@ -404,7 +423,7 @@
 <td align="center">返回set的大小</td>
 </tr>
 </tbody></table>
-<p><img src="/images/image-20220502201651950.png" alt="image-20220502201651950.png"></p>
+<p><img src="/redis/image-20220502201651950.png" alt="image-20220502201651950.png"></p>
 <h4 id="zset-sorted-set：有序集合"><a href="#zset-sorted-set：有序集合" class="headerlink" title="zset(sorted set：有序集合)"></a>zset(sorted set：有序集合)</h4><p>Redis zset 和 set 一样也是<strong>string类型元素（非键值对）</strong>的集合,且不允许重复的成员。</p>
 <p>不同的是每个元素都会关联一个<strong>double类型的分数</strong>。redis正是通过分数来为集合中的成员进行从小到大的排序。</p>
 <p>zset的成员是唯一的,但<strong>分数(score)却可以重复</strong>。</p>
@@ -491,139 +510,139 @@
 <li><strong>RENAME key newkey</strong>——修改 key 的名称</li>
 <li><strong>TYPE key</strong> ——返回 key 所储存的值的类型。</li>
 </ol>
-<p>好多命令都和过期时间有关，<a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/redis-keys.html" >详见<i class="fas fa-external-link-alt"></i></a></p>
+<p>好多命令都和过期时间有关，<a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/redis-keys.html">详见<i class="fas fa-external-link-alt"></i></a></p>
 <h4 id="字符串string"><a href="#字符串string" class="headerlink" title="字符串string"></a>字符串string</h4><ol>
-<li><a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/strings-set.html" > SET key value<i class="fas fa-external-link-alt"></i></a> 设置指定 key 的值。</li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/strings-get.html" >GET key<i class="fas fa-external-link-alt"></i></a>获取指定 key 的值。</li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/strings-getrange.html" > GETRANGE key start end<i class="fas fa-external-link-alt"></i></a> 返回 key 中字符串值的子字符</li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/strings-getset.html" >GETSET key value<i class="fas fa-external-link-alt"></i></a>将给定 key 的值设为 value ，并返回 key 的旧值(old value)。</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/strings-set.html"> SET key value<i class="fas fa-external-link-alt"></i></a> 设置指定 key 的值。</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/strings-get.html">GET key<i class="fas fa-external-link-alt"></i></a>获取指定 key 的值。</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/strings-getrange.html"> GETRANGE key start end<i class="fas fa-external-link-alt"></i></a> 返回 key 中字符串值的子字符</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/strings-getset.html">GETSET key value<i class="fas fa-external-link-alt"></i></a>将给定 key 的值设为 value ，并返回 key 的旧值(old value)。</li>
 <li>MGET [key1 key2..] 获取所有(一个或多个)给定 key 的值。</li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/strings-setex.html" > SETEX key seconds value<i class="fas fa-external-link-alt"></i></a> 将值 value 关联到 key ，并将 key 的过期时间设为 seconds (以秒为单位)。</li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/strings-setnx.html" >SETNX key value<i class="fas fa-external-link-alt"></i></a>只有在 key 不存在时设置 key 的值。</li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/strings-strlen.html" > STRLEN key<i class="fas fa-external-link-alt"></i></a> 返回 key 所储存的字符串值的长度。</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/strings-setex.html"> SETEX key seconds value<i class="fas fa-external-link-alt"></i></a> 将值 value 关联到 key ，并将 key 的过期时间设为 seconds (以秒为单位)。</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/strings-setnx.html">SETNX key value<i class="fas fa-external-link-alt"></i></a>只有在 key 不存在时设置 key 的值。</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/strings-strlen.html"> STRLEN key<i class="fas fa-external-link-alt"></i></a> 返回 key 所储存的字符串值的长度。</li>
 <li>MSET [key value key value …]同时设置一个或多个 key-value 对。</li>
-<li>MSETNX [key value <a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/strings-msetnx.html" >key value …]<i class="fas fa-external-link-alt"></i></a> 同时设置一个或多个 key-value 对，当且仅当所有给定 key 都不存在。</li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/strings-incr.html" > INCR key<i class="fas fa-external-link-alt"></i></a> 将 key 中储存的数字值增一。</li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/strings-incrby.html" >INCRBY key increment<i class="fas fa-external-link-alt"></i></a>将 key 所储存的值加上给定的增量值（increment） 。</li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/strings-incrbyfloat.html" > INCRBYFLOAT key increment<i class="fas fa-external-link-alt"></i></a> 将 key 所储存的值加上给定的浮点增量值（increment） 。</li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/strings-decr.html" > DECR key<i class="fas fa-external-link-alt"></i></a> 将 key 中储存的数字值减一。</li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/strings-decrby.html" > DECRBY key decrement<i class="fas fa-external-link-alt"></i></a> key 所储存的值减去给定的减量值（decrement） 。</li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/strings-append.html" >APPEND key value<i class="fas fa-external-link-alt"></i></a>如果 key 已经存在并且是一个字符串， APPEND 命令将指定的 value 追加到该 key 原来值（value）的末尾。</li>
+<li>MSETNX [key value <a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/strings-msetnx.html">key value …]<i class="fas fa-external-link-alt"></i></a> 同时设置一个或多个 key-value 对，当且仅当所有给定 key 都不存在。</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/strings-incr.html"> INCR key<i class="fas fa-external-link-alt"></i></a> 将 key 中储存的数字值增一。</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/strings-incrby.html">INCRBY key increment<i class="fas fa-external-link-alt"></i></a>将 key 所储存的值加上给定的增量值（increment） 。</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/strings-incrbyfloat.html"> INCRBYFLOAT key increment<i class="fas fa-external-link-alt"></i></a> 将 key 所储存的值加上给定的浮点增量值（increment） 。</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/strings-decr.html"> DECR key<i class="fas fa-external-link-alt"></i></a> 将 key 中储存的数字值减一。</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/strings-decrby.html"> DECRBY key decrement<i class="fas fa-external-link-alt"></i></a> key 所储存的值减去给定的减量值（decrement） 。</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/strings-append.html">APPEND key value<i class="fas fa-external-link-alt"></i></a>如果 key 已经存在并且是一个字符串， APPEND 命令将指定的 value 追加到该 key 原来值（value）的末尾。</li>
 </ol>
-<p><a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/redis-strings.html" >部分未列出详见<i class="fas fa-external-link-alt"></i></a></p>
+<p><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/redis-strings.html">部分未列出详见<i class="fas fa-external-link-alt"></i></a></p>
 <h4 id="哈希Hash"><a href="#哈希Hash" class="headerlink" title="哈希Hash"></a>哈希Hash</h4><p>对于hash，可以把key理解为map的名字</p>
 <p>把filed理解为map中键值对的键，value响应的就是键值对的值。</p>
 <ol>
 <li>hmset key 设置键     hget key 获得响应键的值</li>
-<li>HDEL key field1 [<a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/hashes-hdel.html" >field2]<i class="fas fa-external-link-alt"></i></a> 删除一个或多个哈希表字段</li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/hashes-hexists.html" > HEXISTS key field<i class="fas fa-external-link-alt"></i></a> 查看哈希表 key 中，指定的字段是否存在。</li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/hashes-hget.html" > HGET key field<i class="fas fa-external-link-alt"></i></a> 获取存储在哈希表中指定字段的值。</li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/hashes-hgetall.html" >HGETALL key<i class="fas fa-external-link-alt"></i></a>获取在哈希表中指定 key 的所有字段和值</li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/hashes-hincrby.html" > HINCRBY key field increment<i class="fas fa-external-link-alt"></i></a> 为哈希表 key 中的指定字段的整数值加上增量 increment 。</li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/hashes-hincrbyfloat.html" > HINCRBYFLOAT key field increment<i class="fas fa-external-link-alt"></i></a> 为哈希表 key 中的指定字段的浮点数值加上增量 increment 。</li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/hashes-hkeys.html" > HKEYS key<i class="fas fa-external-link-alt"></i></a> 获取所有哈希表中的字段（<strong>不包括值</strong>）</li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/hashes-hlen.html" >HLEN key<i class="fas fa-external-link-alt"></i></a>获取哈希表中<strong>字段的数量</strong></li>
-<li>HMGET key [field1 <a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/hashes-hmget.html" >field2]<i class="fas fa-external-link-alt"></i></a> 获取所有给定字段的值</li>
-<li>HMSET key [field1 value1 <a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/hashes-hmset.html" >field2 value2 ]<i class="fas fa-external-link-alt"></i></a>同时将多个 field-value (域-值)对设置（添加）到哈希表 key 中。</li>
+<li>HDEL key field1 [<a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/hashes-hdel.html">field2]<i class="fas fa-external-link-alt"></i></a> 删除一个或多个哈希表字段</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/hashes-hexists.html"> HEXISTS key field<i class="fas fa-external-link-alt"></i></a> 查看哈希表 key 中，指定的字段是否存在。</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/hashes-hget.html"> HGET key field<i class="fas fa-external-link-alt"></i></a> 获取存储在哈希表中指定字段的值。</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/hashes-hgetall.html">HGETALL key<i class="fas fa-external-link-alt"></i></a>获取在哈希表中指定 key 的所有字段和值</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/hashes-hincrby.html"> HINCRBY key field increment<i class="fas fa-external-link-alt"></i></a> 为哈希表 key 中的指定字段的整数值加上增量 increment 。</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/hashes-hincrbyfloat.html"> HINCRBYFLOAT key field increment<i class="fas fa-external-link-alt"></i></a> 为哈希表 key 中的指定字段的浮点数值加上增量 increment 。</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/hashes-hkeys.html"> HKEYS key<i class="fas fa-external-link-alt"></i></a> 获取所有哈希表中的字段（<strong>不包括值</strong>）</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/hashes-hlen.html">HLEN key<i class="fas fa-external-link-alt"></i></a>获取哈希表中<strong>字段的数量</strong></li>
+<li>HMGET key [field1 <a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/hashes-hmget.html">field2]<i class="fas fa-external-link-alt"></i></a> 获取所有给定字段的值</li>
+<li>HMSET key [field1 value1 <a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/hashes-hmset.html">field2 value2 ]<i class="fas fa-external-link-alt"></i></a>同时将多个 field-value (域-值)对设置（添加）到哈希表 key 中。</li>
 <li><a target="_blank" rel="noopener" href="https://www.runoob.com/redis/hashes-hset.html"> <strong>HSET key field value</strong></a> 将哈希表 key 中的字段 field 的值设为 value 。</li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/hashes-hsetnx.html" > HSETNX key field value<i class="fas fa-external-link-alt"></i></a> 只有在<strong>字段 field 不存在时</strong>，设置（添加）哈希表字段的值。</li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/hashes-hvals.html" >HVALS key<i class="fas fa-external-link-alt"></i></a>获取哈希表中<strong>所有值</strong>。</li>
-<li>[HSCAN key cursor <a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/hashes-hscan.html" >MATCH pattern] [COUNT count]<i class="fas fa-external-link-alt"></i></a><strong>迭代</strong>哈希表中的键值对。</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/hashes-hsetnx.html"> HSETNX key field value<i class="fas fa-external-link-alt"></i></a> 只有在<strong>字段 field 不存在时</strong>，设置（添加）哈希表字段的值。</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/hashes-hvals.html">HVALS key<i class="fas fa-external-link-alt"></i></a>获取哈希表中<strong>所有值</strong>。</li>
+<li>[HSCAN key cursor <a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/hashes-hscan.html">MATCH pattern] [COUNT count]<i class="fas fa-external-link-alt"></i></a><strong>迭代</strong>哈希表中的键值对。</li>
 </ol>
 <h4 id="列表list"><a href="#列表list" class="headerlink" title="列表list"></a>列表list</h4><ol>
-<li><p><strong>BLPOP</strong> key1[<a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/lists-blpop.html" >key2 ] timeout<i class="fas fa-external-link-alt"></i></a><br><strong>移出并获取列表的第一个元素</strong>， 如果列表没有元素会阻塞列表直到等待超时或发现可弹出元素为止。</p>
+<li><p><strong>BLPOP</strong> key1[<a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/lists-blpop.html">key2 ] timeout<i class="fas fa-external-link-alt"></i></a><br><strong>移出并获取列表的第一个元素</strong>， 如果列表没有元素会阻塞列表直到等待超时或发现可弹出元素为止。</p>
 </li>
-<li><p>[BRPOP key1 <a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/lists-brpop.html" >key2 ] timeout<i class="fas fa-external-link-alt"></i></a><br><strong>移出并获取列表的最后一个元素</strong>， 如果列表没有元素会阻塞列表直到等待超时或发现可弹出元素为止。</p>
+<li><p>[BRPOP key1 <a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/lists-brpop.html">key2 ] timeout<i class="fas fa-external-link-alt"></i></a><br><strong>移出并获取列表的最后一个元素</strong>， 如果列表没有元素会阻塞列表直到等待超时或发现可弹出元素为止。</p>
 </li>
-<li><p><a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/lists-brpoplpush.html" >BRPOPLPUSH source destination timeout<i class="fas fa-external-link-alt"></i></a><br>从列表中弹出一个值，将弹出的元素左插入到另外一个列表中并返回它； 如果列表没有元素会阻塞列表直到等待超时或发现可弹出元素为止。</p>
+<li><p><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/lists-brpoplpush.html">BRPOPLPUSH source destination timeout<i class="fas fa-external-link-alt"></i></a><br>从列表中弹出一个值，将弹出的元素左插入到另外一个列表中并返回它； 如果列表没有元素会阻塞列表直到等待超时或发现可弹出元素为止。</p>
 </li>
-<li><p><a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/lists-lindex.html" >LINDEX key index<i class="fas fa-external-link-alt"></i></a><br>通过索引获取列表中的元素</p>
+<li><p><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/lists-lindex.html">LINDEX key index<i class="fas fa-external-link-alt"></i></a><br>通过索引获取列表中的元素</p>
 </li>
-<li><p><a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/lists-linsert.html" >LINSERT key BEFORE|AFTER pivot value<i class="fas fa-external-link-alt"></i></a><br>在列表的元素前或者后插入元素</p>
+<li><p><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/lists-linsert.html">LINSERT key BEFORE|AFTER pivot value<i class="fas fa-external-link-alt"></i></a><br>在列表的元素前或者后插入元素</p>
 </li>
-<li><p><a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/lists-llen.html" > LLEN key<i class="fas fa-external-link-alt"></i></a> 获取列表长度</p>
+<li><p><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/lists-llen.html"> LLEN key<i class="fas fa-external-link-alt"></i></a> 获取列表长度</p>
 </li>
-<li><p><a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/lists-lpop.html" > LPOP key<i class="fas fa-external-link-alt"></i></a> 移出并获取列表的第一个元素</p>
+<li><p><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/lists-lpop.html"> LPOP key<i class="fas fa-external-link-alt"></i></a> 移出并获取列表的第一个元素</p>
 </li>
-<li><p>[ LPUSH key value1 <a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/lists-lpush.html" >value2]<i class="fas fa-external-link-alt"></i></a> 将一个或多个值（<strong>左</strong>）插入到列表头部</p>
+<li><p>[ LPUSH key value1 <a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/lists-lpush.html">value2]<i class="fas fa-external-link-alt"></i></a> 将一个或多个值（<strong>左</strong>）插入到列表头部</p>
 </li>
-<li><p><a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/lists-lpushx.html" >LPUSHX key value<i class="fas fa-external-link-alt"></i></a>将一个值插入到已存在的列表头部（？）</p>
+<li><p><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/lists-lpushx.html">LPUSHX key value<i class="fas fa-external-link-alt"></i></a>将一个值插入到已存在的列表头部（？）</p>
 </li>
-<li><p><a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/lists-lrange.html" > LRANGE key start stop<i class="fas fa-external-link-alt"></i></a> 获取列表指定范围内的元素</p>
+<li><p><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/lists-lrange.html"> LRANGE key start stop<i class="fas fa-external-link-alt"></i></a> 获取列表指定范围内的元素</p>
 </li>
-<li><p><a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/lists-lrem.html" > LREM key count value<i class="fas fa-external-link-alt"></i></a> 移除列表元素（count？？？）</p>
+<li><p><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/lists-lrem.html"> LREM key count value<i class="fas fa-external-link-alt"></i></a> 移除列表元素（count？？？）</p>
 </li>
-<li><p><a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/lists-lset.html" > LSET key index value<i class="fas fa-external-link-alt"></i></a> 通过<strong>索引</strong>设置列表元素的值</p>
+<li><p><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/lists-lset.html"> LSET key index value<i class="fas fa-external-link-alt"></i></a> 通过<strong>索引</strong>设置列表元素的值</p>
 </li>
-<li><p><a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/lists-ltrim.html" >LTRIM key start stop<i class="fas fa-external-link-alt"></i></a>对一个列表进行修剪(trim)，就是说，让列表只<strong>保留指定区间内</strong>的元素，不在指定区间之内的元素都将被删除。</p>
+<li><p><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/lists-ltrim.html">LTRIM key start stop<i class="fas fa-external-link-alt"></i></a>对一个列表进行修剪(trim)，就是说，让列表只<strong>保留指定区间内</strong>的元素，不在指定区间之内的元素都将被删除。</p>
 </li>
-<li><p><a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/lists-rpop.html" > RPOP key<i class="fas fa-external-link-alt"></i></a> 移除列表的<strong>最后一个元</strong>素，返回值为移除的元素。</p>
+<li><p><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/lists-rpop.html"> RPOP key<i class="fas fa-external-link-alt"></i></a> 移除列表的<strong>最后一个元</strong>素，返回值为移除的元素。</p>
 </li>
-<li><p><a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/lists-rpoplpush.html" >RPOPLPUSH source destination<i class="fas fa-external-link-alt"></i></a>移除列表的最后一个元素，并将该元素<u>添加到另一个列表</u>并返回</p>
+<li><p><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/lists-rpoplpush.html">RPOPLPUSH source destination<i class="fas fa-external-link-alt"></i></a>移除列表的最后一个元素，并将该元素<u>添加到另一个列表</u>并返回</p>
 </li>
-<li><p>[ RPUSH key value1 <a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/lists-rpush.html" >value2]<i class="fas fa-external-link-alt"></i></a> 在列表中（<strong>右</strong>）添加一个或多个值</p>
+<li><p>[ RPUSH key value1 <a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/lists-rpush.html">value2]<i class="fas fa-external-link-alt"></i></a> 在列表中（<strong>右</strong>）添加一个或多个值</p>
 </li>
-<li><p><a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/lists-rpushx.html" > RPUSHX key value<i class="fas fa-external-link-alt"></i></a> 为<strong>已存在的列表</strong>添加值</p>
+<li><p><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/lists-rpushx.html"> RPUSHX key value<i class="fas fa-external-link-alt"></i></a> 为<strong>已存在的列表</strong>添加值</p>
 </li>
 </ol>
 <h4 id="集合Set"><a href="#集合Set" class="headerlink" title="集合Set"></a>集合Set</h4><ol>
-<li>[ SADD key member1 <a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/sets-sadd.html" >member2]<i class="fas fa-external-link-alt"></i></a> 向集合添加一个或多个成员</li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/sets-scard.html" >SCARD key<i class="fas fa-external-link-alt"></i></a>获取集合的成员数</li>
-<li>[ SDIFF key1 <a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/sets-sdiff.html" >key2]<i class="fas fa-external-link-alt"></i></a> 返回第一个集合与其他<strong>集合之间</strong>的差异。</li>
-<li>[SDIFF<strong>STORE</strong> destination key1 <a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/sets-sdiffstore.html" >key2]<i class="fas fa-external-link-alt"></i></a>返回给定所有集合的<strong>差集</strong>并<strong>存储在 destination 中</strong></li>
-<li>[SINTER key1 <a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/sets-sinter.html" >key2]<i class="fas fa-external-link-alt"></i></a>返回给定所有集合的<strong>交集</strong></li>
-<li>[SINTER<strong>STORE</strong> destination key1 <a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/sets-sinterstore.html" >key2]<i class="fas fa-external-link-alt"></i></a>返回给定所有集合的<strong>交集</strong>并存储在 destination 中</li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/sets-sismember.html" > SISMEMBER key member<i class="fas fa-external-link-alt"></i></a> 判断 member 元素是否是集合 key 的成员</li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/sets-smembers.html" > SMEMBERS key<i class="fas fa-external-link-alt"></i></a> 返回集合中的所有成员</li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/sets-smove.html" > SMOVE source destination member<i class="fas fa-external-link-alt"></i></a> 将 member 元素从 source 集合移动到 destination 集合</li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/sets-spop.html" > SPOP key<i class="fas fa-external-link-alt"></i></a> 移除并返回集合中的一个<strong>随机</strong>元素</li>
-<li>[SRANDMEMBER key <a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/sets-srandmember.html" >count]<i class="fas fa-external-link-alt"></i></a>返回集合中一个或多个随机数(<u><strong>count</strong>???</u>)</li>
-<li>[SREM key member1 <a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/sets-srem.html" >member2]<i class="fas fa-external-link-alt"></i></a>移除集合中一个或多个成员</li>
-<li>[ SUNION key1 <a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/sets-sunion.html" >key2]<i class="fas fa-external-link-alt"></i></a> 返回<strong>所有给定集合的并集</strong></li>
-<li>[ SUNION<strong>STORE</strong> destination key1 <a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/sets-sunionstore.html" >key2]<i class="fas fa-external-link-alt"></i></a> 所有给定集合的并集存储在 destination 集合中</li>
-<li>[ SSCAN key cursor <a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/sets-sscan.html" >MATCH pattern] [COUNT count]<i class="fas fa-external-link-alt"></i></a> <strong>迭代</strong>集合中的元素</li>
+<li>[ SADD key member1 <a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/sets-sadd.html">member2]<i class="fas fa-external-link-alt"></i></a> 向集合添加一个或多个成员</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/sets-scard.html">SCARD key<i class="fas fa-external-link-alt"></i></a>获取集合的成员数</li>
+<li>[ SDIFF key1 <a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/sets-sdiff.html">key2]<i class="fas fa-external-link-alt"></i></a> 返回第一个集合与其他<strong>集合之间</strong>的差异。</li>
+<li>[SDIFF<strong>STORE</strong> destination key1 <a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/sets-sdiffstore.html">key2]<i class="fas fa-external-link-alt"></i></a>返回给定所有集合的<strong>差集</strong>并<strong>存储在 destination 中</strong></li>
+<li>[SINTER key1 <a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/sets-sinter.html">key2]<i class="fas fa-external-link-alt"></i></a>返回给定所有集合的<strong>交集</strong></li>
+<li>[SINTER<strong>STORE</strong> destination key1 <a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/sets-sinterstore.html">key2]<i class="fas fa-external-link-alt"></i></a>返回给定所有集合的<strong>交集</strong>并存储在 destination 中</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/sets-sismember.html"> SISMEMBER key member<i class="fas fa-external-link-alt"></i></a> 判断 member 元素是否是集合 key 的成员</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/sets-smembers.html"> SMEMBERS key<i class="fas fa-external-link-alt"></i></a> 返回集合中的所有成员</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/sets-smove.html"> SMOVE source destination member<i class="fas fa-external-link-alt"></i></a> 将 member 元素从 source 集合移动到 destination 集合</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/sets-spop.html"> SPOP key<i class="fas fa-external-link-alt"></i></a> 移除并返回集合中的一个<strong>随机</strong>元素</li>
+<li>[SRANDMEMBER key <a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/sets-srandmember.html">count]<i class="fas fa-external-link-alt"></i></a>返回集合中一个或多个随机数(<u><strong>count</strong>???</u>)</li>
+<li>[SREM key member1 <a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/sets-srem.html">member2]<i class="fas fa-external-link-alt"></i></a>移除集合中一个或多个成员</li>
+<li>[ SUNION key1 <a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/sets-sunion.html">key2]<i class="fas fa-external-link-alt"></i></a> 返回<strong>所有给定集合的并集</strong></li>
+<li>[ SUNION<strong>STORE</strong> destination key1 <a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/sets-sunionstore.html">key2]<i class="fas fa-external-link-alt"></i></a> 所有给定集合的并集存储在 destination 集合中</li>
+<li>[ SSCAN key cursor <a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/sets-sscan.html">MATCH pattern] [COUNT count]<i class="fas fa-external-link-alt"></i></a> <strong>迭代</strong>集合中的元素</li>
 </ol>
 <h4 id="有序集合zset"><a href="#有序集合zset" class="headerlink" title="有序集合zset"></a>有序集合zset</h4><ol>
-<li><p>[ ZADD key score1 member1 <a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/sorted-sets-zadd.html" >score2 member2]<i class="fas fa-external-link-alt"></i></a> 向有序集合<strong>添加</strong>一个或多个成员，<strong>或更新</strong>已存在成员的分数</p>
+<li><p>[ ZADD key score1 member1 <a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/sorted-sets-zadd.html">score2 member2]<i class="fas fa-external-link-alt"></i></a> 向有序集合<strong>添加</strong>一个或多个成员，<strong>或更新</strong>已存在成员的分数</p>
 </li>
-<li><p><a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/sorted-sets-zcard.html" > ZCARD key<i class="fas fa-external-link-alt"></i></a> 获取有序集合的成员数</p>
+<li><p><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/sorted-sets-zcard.html"> ZCARD key<i class="fas fa-external-link-alt"></i></a> 获取有序集合的成员数</p>
 </li>
-<li><p><a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/sorted-sets-zcount.html" >ZCOUNT key min max<i class="fas fa-external-link-alt"></i></a>计算在有序集合中<strong>指定区间分数</strong>的<u>成员数</u></p>
+<li><p><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/sorted-sets-zcount.html">ZCOUNT key min max<i class="fas fa-external-link-alt"></i></a>计算在有序集合中<strong>指定区间分数</strong>的<u>成员数</u></p>
 </li>
-<li><p><a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/sorted-sets-zincrby.html" >ZINCRBY key increment member<i class="fas fa-external-link-alt"></i></a>有序集合中对指定成员的<strong>分数加上增量</strong> increment</p>
+<li><p><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/sorted-sets-zincrby.html">ZINCRBY key increment member<i class="fas fa-external-link-alt"></i></a>有序集合中对指定成员的<strong>分数加上增量</strong> increment</p>
 </li>
-<li><p>[ZINTERSTORE destination numkeys key <a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/sorted-sets-zinterstore.html" >key …]<i class="fas fa-external-link-alt"></i></a><br>计算给定的一个或多个有序集的交集并将结果集存储在新的有序集合 destination 中</p>
+<li><p>[ZINTERSTORE destination numkeys key <a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/sorted-sets-zinterstore.html">key …]<i class="fas fa-external-link-alt"></i></a><br>计算给定的一个或多个有序集的交集并将结果集存储在新的有序集合 destination 中</p>
 </li>
-<li><p><a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/sorted-sets-zlexcount.html" >ZLEXCOUNT key min max<i class="fas fa-external-link-alt"></i></a>在有序集合中计算指定字典区间内成员数量（？）</p>
+<li><p><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/sorted-sets-zlexcount.html">ZLEXCOUNT key min max<i class="fas fa-external-link-alt"></i></a>在有序集合中计算指定字典区间内成员数量（？）</p>
 </li>
-<li><p>[ ZRANGE key start stop <a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/sorted-sets-zrange.html" >WITHSCORES]<i class="fas fa-external-link-alt"></i></a> 通过索引区间返回有序集合<strong>指定区间内</strong>的成员</p>
+<li><p>[ ZRANGE key start stop <a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/sorted-sets-zrange.html">WITHSCORES]<i class="fas fa-external-link-alt"></i></a> 通过索引区间返回有序集合<strong>指定区间内</strong>的成员</p>
 </li>
-<li><p>[ZRANGEBYLEX key min max <a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/sorted-sets-zrangebylex.html" >LIMIT offset count]<i class="fas fa-external-link-alt"></i></a>通过字典区间返回有序集合的成员</p>
+<li><p>[ZRANGEBYLEX key min max <a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/sorted-sets-zrangebylex.html">LIMIT offset count]<i class="fas fa-external-link-alt"></i></a>通过字典区间返回有序集合的成员</p>
 </li>
-<li><p>[ZRANGEBYSCORE key min max <a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/sorted-sets-zrangebyscore.html" >WITHSCORES] [LIMIT]<i class="fas fa-external-link-alt"></i></a>通过<strong>分数</strong>返回有序集合指定区间内的<u>成员</u></p>
+<li><p>[ZRANGEBYSCORE key min max <a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/sorted-sets-zrangebyscore.html">WITHSCORES] [LIMIT]<i class="fas fa-external-link-alt"></i></a>通过<strong>分数</strong>返回有序集合指定区间内的<u>成员</u></p>
 </li>
-<li><p><a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/sorted-sets-zrank.html" >ZRANK key member<i class="fas fa-external-link-alt"></i></a>返回有序集合中<strong>指定成员的索引</strong></p>
+<li><p><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/sorted-sets-zrank.html">ZRANK key member<i class="fas fa-external-link-alt"></i></a>返回有序集合中<strong>指定成员的索引</strong></p>
 </li>
-<li><p>[ZREM key member <a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/sorted-sets-zrem.html" >member …]<i class="fas fa-external-link-alt"></i></a>移除有序集合中的一个或多个成员</p>
+<li><p>[ZREM key member <a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/sorted-sets-zrem.html">member …]<i class="fas fa-external-link-alt"></i></a>移除有序集合中的一个或多个成员</p>
 </li>
 <li><p><a target="_blank" rel="noopener" href="https://www.runoob.com/redis/sorted-sets-zremrangebylex.html">ZREMRANGEBY<strong>LEX</strong> key min max</a>移除有序集合中给定的<strong>字典区间</strong>的所有成员</p>
 </li>
 <li><p><a target="_blank" rel="noopener" href="https://www.runoob.com/redis/sorted-sets-zremrangebyrank.html">ZREMRANGEBY<strong>RANK</strong> key start stop</a>移除有序集合中给定的<strong>排名区间</strong>的所有成员</p>
 </li>
-<li><p><a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/sorted-sets-zremrangebyscore.html" >ZREMRANGEBYSCORE key min max<i class="fas fa-external-link-alt"></i></a>移除有序集合中给定的<strong>分数区间</strong>的所有成员</p>
+<li><p><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/sorted-sets-zremrangebyscore.html">ZREMRANGEBYSCORE key min max<i class="fas fa-external-link-alt"></i></a>移除有序集合中给定的<strong>分数区间</strong>的所有成员</p>
 </li>
-<li><p>[ZREVRANGE key start stop <a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/sorted-sets-zrevrange.html" >WITHSCORES]<i class="fas fa-external-link-alt"></i></a>返回有序集中指定区间内的成员，<strong>通过索引</strong>，<u>分数从高到低</u></p>
+<li><p>[ZREVRANGE key start stop <a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/sorted-sets-zrevrange.html">WITHSCORES]<i class="fas fa-external-link-alt"></i></a>返回有序集中指定区间内的成员，<strong>通过索引</strong>，<u>分数从高到低</u></p>
 </li>
-<li><p>[ZREVRANGEBYSCORE key max min <a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/sorted-sets-zrevrangebyscore.html" >WITHSCORES]<i class="fas fa-external-link-alt"></i></a><br>返回有序集中指定分数区间内的成员，分数从高到低排序</p>
+<li><p>[ZREVRANGEBYSCORE key max min <a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/sorted-sets-zrevrangebyscore.html">WITHSCORES]<i class="fas fa-external-link-alt"></i></a><br>返回有序集中指定分数区间内的成员，分数从高到低排序</p>
 </li>
-<li><p><a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/sorted-sets-zrevrank.html" >ZREVRANK key member<i class="fas fa-external-link-alt"></i></a><br>返回有序集合中指定<strong>成员的排名</strong>，有序集成员<strong>按分数值递减(从大到小)排序</strong></p>
+<li><p><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/sorted-sets-zrevrank.html">ZREVRANK key member<i class="fas fa-external-link-alt"></i></a><br>返回有序集合中指定<strong>成员的排名</strong>，有序集成员<strong>按分数值递减(从大到小)排序</strong></p>
 </li>
-<li><p><a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/sorted-sets-zscore.html" >ZSCORE key member<i class="fas fa-external-link-alt"></i></a>返回有序集中，成员的分数值</p>
+<li><p><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/sorted-sets-zscore.html">ZSCORE key member<i class="fas fa-external-link-alt"></i></a>返回有序集中，成员的分数值</p>
 </li>
-<li><p>[ ZUNIONSTORE destination numkeys key <a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/sorted-sets-zunionstore.html" >key …]<i class="fas fa-external-link-alt"></i></a> </p>
+<li><p>[ ZUNIONSTORE destination numkeys key <a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/sorted-sets-zunionstore.html">key …]<i class="fas fa-external-link-alt"></i></a> </p>
 <p>计算给定的一个或多个有序集的<strong>并集</strong>，并<u>存储在新的 key 中</u></p>
 </li>
-<li><p>[ZSCAN key cursor <a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/sorted-sets-zscan.html" >MATCH pattern] [COUNT count]<i class="fas fa-external-link-alt"></i></a><br><strong>迭代</strong>有序集合中的元素（包括元素成员和元素分值）</p>
+<li><p>[ZSCAN key cursor <a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/sorted-sets-zscan.html">MATCH pattern] [COUNT count]<i class="fas fa-external-link-alt"></i></a><br><strong>迭代</strong>有序集合中的元素（包括元素成员和元素分值）</p>
 </li>
 </ol>
 <p><strong>注意</strong>：</p>
@@ -637,34 +656,34 @@
 <p>但是，因为 HyperLogLog 只会根据输入元素来计算基数，而<strong>不会储存输入元素本身</strong>，所以 HyperLogLog 不能像集合那样，返回输入的各个元素。</p>
 <h4 id="什么是基数"><a href="#什么是基数" class="headerlink" title="什么是基数?"></a>什么是基数?</h4><p>比如数据集 {1, 3, 5, 7, 5, 7, 8}， 那么这个数据集的基数集为 {1, 3, 5 ,7, 8}, 基数(不重复元素)为5。 基数估计就是在误差可接受的范围内，快速计算基数。（<u>distinct元素个数</u>）</p>
 <h4 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h4><ol>
-<li>[PFADD key element <a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/hyperloglog-pfadd.html" >element …]<i class="fas fa-external-link-alt"></i></a>添加指定元素到 HyperLogLog 中。</li>
-<li>[PFCOUNT key <a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/hyperloglog-pfcount.html" >key …]<i class="fas fa-external-link-alt"></i></a>返回给定 HyperLogLog 的基数估算值。（<u>统计基数</u>）</li>
-<li>[PFMERGE destkey sourcekey <a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/hyperloglog-pfmerge.html" >sourcekey …]<i class="fas fa-external-link-alt"></i></a>将多个 HyperLogLog 合并为一个 HyperLogLog</li>
+<li>[PFADD key element <a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/hyperloglog-pfadd.html">element …]<i class="fas fa-external-link-alt"></i></a>添加指定元素到 HyperLogLog 中。</li>
+<li>[PFCOUNT key <a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/hyperloglog-pfcount.html">key …]<i class="fas fa-external-link-alt"></i></a>返回给定 HyperLogLog 的基数估算值。（<u>统计基数</u>）</li>
+<li>[PFMERGE destkey sourcekey <a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/hyperloglog-pfmerge.html">sourcekey …]<i class="fas fa-external-link-alt"></i></a>将多个 HyperLogLog 合并为一个 HyperLogLog</li>
 </ol>
 <h3 id="发布订阅"><a href="#发布订阅" class="headerlink" title="发布订阅"></a>发布订阅</h3><p>Redis 发布订阅 (pub&#x2F;sub) 是一种<strong>消息通信模式</strong>：发送者 (pub) 发送消息，订阅者 (sub) 接收消息。</p>
 <p>Redis <strong>客户端可以订阅任意数量的频道</strong>。</p>
 <p>订阅者和频道的关系：</p>
-<p><img src="/images/pubsub1.png" alt="pubsub1"></p>
+<p><img src="https://www.runoob.com/wp-content/uploads/2014/11/pubsub1.png" alt="img"></p>
 <p>当有新消息通过 PUBLISH 命令发送给频道 channel1 时， 这个消息就会被发送给订阅它的三个客户端：</p>
-<p><img src="/images/pubsub2.png" alt="pubsub2"></p>
+<p><img src="https://www.runoob.com/wp-content/uploads/2014/11/pubsub2.png" alt="img"></p>
 <h4 id="实例："><a href="#实例：" class="headerlink" title="实例："></a>实例：</h4><ol>
 <li><p>开启一个client，（创建并）连接到一个频道：</p>
-<p><img src="/images/image-20220503134453831.png" alt="image-20220503134453831"></p>
+<p><img src="/redis/image-20220503134453831.png" alt="image-20220503134453831"></p>
 </li>
 <li><p>再开启一个client，（连接并）向频道发送信息</p>
-<p><img src="/images/image-20220503134538193.png" alt="image-20220503134538193"></p>
+<p><img src="/redis/image-20220503134538193.png" alt="image-20220503134538193"></p>
 </li>
 <li><p>在第一个client中接收到消息</p>
-<p><img src="/images/image-20220503134615836.png" alt="image-20220503134615836"></p>
+<p><img src="/redis/image-20220503134615836.png" alt="image-20220503134615836"></p>
 </li>
 </ol>
 <h4 id="常用命令-1"><a href="#常用命令-1" class="headerlink" title="常用命令"></a>常用命令</h4><ol>
-<li>[<strong>PSUBSCRIBE</strong> pattern <a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/pub-sub-psubscribe.html" >pattern …]<i class="fas fa-external-link-alt"></i></a>订阅一个或多个符合给定模式的频道。</li>
-<li>[PUBSUB subcommand <a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/pub-sub-pubsub.html" >argument [argument …]]<i class="fas fa-external-link-alt"></i></a>查看订阅与发布系统状态。</li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/pub-sub-publish.html" >PUBLISH channel message<i class="fas fa-external-link-alt"></i></a>将信息发送到指定的频道。</li>
-<li>[PUNSUBSCRIBE <a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/pub-sub-punsubscribe.html" >pattern [pattern …]]<i class="fas fa-external-link-alt"></i></a><strong>退订</strong>所有给定模式的频道。</li>
-<li>[SUBSCRIBE channel <a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/pub-sub-subscribe.html" >channel …]<i class="fas fa-external-link-alt"></i></a>订阅给定的一个或多个频道的信息。</li>
-<li>[UNSUBSCRIBE <a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/pub-sub-unsubscribe.html" >channel [channel …]]<i class="fas fa-external-link-alt"></i></a>指<strong>退订</strong>给定的频道。</li>
+<li>[<strong>PSUBSCRIBE</strong> pattern <a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/pub-sub-psubscribe.html">pattern …]<i class="fas fa-external-link-alt"></i></a>订阅一个或多个符合给定模式的频道。</li>
+<li>[PUBSUB subcommand <a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/pub-sub-pubsub.html">argument [argument …]]<i class="fas fa-external-link-alt"></i></a>查看订阅与发布系统状态。</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/pub-sub-publish.html">PUBLISH channel message<i class="fas fa-external-link-alt"></i></a>将信息发送到指定的频道。</li>
+<li>[PUNSUBSCRIBE <a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/pub-sub-punsubscribe.html">pattern [pattern …]]<i class="fas fa-external-link-alt"></i></a><strong>退订</strong>所有给定模式的频道。</li>
+<li>[SUBSCRIBE channel <a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/pub-sub-subscribe.html">channel …]<i class="fas fa-external-link-alt"></i></a>订阅给定的一个或多个频道的信息。</li>
+<li>[UNSUBSCRIBE <a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/pub-sub-unsubscribe.html">channel [channel …]]<i class="fas fa-external-link-alt"></i></a>指<strong>退订</strong>给定的频道。</li>
 </ol>
 <h3 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h3><p>Redis 事务可以<strong>一次执行多个命令</strong>， 并且带有以下三个重要的保证：</p>
 <ul>
@@ -678,7 +697,7 @@
 <li>命令入队。</li>
 <li>执行事务。</li>
 </ul>
-<h4 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h4><p><img src="/images/image-20220503140231957.png" alt="image-20220503140231957"></p>
+<h4 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h4><p><img src="/redis/image-20220503140231957.png" alt="image-20220503140231957"></p>
 <p>以 <strong>MULTI</strong> 开始一个事务， 然后将多个命令入队到事务中， 最后由 <strong>EXEC</strong> 命令触发事务， 一并执行事务中的所有命令。</p>
 <p>单<strong>个 Redis 命令的执行是原子性的</strong>，但 Redis 没有在事务上增加任何维持原子性的机制，所以 <strong>Redis 事务的执行<u>并不是原子性</u>的</strong>。</p>
 <p>事务可以理解为一个<strong>打包的批量执行脚本</strong>，但批量指令并非原子化的操作，<strong>中间某条指令的失败不会导致前面已做指令的回滚，也不会造成后续的指令不做</strong>。（允许失败）</p>
@@ -688,11 +707,11 @@
 <li><u>Redis 内部设计推崇简单和高性能，因此不需要回滚能力。</u></li>
 </ol>
 <h4 id="常用命令-2"><a href="#常用命令-2" class="headerlink" title="常用命令"></a>常用命令</h4><ol>
-<li><a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/transactions-discard.html" >DISCARD<i class="fas fa-external-link-alt"></i></a>取消事务，放弃执行事务块内的所有命令。（使用位置同exec）</li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/transactions-exec.html" >EXEC<i class="fas fa-external-link-alt"></i></a>执行所有事务块内的命令。</li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/transactions-multi.html" >MULTI<i class="fas fa-external-link-alt"></i></a>标记一个事务块的开始。</li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/transactions-unwatch.html" > UNWATCH<i class="fas fa-external-link-alt"></i></a> 取消 <u>WATCH 命令对所有 key 的监视</u>。</li>
-<li>[WATCH key <a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/transactions-watch.html" >key …]<i class="fas fa-external-link-alt"></i></a><br><strong><u>监视</u><strong>一个(或多个) key ，</strong>如果在事务执行之前这个(或这些) key 被其他命令所改动，那么事务将被打断</strong>。</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/transactions-discard.html">DISCARD<i class="fas fa-external-link-alt"></i></a>取消事务，放弃执行事务块内的所有命令。（使用位置同exec）</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/transactions-exec.html">EXEC<i class="fas fa-external-link-alt"></i></a>执行所有事务块内的命令。</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/transactions-multi.html">MULTI<i class="fas fa-external-link-alt"></i></a>标记一个事务块的开始。</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/transactions-unwatch.html"> UNWATCH<i class="fas fa-external-link-alt"></i></a> 取消 <u>WATCH 命令对所有 key 的监视</u>。</li>
+<li>[WATCH key <a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/transactions-watch.html">key …]<i class="fas fa-external-link-alt"></i></a><br><strong><u>监视</u><strong>一个(或多个) key ，</strong>如果在事务执行之前这个(或这些) key 被其他命令所改动，那么事务将被打断</strong>。</li>
 </ol>
 <h3 id="脚本"><a href="#脚本" class="headerlink" title="脚本"></a>脚本</h3><p>Redis 脚本使用 <strong>Lua 解释器</strong>来执行脚本。 Redis 2.6 版本通过内嵌支持 Lua 环境。执行脚本的常用命令为 <strong>EVAL</strong>。</p>
 <p>eval的基本语法：</p>
@@ -700,58 +719,58 @@
 
 
 
-<h4 id="示例-1"><a href="#示例-1" class="headerlink" title="示例"></a>示例</h4><p><img src="/images/image-20220503141436819.png" alt="image-20220503141436819"></p>
+<h4 id="示例-1"><a href="#示例-1" class="headerlink" title="示例"></a>示例</h4><p><img src="/redis/image-20220503141436819.png" alt="image-20220503141436819"></p>
 <p>注意：是<code>keys</code>和<code>argv</code></p>
 <h4 id="常用命令-3"><a href="#常用命令-3" class="headerlink" title="常用命令"></a>常用命令</h4><ol>
-<li>[EVAL script numkeys key <a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/scripting-eval.html" >key …] arg [arg …]<i class="fas fa-external-link-alt"></i></a>执行 Lua 脚本。</li>
-<li>[EVAL<strong>SHA</strong> <em><strong>sha1</strong></em> numkeys key <a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/scripting-evalsha.html" >key …] arg [arg …]<i class="fas fa-external-link-alt"></i></a>执行 Lua 脚本。</li>
-<li>[SCRIPT EXISTS script <a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/scripting-script-exists.html" >script …]<i class="fas fa-external-link-alt"></i></a>查看指定的脚本<strong>是否已经被保存在缓存当中</strong>。</li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/scripting-script-flush.html" > SCRIPT FLUSH<i class="fas fa-external-link-alt"></i></a> 从脚本<strong>缓存中移除</strong>所有脚本。</li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/scripting-script-kill.html" > SCRIPT KILL<i class="fas fa-external-link-alt"></i></a> <strong>杀死</strong>当前正在运行的 Lua 脚本。</li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/scripting-script-load.html" >SCRIPT LOAD script<i class="fas fa-external-link-alt"></i></a>将<strong>脚本 script 添加到脚本缓存中</strong>，但<strong>并不立即执行</strong>这个脚本。</li>
+<li>[EVAL script numkeys key <a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/scripting-eval.html">key …] arg [arg …]<i class="fas fa-external-link-alt"></i></a>执行 Lua 脚本。</li>
+<li>[EVAL<strong>SHA</strong> <em><strong>sha1</strong></em> numkeys key <a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/scripting-evalsha.html">key …] arg [arg …]<i class="fas fa-external-link-alt"></i></a>执行 Lua 脚本。</li>
+<li>[SCRIPT EXISTS script <a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/scripting-script-exists.html">script …]<i class="fas fa-external-link-alt"></i></a>查看指定的脚本<strong>是否已经被保存在缓存当中</strong>。</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/scripting-script-flush.html"> SCRIPT FLUSH<i class="fas fa-external-link-alt"></i></a> 从脚本<strong>缓存中移除</strong>所有脚本。</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/scripting-script-kill.html"> SCRIPT KILL<i class="fas fa-external-link-alt"></i></a> <strong>杀死</strong>当前正在运行的 Lua 脚本。</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/scripting-script-load.html">SCRIPT LOAD script<i class="fas fa-external-link-alt"></i></a>将<strong>脚本 script 添加到脚本缓存中</strong>，但<strong>并不立即执行</strong>这个脚本。</li>
 </ol>
 <h3 id="连接"><a href="#连接" class="headerlink" title="连接"></a>连接</h3><p>Redis 连接命令主要是<strong>用于连接 redis 服务</strong>。</p>
 <p><strong>常用命令</strong>：</p>
 <ol>
-<li><a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/connection-auth.html" > AUTH password<i class="fas fa-external-link-alt"></i></a> 验证密码是否正确</li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/connection-echo.html" >ECHO message<i class="fas fa-external-link-alt"></i></a>打印字符串</li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/connection-ping.html" >PING<i class="fas fa-external-link-alt"></i></a>查看服务是否运行</li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/connection-quit.html" >QUIT<i class="fas fa-external-link-alt"></i></a>关闭当前连接</li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/connection-select.html" >SELECT index<i class="fas fa-external-link-alt"></i></a>切换到指定的数据库</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/connection-auth.html"> AUTH password<i class="fas fa-external-link-alt"></i></a> 验证密码是否正确</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/connection-echo.html">ECHO message<i class="fas fa-external-link-alt"></i></a>打印字符串</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/connection-ping.html">PING<i class="fas fa-external-link-alt"></i></a>查看服务是否运行</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/connection-quit.html">QUIT<i class="fas fa-external-link-alt"></i></a>关闭当前连接</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/connection-select.html">SELECT index<i class="fas fa-external-link-alt"></i></a>切换到指定的数据库</li>
 </ol>
 <h3 id="服务器"><a href="#服务器" class="headerlink" title="服务器"></a>服务器</h3><p>Redis 服务器命令主要是用于<strong>管理 redis 服务</strong>。</p>
 <h4 id="常用命令："><a href="#常用命令：" class="headerlink" title="常用命令："></a>常用命令：</h4><ol>
-<li><a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/server-bgrewriteaof.html" > BGREWRITEAOF<i class="fas fa-external-link-alt"></i></a> <strong>异步执行</strong>一个 AOF（AppendOnly File） 文件重写操作</li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/server-bgsave.html" >BGSAVE<i class="fas fa-external-link-alt"></i></a>在后台异步<strong>保存</strong>当前数据库的数据<strong>到磁盘</strong></li>
-<li>[CLIENT KILL <a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/server-client-kill.html" >ip:port] [ID client-id]<i class="fas fa-external-link-alt"></i></a>关闭客户端连接</li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/server-client-list.html" > CLIENT LIST<i class="fas fa-external-link-alt"></i></a> 获取连接到服务器的<strong>客户端连接列表</strong></li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/server-client-getname.html" > CLIENT GETNAME<i class="fas fa-external-link-alt"></i></a> 获取连接的名称</li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/server-client-pause.html" >CLIENT PAUSE timeout<i class="fas fa-external-link-alt"></i></a>在指定时间内终止运行来自客户端的命令</li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/server-client-setname.html" >CLIENT SETNAME connection-name<i class="fas fa-external-link-alt"></i></a>设置当前连接的名称</li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/server-cluster-slots.html" >CLUSTER SLOTS<i class="fas fa-external-link-alt"></i></a>获取集群节点的映射数组</li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/server-command.html" > COMMAND<i class="fas fa-external-link-alt"></i></a> 获取 Redis 命令详情数组</li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/server-command-count.html" >COMMAND COUNT<i class="fas fa-external-link-alt"></i></a>获取 Redis 命令总数</li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/server-command-getkeys.html" > COMMAND GETKEYS<i class="fas fa-external-link-alt"></i></a> 获取给定命令的所有键</li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/server-time.html" > TIME<i class="fas fa-external-link-alt"></i></a> 返回当前服务器时间</li>
-<li>[COMMAND INFO command-name <a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/server-command-info.html" >command-name …]<i class="fas fa-external-link-alt"></i></a>获取指定 Redis 命令描述的数组</li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/server-config-get.html" >CONFIG GET parameter<i class="fas fa-external-link-alt"></i></a>获取指定配置参数的值</li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/server-config-rewrite.html" >CONFIG REWRITE<i class="fas fa-external-link-alt"></i></a>对启动 Redis 服务器时所指定的 redis.conf 配置文件进行改写</li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/server-config-set.html" > CONFIG SET parameter value<i class="fas fa-external-link-alt"></i></a> 修改 redis 配置参数，无需重启</li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/server-config-resetstat.html" > CONFIG RESETSTAT<i class="fas fa-external-link-alt"></i></a> 重置 INFO 命令中的某些统计数据</li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/server-dbsize.html" > DBSIZE<i class="fas fa-external-link-alt"></i></a> 返回当前数据库的 key 的数量</li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/server-debug-object.html" >DEBUG OBJECT key<i class="fas fa-external-link-alt"></i></a>获取 key 的调试信息</li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/server-debug-segfault.html" >DEBUG SEGFAULT<i class="fas fa-external-link-alt"></i></a>让 Redis <strong>服务崩溃</strong>？</li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/server-flushall.html" > FLUSHALL<i class="fas fa-external-link-alt"></i></a> 删除<u>所有数据库</u>的所有key</li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/server-flushdb.html" >FLUSHDB<i class="fas fa-external-link-alt"></i></a>删除<u>当前数据库</u>的所有key</li>
-<li>[ INFO <a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/server-info.html" >section]<i class="fas fa-external-link-alt"></i></a> 获取 Redis 服务器的各种信息和统计数值</li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/server-lastsave.html" >LASTSAVE<i class="fas fa-external-link-alt"></i></a>返回最近一次 Redis 成功将数据保存到磁盘上的时间，以 UNIX 时间戳格式表示</li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/server-monitor.html" > MONITOR<i class="fas fa-external-link-alt"></i></a> 实时打印出 Redis 服务器接收到的命令，调试用</li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/server-role.html" >ROLE<i class="fas fa-external-link-alt"></i></a>返回<strong>主从实例所属的角色</strong></li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/server-save.html" > SAVE<i class="fas fa-external-link-alt"></i></a> <strong>同步保存数据到硬盘</strong></li>
-<li>[SHUTDOWN <a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/server-shutdown.html" >NOSAVE] [SAVE]<i class="fas fa-external-link-alt"></i></a><strong>异步保存</strong>数据到硬盘，<strong>并关闭服务器</strong></li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/server-slaveof.html" >SLAVEOF host port<i class="fas fa-external-link-alt"></i></a>将当前服务器转变为指定服务器的<strong>从属服务器</strong>(slave server)</li>
-<li>[SLOWLOG subcommand <a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/server-showlog.html" >argument]<i class="fas fa-external-link-alt"></i></a>管理 redis 的<strong>慢日志</strong></li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/server-sync.html" >SYNC<i class="fas fa-external-link-alt"></i></a>用于<strong>复制功能</strong>(replication)的内部命令</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/server-bgrewriteaof.html"> BGREWRITEAOF<i class="fas fa-external-link-alt"></i></a> <strong>异步执行</strong>一个 AOF（AppendOnly File） 文件重写操作</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/server-bgsave.html">BGSAVE<i class="fas fa-external-link-alt"></i></a>在后台异步<strong>保存</strong>当前数据库的数据<strong>到磁盘</strong></li>
+<li>[CLIENT KILL <a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/server-client-kill.html">ip:port] [ID client-id]<i class="fas fa-external-link-alt"></i></a>关闭客户端连接</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/server-client-list.html"> CLIENT LIST<i class="fas fa-external-link-alt"></i></a> 获取连接到服务器的<strong>客户端连接列表</strong></li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/server-client-getname.html"> CLIENT GETNAME<i class="fas fa-external-link-alt"></i></a> 获取连接的名称</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/server-client-pause.html">CLIENT PAUSE timeout<i class="fas fa-external-link-alt"></i></a>在指定时间内终止运行来自客户端的命令</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/server-client-setname.html">CLIENT SETNAME connection-name<i class="fas fa-external-link-alt"></i></a>设置当前连接的名称</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/server-cluster-slots.html">CLUSTER SLOTS<i class="fas fa-external-link-alt"></i></a>获取集群节点的映射数组</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/server-command.html"> COMMAND<i class="fas fa-external-link-alt"></i></a> 获取 Redis 命令详情数组</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/server-command-count.html">COMMAND COUNT<i class="fas fa-external-link-alt"></i></a>获取 Redis 命令总数</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/server-command-getkeys.html"> COMMAND GETKEYS<i class="fas fa-external-link-alt"></i></a> 获取给定命令的所有键</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/server-time.html"> TIME<i class="fas fa-external-link-alt"></i></a> 返回当前服务器时间</li>
+<li>[COMMAND INFO command-name <a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/server-command-info.html">command-name …]<i class="fas fa-external-link-alt"></i></a>获取指定 Redis 命令描述的数组</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/server-config-get.html">CONFIG GET parameter<i class="fas fa-external-link-alt"></i></a>获取指定配置参数的值</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/server-config-rewrite.html">CONFIG REWRITE<i class="fas fa-external-link-alt"></i></a>对启动 Redis 服务器时所指定的 redis.conf 配置文件进行改写</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/server-config-set.html"> CONFIG SET parameter value<i class="fas fa-external-link-alt"></i></a> 修改 redis 配置参数，无需重启</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/server-config-resetstat.html"> CONFIG RESETSTAT<i class="fas fa-external-link-alt"></i></a> 重置 INFO 命令中的某些统计数据</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/server-dbsize.html"> DBSIZE<i class="fas fa-external-link-alt"></i></a> 返回当前数据库的 key 的数量</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/server-debug-object.html">DEBUG OBJECT key<i class="fas fa-external-link-alt"></i></a>获取 key 的调试信息</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/server-debug-segfault.html">DEBUG SEGFAULT<i class="fas fa-external-link-alt"></i></a>让 Redis <strong>服务崩溃</strong>？</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/server-flushall.html"> FLUSHALL<i class="fas fa-external-link-alt"></i></a> 删除<u>所有数据库</u>的所有key</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/server-flushdb.html">FLUSHDB<i class="fas fa-external-link-alt"></i></a>删除<u>当前数据库</u>的所有key</li>
+<li>[ INFO <a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/server-info.html">section]<i class="fas fa-external-link-alt"></i></a> 获取 Redis 服务器的各种信息和统计数值</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/server-lastsave.html">LASTSAVE<i class="fas fa-external-link-alt"></i></a>返回最近一次 Redis 成功将数据保存到磁盘上的时间，以 UNIX 时间戳格式表示</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/server-monitor.html"> MONITOR<i class="fas fa-external-link-alt"></i></a> 实时打印出 Redis 服务器接收到的命令，调试用</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/server-role.html">ROLE<i class="fas fa-external-link-alt"></i></a>返回<strong>主从实例所属的角色</strong></li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/server-save.html"> SAVE<i class="fas fa-external-link-alt"></i></a> <strong>同步保存数据到硬盘</strong></li>
+<li>[SHUTDOWN <a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/server-shutdown.html">NOSAVE] [SAVE]<i class="fas fa-external-link-alt"></i></a><strong>异步保存</strong>数据到硬盘，<strong>并关闭服务器</strong></li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/server-slaveof.html">SLAVEOF host port<i class="fas fa-external-link-alt"></i></a>将当前服务器转变为指定服务器的<strong>从属服务器</strong>(slave server)</li>
+<li>[SLOWLOG subcommand <a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/server-showlog.html">argument]<i class="fas fa-external-link-alt"></i></a>管理 redis 的<strong>慢日志</strong></li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/server-sync.html">SYNC<i class="fas fa-external-link-alt"></i></a>用于<strong>复制功能</strong>(replication)的内部命令</li>
 </ol>
 <h3 id="GEO"><a href="#GEO" class="headerlink" title="GEO"></a>GEO</h3><p>Redis GEO 主要用于<strong>存储地理位置信息</strong>，并对存储的信息进行操作，该功能在 Redis 3.2 版本新增。</p>
 <p>Redis GEO 操作方法有：</p>
@@ -842,7 +861,7 @@
 <p>Redis Stream 主要用于<strong>消息队列</strong>（MQ，Message Queue），Redis 本身是有一个 Redis 发布订阅 (<strong>pub&#x2F;sub</strong>) 来实现消息队列的功能，但它有个缺点就是<strong>消息无法持久化</strong>，如果出现网络断开、Redis 宕机等，消息就会被丢弃。简单来说发布订阅 (pub&#x2F;sub) 可以分发消息，但无法记录历史消息。</p>
 <p>而 Redis Stream 提供了<strong>消息的持久化和主备复制功能</strong>，可以让任何客户端访问任何时刻的数据，并且能记住每一个客户端的访问位置，还能保证消息不丢失。</p>
 <p>Redis Stream 的结构如下所示，它有一个<strong>消息链表</strong>，将所有加入的消息都串起来，每个消息都有一个唯一的 <code>ID</code> 和对应的<strong>内容</strong>：</p>
-<p><img src="/images/en-us_image_0167982791.png" alt="结构图"></p>
+<p><img src="https://www.runoob.com/wp-content/uploads/2020/09/en-us_image_0167982791.png" alt="img"></p>
 <p>每个 Stream 都有<strong>唯一的名称</strong>，它就是 Redis 的 <strong>key</strong>，在我们首次使用 xadd 指令追加消息时自动创建。</p>
 <p>上图解析：</p>
 <ul>
@@ -1010,7 +1029,7 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">redis-benchmark [option] [option value]</span><br></pre></td></tr></table></figure>
 
 <p><strong>注意</strong>：该命令是在 <strong>redis 的目录下执行</strong>的，而不是 redis 客户端的内部指令。</p>
-<p>有点麻烦，没有测试，<a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/redis-benchmarks.html" >详见<i class="fas fa-external-link-alt"></i></a></p>
+<p>有点麻烦，没有测试，<a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/redis-benchmarks.html">详见<i class="fas fa-external-link-alt"></i></a></p>
 <h3 id="客户端连接"><a href="#客户端连接" class="headerlink" title="客户端连接"></a>客户端连接</h3><p>Redis 通过监听一个 <strong>TCP 端口</strong>或者 <strong>Unix socket</strong> 的方式来接收来自客户端的连接，当一个连接建立后，Redis 内部会进行以下一些操作：</p>
 <ul>
 <li>首先，客户端 socket 会被设置为<strong>非阻塞模式</strong>，因为 Redis 在网络事件处理上采用的是<strong>非阻塞多路复用模型</strong>。</li>
@@ -1020,7 +1039,7 @@
 <p>在 Redis2.4 中，最大连接数是被直接硬编码在代码里面的，而在2.6版本中这个值变成可配置的。</p>
 <p>maxclients 的默认值是 10000，你也可以在redis-server –maxclients <strong>100000</strong> 中对这个值进行修改。</p>
 <p>在<strong>服务启动时</strong>设置最大连接数为 100000：redis-server –maxclients 100000</p>
-<p><img src="/images/image-20220503153600760.png" alt="image-20220503153600760"></p>
+<p><img src="/redis/image-20220503153600760.png" alt="image-20220503153600760"></p>
 <h3 id="管道技术"><a href="#管道技术" class="headerlink" title="管道技术"></a>管道技术</h3><p>Redis是一种<strong>基于客户端-服务端模型以及请求&#x2F;响应协议的TCP服务</strong>。这意味着通常情况下一个请求会遵循以下步骤：</p>
 <ul>
 <li>客户端向服务端发送一个查询请求，并监听Socket返回，通常是以阻塞模式，等待服务端响应。</li>
@@ -1028,7 +1047,7 @@
 </ul>
 <p>Redis 管道技术可以在<strong>服务端未响应时</strong>，客户端可以继续向服务端发送请求，并<strong>最终一次性读取所有服务端的响应</strong>。</p>
 <p>管道技术最显著的优势是<strong>提高了 redis 服务的性能</strong>。</p>
-<p><a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/redis/redis-pipelining.html" >详见<i class="fas fa-external-link-alt"></i></a></p>
+<p><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/redis-pipelining.html">详见<i class="fas fa-external-link-alt"></i></a></p>
 <h3 id="分区"><a href="#分区" class="headerlink" title="分区"></a>分区</h3><p>分区是分割数据到<strong>多个Redis实例</strong>的处理过程，因此每个实例只保存key的一个子集。</p>
 <p><strong>优势</strong>：</p>
 <ul>
@@ -1099,7 +1118,7 @@
                     <div class="article-prev">
                         <a class="prev"
                            rel="prev"
-                           href="/2022/05/16/%E5%85%AB%E8%82%A1%E6%96%87-java%E5%9F%BA%E7%A1%80/"
+                           href="/%E5%85%AB%E8%82%A1%E6%96%87-java%E5%9F%BA%E7%A1%80/"
                         >
                             <span class="left arrow-icon flex-center">
                               <i class="fas fa-chevron-left"></i>
@@ -1136,6 +1155,20 @@
             
             2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">lanyoooo</a>
         </div>
+        
+            <script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    <span id="busuanzi_container_site_uv">
+                        访问人数&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp;
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv">
+                        总访问量&nbsp;<span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
         
         <div class="theme-info info-item">
             由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
@@ -1227,6 +1260,35 @@
 
 
     
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
 
 </main>
 
@@ -1245,12 +1307,20 @@
 
 
 
+    
+<script src="/js/local-search.js"></script>
+
+
+
+
+    
+<script src="/js/code-copy.js"></script>
 
 
 
 
 
-<div class="post-scripts">
+<div class="post-scripts pjax">
     
         
 <script src="/js/left-side-toggle.js"></script>
@@ -1261,6 +1331,40 @@
 
     
 </div>
+
+
+    
+<script src="/js/libs/pjax.min.js"></script>
+
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+</script>
 
 
 

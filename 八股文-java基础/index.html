@@ -16,14 +16,14 @@
     
 <link rel="stylesheet" href="/css/style.css">
 
-    <link rel="shortcut icon" href="/images/logo.svg">
+    <link rel="shortcut icon" href="/images/favicon.jpg">
     
 <link rel="stylesheet" href="/css/font-awesome.min.css">
 
     <script id="hexo-configurations">
     let KEEP = window.KEEP || {};
-    KEEP.hexo_config = {"hostname":"lanyoooo.github.io","root":"/","language":"zh-CN"};
-    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"质胜文则野，文胜质则史。文质彬彬，然后君子。"},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":true}}},"local_search":{"enable":false,"preload":false},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.5"};
+    KEEP.hexo_config = {"hostname":"lanyoooo.github.io","root":"/","language":"zh-CN","path":"search.json"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0099CC","avatar":"/images/头像.jpg","favicon":"/images/favicon.jpg","article_img_align":"center","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":true},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"质胜文则野，文胜质则史。文质彬彬，然后君子。"},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":true}}},"local_search":{"enable":true,"preload":false},"code_copy":{"enable":true,"style":"mac"},"pjax":{"enable":true},"lazyload":{"enable":false},"version":"3.4.5"};
     KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
   </script>
 <meta name="generator" content="Hexo 6.2.0"></head>
@@ -35,6 +35,11 @@
         <span class="scroll-progress-bar"></span>
     
 
+    
+        <span class="pjax-progress-bar"></span>
+        <span class="pjax-progress-icon">
+            <i class="fas fa-circle-notch fa-spin"></i>
+        </span>
     
 </div>
 
@@ -93,9 +98,15 @@
                         </li>
                     
                     
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
                 </ul>
             </div>
             <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
                 
                 <div class="icon-item menu-bar">
                     <div class="menu-bar-middle"></div>
@@ -152,13 +163,13 @@
         
             <div class="article-header">
                 <div class="avatar">
-                    <img src="/images/avatar.svg">
+                    <img src="/images/%E5%A4%B4%E5%83%8F.jpg">
                 </div>
                 <div class="info">
                     <div class="author">
                         <span class="name">lanyoooo</span>
                         
-                            <span class="author-label">Lv1</span>
+                            <span class="author-label">Trainee</span>
                         
                     </div>
                     <div class="meta-info">
@@ -195,7 +206,15 @@
 
     
     
+        <span class="article-wordcount article-meta-item">
+            <i class="fas fa-file-word"></i>&nbsp;<span>45.8k 字</span>
+        </span>
     
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
     
 </div>
 
@@ -465,7 +484,7 @@
 <h4 id="1-44-说一说你对泛型的理解"><a href="#1-44-说一说你对泛型的理解" class="headerlink" title="1.44 说一说你对泛型的理解"></a>1.44 说一说你对泛型的理解</h4><p>最开始的java集合，为了追求通用性，并不限制集合中元素的类型，所有元素都可以加入一个集合，最终取出时作为Object被取出，然后通过类型转换得到远啦跌元素。</p>
 <p>后来java引入了参数化类型的概念，即在定义集合时，可以指定集合能够存放哪种类型的元素，这就是泛型。这样不仅使得代码更加简洁，也免去了去除元素后进行类型转换的麻烦。</p>
 <p><em>从Java 5开始，Java引入了“参数化类型”的概念，允许程序在创建集合时指定集合元素的类型，Java的参数化类型被称为泛型</em></p>
-<h4 id="1-45-介绍一下泛型擦除"><a href="#1-45-介绍一下泛型擦除" class="headerlink" title="1.45 介绍一下泛型擦除"></a>1.45 介绍一下泛型擦除</h4><p>泛型擦除是指，在编译时，编译器会擦除在声明时使用了泛型的变量指定的泛型类型，如：ArrayList<String> 会被擦除变成——ArrayList。或是将一个有泛型约束的变量赋值给另一个没有泛型约束的变量，此时也会发生泛型擦除。</p>
+<h4 id="1-45-介绍一下泛型擦除"><a href="#1-45-介绍一下泛型擦除" class="headerlink" title="1.45 介绍一下泛型擦除"></a>1.45 介绍一下泛型擦除</h4><p>泛型擦除是指，在编译时，编译器会擦除在声明时使用了泛型的变量指定的泛型类型，如：ArrayList<String> 会被擦除变成——ArrayList。或是将一个有泛型约束的变量赋值给另一个没有泛型约束的变量，此时也会发生泛型擦除。</String></p>
 <p>擦除规则有：</p>
 <ul>
 <li>若泛型类型没有指定具体类型，用<strong>Object</strong>作为原始类型；</li>
@@ -475,12 +494,12 @@
 </ul>
 </li>
 </ul>
-<p>Java 泛型擦除是 Java 泛型中的一个重要特性，其目的是避免过多的创建类而造成的运行时的过度消耗。所以，想 ArrayList<Integer> 和 ArrayList<String> 这两个实例，其类实例是同一个。</p>
+<p>Java 泛型擦除是 Java 泛型中的一个重要特性，其目的是避免过多的创建类而造成的运行时的过度消耗。所以，想 ArrayList<Integer> 和 ArrayList<String> 这两个实例，其类实例是同一个。</String></Integer></p>
 <p>泛型的约束是在编译时约束的，真正运行的 class 是没有泛型约束的。所以可以<strong>在运行时</strong>向一个本来有泛型约束的对象中加入约束之外类型的元素（可以借助try…catch语句实现，但一般不会这么做）。</p>
 <p><u>当把一个具有泛型信息的对象赋给另一个没有泛型信息的变量时</u>，所有在尖括号之间的类型信息都将被扔掉</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">List&lt;String&gt; list1 = ...;</span><br><span class="line"><span class="type">List</span> <span class="variable">list2</span> <span class="operator">=</span> list1; <span class="comment">// list2将元素当做Object处理</span></span><br></pre></td></tr></table></figure>
 
-<p>如果把一个List赋值给一个List<String>，并不会引起编译错误，编译器仅仅提示“未经检查的转换”。</p>
+<p>如果把一个List赋值给一个List<String>，并不会引起编译错误，编译器仅仅提示“未经检查的转换”。</String></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">List</span> <span class="variable">list1</span> <span class="operator">=</span> ...;</span><br><span class="line">List&lt;String&gt; list2 = list1; <span class="comment">// 编译时警告“未经检查的转换”</span></span><br></pre></td></tr></table></figure>
 
 
@@ -549,7 +568,7 @@
 </li>
 <li>再次扩容，如果此时<strong>元素个数超过了threshold，则再次扩容</strong></li>
 </ol>
-<p><strong><a class="link"   target="_blank" rel="noopener" href="https://blog.csdn.net/m0_51945027/article/details/116141123" >&#x3D;&#x3D;Map的get方法和put方法<i class="fas fa-external-link-alt"></i></a>&#x3D;&#x3D;</strong></p>
+<p><strong><a class="link" target="_blank" rel="noopener" href="https://blog.csdn.net/m0_51945027/article/details/116141123">&#x3D;&#x3D;Map的get方法和put方法<i class="fas fa-external-link-alt"></i></a>&#x3D;&#x3D;</strong></p>
 <p><strong>①通过key.hashCode()获得键的哈希值</strong></p>
 <p><strong>②用hash函数计算上一步得到的哈希值，进而得到在数组中的索引</strong></p>
 <p>③插入数据，同上</p>
@@ -711,7 +730,7 @@
 <p><code>signal</code>函数其实就做了一件事情，就是不断尝试调用<code>transferForSignal</code>函数，将<code>condition wait queue</code>队首的一个节点转移到<code>sync queue</code>队列中，直到转移成功。因为一次转移成功，就代表这个消息被成功通知到了等待消息的节点。</p>
 <p><code>signal</code>函数的示意图如下所示。</p>
 <p><img src="https://static.nowcoder.com/images/activity/2021jxy/java/img/condition-2.png" alt="img"></p>
-<h4 id="什么是流（Stream）？"><a href="#什么是流（Stream）？" class="headerlink" title="什么是流（Stream）？"></a><u>什么是流（Stream）？</u></h4><p><a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/java/java8-streams.html" >https://www.runoob.com/java/java8-streams.html<i class="fas fa-external-link-alt"></i></a>  <strong>完整实例</strong></p>
+<h4 id="什么是流（Stream）？"><a href="#什么是流（Stream）？" class="headerlink" title="什么是流（Stream）？"></a><u>什么是流（Stream）？</u></h4><p><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/java/java8-streams.html">https://www.runoob.com/java/java8-streams.html<i class="fas fa-external-link-alt"></i></a>  <strong>完整实例</strong></p>
 <p><strong>Java 8</strong> API添加了一个新的抽象称为流Stream，可以让你以一种声明的方式处理数据。</p>
 <p>Stream 使用一种类似用 SQL 语句从数据库查询数据的直观方式来提供一种对 Java 集合运算和表达的高阶抽象。</p>
 <p>Stream API可以极大提高Java程序员的生产力，让程序员写出高效率、干净、简洁的代码。</p>
@@ -976,7 +995,7 @@
 </li>
 <li><p><strong>ReentrantLock</strong></p>
 <p>Java 5新增了一个java.util.concurrent包来支持同步，<strong>其中ReentrantLock类是可重入、互斥、实现了Lock接口的<em>锁</em></strong>，它与使用synchronized方法和快具有相同的基本行为和语义，并且扩展了其能力。需要注意的是，ReentrantLock还有一个可以创建公平锁的构造方法，但由于能大幅度降低程序运行效率，因此不推荐使用。</p>
-<p><strong><a class="link"   target="_blank" rel="noopener" href="https://baijiahao.baidu.com/s?id=1648624077736116382&wfr=spider&for=pc" >理解ReentrantLock<i class="fas fa-external-link-alt"></i></a></strong></p>
+<p><strong><a class="link" target="_blank" rel="noopener" href="https://baijiahao.baidu.com/s?id=1648624077736116382&wfr=spider&for=pc">理解ReentrantLock<i class="fas fa-external-link-alt"></i></a></strong></p>
 </li>
 <li><p><strong>volatile</strong></p>
 <p>volatile关键字为域变量的访问提供了一种<strong>免锁机制</strong>，使用volatile修饰域相当于告诉虚拟机该域可能会被其他线程更新，因此<strong>每次使用该域就要重新计算</strong>，而不是使用寄存器中的值。需要注意的是，<strong>volatile不会提供任何原子操作，它也不能用来修饰final类型的变量。</strong></p>
@@ -987,7 +1006,7 @@
 </ol>
 <p><strong>可重入：什么是 “可重入”，可重入就是说某个线程已经获得某个锁，可以再次获取锁而不会出现死锁。</strong></p>
 <p><strong>原子操作：原子操作是指不会被线程调度机制打断的操作</strong></p>
-<h4 id="4-7-说一说Java多线程之间的通信方式"><a href="#4-7-说一说Java多线程之间的通信方式" class="headerlink" title="4.7 说一说Java多线程之间的通信方式"></a>4.7 <u>说一说Java多线程之间的通信方式</u></h4><p><strong><a class="link"   target="_blank" rel="noopener" href="https://blog.csdn.net/itjavaee/article/details/108412282" >详解锁<i class="fas fa-external-link-alt"></i></a></strong></p>
+<h4 id="4-7-说一说Java多线程之间的通信方式"><a href="#4-7-说一说Java多线程之间的通信方式" class="headerlink" title="4.7 说一说Java多线程之间的通信方式"></a>4.7 <u>说一说Java多线程之间的通信方式</u></h4><p><strong><a class="link" target="_blank" rel="noopener" href="https://blog.csdn.net/itjavaee/article/details/108412282">详解锁<i class="fas fa-external-link-alt"></i></a></strong></p>
 <ol>
 <li><p><strong>wait()、notify()、notifyAll()</strong></p>
 <p><strong>如果线程之间采用synchronized来保证线程安全</strong>，则可以利用wait()、notify()、notifyAll()来实现线程通信。这三个方法都不是Thread类中所声明的方法，而<strong>是Object类中声明的方法</strong>。原因是<strong>每个对象都拥有锁</strong>，所以让当前线程等待某个对象的锁，当然应该通过这个对象来操作。并且因为当前线程可能会等待多个线程的锁，如果通过线程来操作，就非常复杂了。另外，<strong>这三个方法都是本地方法，并且被final修饰，无法被重写。</strong></p>
@@ -1176,8 +1195,8 @@
 <li><strong>线程的阻塞与唤醒。</strong></li>
 </ul>
 <h4 id="4-28-LongAdder解决了什么问题，它是如何实现的？"><a href="#4-28-LongAdder解决了什么问题，它是如何实现的？" class="headerlink" title="4.28 LongAdder解决了什么问题，它是如何实现的？"></a>4.28 LongAdder解决了什么问题，它是如何实现的？</h4><h4 id="4-29-介绍下ThreadLocal和它的应用场景"><a href="#4-29-介绍下ThreadLocal和它的应用场景" class="headerlink" title="4.29 介绍下ThreadLocal和它的应用场景"></a>4.29 介绍下ThreadLocal和它的应用场景</h4><h4 id="4-30-请介绍ThreadLocal的实现原理，它是怎么处理hash冲突的？"><a href="#4-30-请介绍ThreadLocal的实现原理，它是怎么处理hash冲突的？" class="headerlink" title="4.30 请介绍ThreadLocal的实现原理，它是怎么处理hash冲突的？"></a>4.30 请介绍ThreadLocal的实现原理，它是怎么处理hash冲突的？</h4><p>以上三条感觉不是很重要，有需要再看</p>
-<p><a class="link"   target="_blank" rel="noopener" href="https://www.nowcoder.com/issue/tutorial?tutorialId=10070&uuid=4da94dcd5a894ee9832b955d31654c5c" >28-30<i class="fas fa-external-link-alt"></i></a></p>
-<h4 id="4-31-介绍一下线程池"><a href="#4-31-介绍一下线程池" class="headerlink" title="4.31 介绍一下线程池"></a>4.31 介绍一下线程池</h4><p>线程池是一种<strong>多线程处理形式</strong>，处理过程中<strong>将任务添加到队列</strong>，然后在创建线程后自动启动这些任务。线<strong>程池线程都是后台线程</strong>。每个线程都使用默认的<a class="link"   target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%A0%86%E6%A0%88/1682032" >堆栈<i class="fas fa-external-link-alt"></i></a>大小，以默认的优先级运行，并处于多线程单元中。</p>
+<p><a class="link" target="_blank" rel="noopener" href="https://www.nowcoder.com/issue/tutorial?tutorialId=10070&uuid=4da94dcd5a894ee9832b955d31654c5c">28-30<i class="fas fa-external-link-alt"></i></a></p>
+<h4 id="4-31-介绍一下线程池"><a href="#4-31-介绍一下线程池" class="headerlink" title="4.31 介绍一下线程池"></a>4.31 介绍一下线程池</h4><p>线程池是一种<strong>多线程处理形式</strong>，处理过程中<strong>将任务添加到队列</strong>，然后在创建线程后自动启动这些任务。线<strong>程池线程都是后台线程</strong>。每个线程都使用默认的<a class="link" target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%A0%86%E6%A0%88/1682032">堆栈<i class="fas fa-external-link-alt"></i></a>大小，以默认的优先级运行，并处于多线程单元中。</p>
 <p><strong>系统启动一个新线程的成本是比较高的</strong>，因为它涉及与操作系统交互。在这种情形下，<strong>使用线程池可以很好地提高性能，尤其是当程序中需要创建大量生存期很短暂的线程时，更应该考虑使用线程池</strong>。</p>
 <p>与数据库连接池类似的是，<strong>线程池在系统启动时即创建大量空闲的线程</strong>，<u>程序将一个Runnable对象或Callable对象传给线程池，线程池就会启动一个空闲的线程来执行它们的run()或call()方法，当run()或call()方法执行结束后，该线程<strong>并不会死亡，而是再次返回线程池中成为空闲状态</strong>，等待执行下一个Runnable对象的run()或call()方法。</u></p>
 <p><strong>从Java 5开始</strong>，Java内建支持线程池。Java 5新增了<strong>一个Executors工厂类来产生线程池</strong>，该工厂类包含如下几个静态工厂方法来创建线程池。创建出来的线程池，都是<strong>通过ThreadPoolExecutor类来实现的</strong>。</p>
@@ -1395,7 +1414,7 @@
 <p><strong>二、双亲委派模型</strong></p>
 <p><strong>自JDK1.2以来</strong>，Java一直保持着三层类加载器、双亲委派的类加载架构。对于这个时期的Java应用，绝大多数Java程序都会使用到以下3个系统提供的类加载器来进行加载。</p>
 <p>这些类加载器之间的协作关系“通常”会如下图所示，图中展示的各种类加载器之间的层次关系被称为类加载器的“双亲委派模型（Parents Delegation Model）”。双亲委派模型要求<strong>除了顶层的启动类加载器外，其余的类加载器都应有自己的父类加载器</strong>。不过这里类加载器之间的父子关系一般<strong>不是以继承（Inheritance）的关系</strong>来实现的，而是<strong>通常使用<u>组合</u>（Composition）关系</strong>来复用父加载器的代码。</p>
-<img src="https://static.nowcoder.com/images/activity/2021jxy/java/img/classloader.jpg" alt="img" style="zoom:80%;" />
+<img src="https://static.nowcoder.com/images/activity/2021jxy/java/img/classloader.jpg" alt="img" style="zoom:80%;">
 
 
 
@@ -1407,7 +1426,7 @@
 <p>举个简单的例子：对象objA和objB都有字段instance，赋值令objA.instance&#x3D;objB及objB.instance&#x3D;objA，除此之外，这两个对象再无任何引用，实际上这两个对象已经不可能再被访问，但是它们因为互相引用着对方，导致它们的引用计数都不为零，引用计数算法也就无法回收它们。</p>
 <h6 id="可达性分析算法："><a href="#可达性分析算法：" class="headerlink" title="可达性分析算法："></a><strong><u><em>可达性分析算法：</em></u></strong></h6><p>当前<strong>主流</strong>的商用程序语言的内存管理子系统，都是通过可达性分析（Reachability Analysis）算法来判定对象是否存活的。这个算法的基本思路就是<strong>通过一系列称为“GC Roots”的根对象作为起始节点集</strong>，从这些节点开始，<strong>根据引用关系向下搜索</strong>，搜索过程所<strong>走过的路径称为“引用链”</strong>（Reference Chain），如果某个对象到GC Roots间没有任何引用链相连，或者用图论的话来说就是<strong>从GC Roots到这个对象不可达时，则证明此对象是不可能再被使用的。</strong></p>
 <p>如下图所示，对象object 5、object 6、object 7虽然互有关联，但是它们到GC Roots是不可达的，因此它们将会被判定为可回收的对象。</p>
-<img src="https://static.nowcoder.com/images/activity/2021jxy/java/img/gc-1.jpg" alt="img" style="zoom:80%;" />
+<img src="https://static.nowcoder.com/images/activity/2021jxy/java/img/gc-1.jpg" alt="img" style="zoom:80%;">
 
 <p>在Java技术体系里面，固定<strong>可作为GC Roots的对象</strong>包括以下几种：</p>
 <ul>
@@ -1433,19 +1452,19 @@
 </ol>
 <p>这两个分代假说共同奠定了多款常用的垃圾收集器的一致的设计原则：<strong>收集器应该将Java堆划分出不同的区域，然后将回收对象依据其年龄（年龄即对象熬过垃圾收集过程的次数）分配到不同的区域之中存储</strong>。显而易见，如果一个区域中大多数对象都是朝生夕灭，难以熬过垃圾收集过程的话，那么把它们集中放在一起，每次回收时**<u>只关注如何保留少量存活</u>**而<u><em>不是去标记那些大量将要被回收的对象</em></u>，就能以较低代价回收到大量的空间；如果剩下的都是难以消亡的对象，那把它们集中放在一块，虚拟机便可以使用较低的频率来回收这个区域，这就<u>同时兼顾了垃圾收集的时间开销和内存的空间有效利用</u>。</p>
 <h6 id="标记-清除算法："><a href="#标记-清除算法：" class="headerlink" title="标记-清除算法："></a><strong><u><em>标记-清除算法：</em></u></strong></h6><p><u><em>最早出现也是最基础的</em></u>垃圾收集算法是“标记-清除”（Mark-Sweep）算法，如它的名字一样，算法分为“标记”和“清除”两个阶段：首先**<u>标记</u>出所有<u>需要回收的对象</u><strong>，在标记完成后，</strong>统一<u>回收</u>掉所有被标记的对象<strong>，</strong>也可以反过来**，标记存活的对象，统一回收所有未被标记的对象。</p>
-<p>它的主要缺点有两个：第一个是<strong>执行效率不稳定</strong>，如果Java堆中包含<strong>大量对象</strong>，而且其中大部分是需要被回收的，这时必须进行大量标记和清除的动作，导致标记和清除两个过程的执行效率都随对象数量增长而降低；第二个是<strong>内存空间的碎片化问题</strong>，标记、清除之后会**<u>产生大量不连续的内存碎片</u><em>*，空间碎片太多可能会导致当以后在程序运行过程中<u>*需要分配较大对象时无法找到足够的连续内存而不得不**提前触发</em><em>另一次垃圾收集动作</em></u>。标记-清除算法的执行过程如下图所示。</p>
-<img src="https://static.nowcoder.com/images/activity/2021jxy/java/img/gc-2.jpg" alt="img" style="zoom:80%;" />
+<p>它的主要缺点有两个：第一个是<strong>执行效率不稳定</strong>，如果Java堆中包含<strong>大量对象</strong>，而且其中大部分是需要被回收的，这时必须进行大量标记和清除的动作，导致标记和清除两个过程的执行效率都随对象数量增长而降低；第二个是<strong>内存空间的碎片化问题</strong>，标记、清除之后会**<u>产生大量不连续的内存碎片</u><em>*，空间碎片太多可能会导致当以后在程序运行过程中<u>*需要分配较大对象时无法找到足够的连续内存而不得不**提前触发</u></em><em>另一次垃圾收集动作</em>。标记-清除算法的执行过程如下图所示。</p>
+<img src="https://static.nowcoder.com/images/activity/2021jxy/java/img/gc-2.jpg" alt="img" style="zoom:80%;">
 
 
 
 <h6 id="标记-复制算法："><a href="#标记-复制算法：" class="headerlink" title="标记-复制算法："></a><strong><u><em>标记-复制算法：</em></u></strong></h6><p>为了解决标记-清除算法面对大量可回收对象时执行效率低的问题，1969年Fenichel提出了一种称为“<strong>半区复制</strong>”（Semispace Copying）的垃圾收集算法，它将<strong>可用内存按容量划分为大小相等的两块</strong>，每次只使用其中的一块。当这一块的内存用完了，就将还存活着的对象复制到另外一块上面，然后再把已使用过的内存空间一次清理掉。如果内存中多数对象都是存活的，这种算法将会产生大量的内存间复制的开销，但对于多数对象都是可回收的情况，算法需要复制的就是占少数的存活对象，而且每次都是针对整个半区进行内存回收，<strong>分配内存时也就不用考虑有空间碎片的复杂情况</strong>，只要移动堆顶指针，按顺序分配即可。这样实现简单，运行高效，不过其缺陷也显而易见，这种复制回收算法的代价是将**<u>可用内存缩小为了原来的一半</u>**，空间浪费未免太多了一点。标记-复制算法的执行过程如下图所示。</p>
-<img src="https://static.nowcoder.com/images/activity/2021jxy/java/img/gc-3.jpg" alt="img" style="zoom:80%;" />
+<img src="https://static.nowcoder.com/images/activity/2021jxy/java/img/gc-3.jpg" alt="img" style="zoom:80%;">
 
 <p>（<u>赋值到另一半区的对象是按顺序存储的</u>）</p>
 <p>在1989年，Andrew Appel针对具备“朝生夕灭”特点的对象，提出了一种<strong>更优化的半区复制分代策略</strong>，现在称为“<strong>Appel式回收</strong>”。Appel式回收的具体做法是把新生代分为一块较大的Eden空间和两块较小的Survivor空间，每次分配内存只使用Eden和其中一块Survivor。发生垃圾搜集时，将Eden和Survivor中仍然存活的对象一次性复制到另外一块Survivor空间上，然后直接清理掉Eden和已用过的那块Survivor空间。HotSpot虚拟机默认Eden和Survivor的大小比例是8∶1，也即每次新生代中可用内存空间为整个新生代容量的90%（Eden的80%加上一个Survivor的10%），只有一个Survivor空间，即10%的新生代是会被“浪费”的。当然，98%的对象可被回收仅仅是“普通场景”下测得的数据，任何人都没有办法百分百保证每次回收都只有不多于10%的对象存活，因此Appel式回收还有一个充当罕见情况的“逃生门”的安全设计，当Survivor空间不足以容纳一次Minor GC之后存活的对象时，就需要依赖其他内存区域（实际上大多就是老年代）进行分配担保（Handle Promotion）。</p>
 <h6 id="标记-整理算法："><a href="#标记-整理算法：" class="headerlink" title="标记-整理算法："></a><strong><u><em>标记-整理算法：</em></u></strong></h6><p>标记-复制算法在对象<u>存活率较高时就要进行较多的复制操作，效率将会降低</u>。更关键的是，如果不想浪费50%的空间，就需要有额外的空间进行分配担保，以应对被使用的内存中所有对象都100%存活的极端情况，所以在老年代一般不能直接选用这种算法。</p>
 <p>针对老年代对象的存亡特征，1974年Edward Lueders提出了另外一种有针对性的“标记-整理”（Mark-Compact）算法，其中的<strong>标记过程仍然与“标记-清除”算法一样</strong>，但后续步骤不是直接对可回收对象进行清理，而是<strong>让所有存活的对象都向内存空间一端移动，然后直接清理掉边界以外的内存</strong>，“标记-整理”算法的示意图如下图所示。</p>
-<img src="https://static.nowcoder.com/images/activity/2021jxy/java/img/gc-4.jpg" alt="img" style="zoom:80%;" />
+<img src="https://static.nowcoder.com/images/activity/2021jxy/java/img/gc-4.jpg" alt="img" style="zoom:80%;">
 
 <p><strong><u>（感觉标记整理可以用于老年代的GC）</u></strong></p>
 <h4 id="5-16-请介绍一下分代回收机制"><a href="#5-16-请介绍一下分代回收机制" class="headerlink" title="5.16 请介绍一下分代回收机制"></a>5.16 请介绍一下分代回收机制</h4><p>当前商业虚拟机的垃圾收集器，大多数都遵循了“分代收集”（GenerationalCollection）的理论进行设计，分代收集名为理论，实质是一套符合大多数程序运行实际情况的经验法则，它建立在两个分代假说之上：</p>
@@ -1508,7 +1527,7 @@
 <p>这种机制最大的好处就是，整个过程中，<strong>永远有一个 Survivor space 是空的</strong>，另一个非空的 Survivor space 是无碎片的。那么，Survivor 为什么不分更多块呢？比方说分成三个、四个、五个?显然<u><em>，如果 Survivor 区再细分下去，每一块的空间就会比较小，容易导致 Survivor 区满</em></u>，两块 Survivor 区可能是经过权衡之后的最佳方案。</p>
 <h4 id="5-25-说一说你对GC算法的了解。"><a href="#5-25-说一说你对GC算法的了解。" class="headerlink" title="5.25 说一说你对GC算法的了解。"></a>5.25 说一说你对GC算法的了解。</h4><p>GC算法其实就是<strong>回收垃圾</strong>的三个算法。<strong>详见5.15的三</strong></p>
 <h4 id="5-26-为什么新生代和老年代要采用不同的回收算法？"><a href="#5-26-为什么新生代和老年代要采用不同的回收算法？" class="headerlink" title="5.26 为什么新生代和老年代要采用不同的回收算法？"></a>5.26 为什么新生代和老年代要采用不同的回收算法？</h4><p>如果一个区域中大多数对象都是<strong>朝生夕灭，难以熬过垃圾收集</strong>过程的话，那么把它们集中放在一起，每次回收时<strong>只关注如何保留少量存活</strong>而不是去标记那些大量将要被回收的对象，就能以较低代价回收到大量的空间。如果剩下的都是<strong>难以消亡</strong>的对象，那把它们集中放在一块，虚拟机便可以使用<strong>较低的频率来回收</strong>这个区域，这就同时兼顾了垃圾收集的<strong>时间开销和内存的空间有效利用</strong>。</p>
-<h4 id="5-27-请介绍G1垃圾收集器"><a href="#5-27-请介绍G1垃圾收集器" class="headerlink" title="5.27 请介绍G1垃圾收集器"></a>5.27 请介绍G1垃圾收集器</h4><p><a class="link"   target="_blank" rel="noopener" href="https://www.nowcoder.com/issue/tutorial?tutorialId=10070&uuid=d612bb0c250f4499b92171ff05fbcf63" >链接<i class="fas fa-external-link-alt"></i></a></p>
+<h4 id="5-27-请介绍G1垃圾收集器"><a href="#5-27-请介绍G1垃圾收集器" class="headerlink" title="5.27 请介绍G1垃圾收集器"></a>5.27 请介绍G1垃圾收集器</h4><p><a class="link" target="_blank" rel="noopener" href="https://www.nowcoder.com/issue/tutorial?tutorialId=10070&uuid=d612bb0c250f4499b92171ff05fbcf63">链接<i class="fas fa-external-link-alt"></i></a></p>
 <h4 id="5-28-请介绍CMS垃圾收集器"><a href="#5-28-请介绍CMS垃圾收集器" class="headerlink" title="5.28 请介绍CMS垃圾收集器"></a>5.28 请介绍CMS垃圾收集器</h4><p>地址同上</p>
 <h4 id="5-29-内存泄漏和内存溢出有什么区别？"><a href="#5-29-内存泄漏和内存溢出有什么区别？" class="headerlink" title="5.29 内存泄漏和内存溢出有什么区别？"></a>5.29 内存泄漏和内存溢出有什么区别？</h4><p>内存泄漏（memory leak）：内存泄漏指程序运行过程中<strong>分配内存给<u>临时变量</u>，用完之后却没有被GC回收，始终占用着内存，既不能被使用也不能分配给其他程序</strong>，于是就发生了内存泄漏。</p>
 <p>内存溢出（out of memory）：简单地说内存溢出就是指程序运行过程中**<u>申请</u>的内存大于系统能够<u>提供</u>的内存，导致无法申请到足够的内存**，于是就发生了内存溢出。</p>
@@ -1579,7 +1598,7 @@
                     <div class="article-prev">
                         <a class="prev"
                            rel="prev"
-                           href="/2022/05/16/SpringBoot%E5%AD%A6%E4%B9%A0/"
+                           href="/springboot%E5%AD%A6%E4%B9%A0/"
                         >
                             <span class="left arrow-icon flex-center">
                               <i class="fas fa-chevron-left"></i>
@@ -1595,7 +1614,7 @@
                     <div class="article-next">
                         <a class="next"
                            rel="next"
-                           href="/2022/05/16/Redis/"
+                           href="/redis/"
                         >
                             <span class="title flex-center">
                                 <span class="post-nav-title-item">Redis</span>
@@ -1631,6 +1650,20 @@
             
             2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">lanyoooo</a>
         </div>
+        
+            <script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    <span id="busuanzi_container_site_uv">
+                        访问人数&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp;
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv">
+                        总访问量&nbsp;<span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
         
         <div class="theme-info info-item">
             由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
@@ -1722,6 +1755,35 @@
 
 
     
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
 
 </main>
 
@@ -1740,12 +1802,20 @@
 
 
 
+    
+<script src="/js/local-search.js"></script>
+
+
+
+
+    
+<script src="/js/code-copy.js"></script>
 
 
 
 
 
-<div class="post-scripts">
+<div class="post-scripts pjax">
     
         
 <script src="/js/left-side-toggle.js"></script>
@@ -1756,6 +1826,40 @@
 
     
 </div>
+
+
+    
+<script src="/js/libs/pjax.min.js"></script>
+
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+</script>
 
 
 

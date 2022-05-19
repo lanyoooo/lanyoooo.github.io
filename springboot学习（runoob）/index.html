@@ -16,14 +16,14 @@
     
 <link rel="stylesheet" href="/css/style.css">
 
-    <link rel="shortcut icon" href="/images/logo.svg">
+    <link rel="shortcut icon" href="/images/favicon.jpg">
     
 <link rel="stylesheet" href="/css/font-awesome.min.css">
 
     <script id="hexo-configurations">
     let KEEP = window.KEEP || {};
-    KEEP.hexo_config = {"hostname":"lanyoooo.github.io","root":"/","language":"zh-CN"};
-    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"质胜文则野，文胜质则史。文质彬彬，然后君子。"},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":true}}},"local_search":{"enable":false,"preload":false},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.5"};
+    KEEP.hexo_config = {"hostname":"lanyoooo.github.io","root":"/","language":"zh-CN","path":"search.json"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0099CC","avatar":"/images/头像.jpg","favicon":"/images/favicon.jpg","article_img_align":"center","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":true},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"质胜文则野，文胜质则史。文质彬彬，然后君子。"},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":true}}},"local_search":{"enable":true,"preload":false},"code_copy":{"enable":true,"style":"mac"},"pjax":{"enable":true},"lazyload":{"enable":false},"version":"3.4.5"};
     KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
   </script>
 <meta name="generator" content="Hexo 6.2.0"></head>
@@ -35,6 +35,11 @@
         <span class="scroll-progress-bar"></span>
     
 
+    
+        <span class="pjax-progress-bar"></span>
+        <span class="pjax-progress-icon">
+            <i class="fas fa-circle-notch fa-spin"></i>
+        </span>
     
 </div>
 
@@ -93,9 +98,15 @@
                         </li>
                     
                     
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
                 </ul>
             </div>
             <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
                 
                 <div class="icon-item menu-bar">
                     <div class="menu-bar-middle"></div>
@@ -152,13 +163,13 @@
         
             <div class="article-header">
                 <div class="avatar">
-                    <img src="/images/avatar.svg">
+                    <img src="/images/%E5%A4%B4%E5%83%8F.jpg">
                 </div>
                 <div class="info">
                     <div class="author">
                         <span class="name">lanyoooo</span>
                         
-                            <span class="author-label">Lv1</span>
+                            <span class="author-label">Trainee</span>
                         
                     </div>
                     <div class="meta-info">
@@ -174,7 +185,7 @@
             <ul>
                 
                     <li>
-                        <a href="/categories/%E5%AD%A6%E4%B9%A0/">学习</a>&nbsp;
+                        <a href="/categories/%E6%A1%86%E6%9E%B6/">框架</a>&nbsp;
                     </li>
                 
             </ul>
@@ -186,7 +197,7 @@
             <ul>
                 
                     <li>
-                        <a href="/tags/java/">java</a>&nbsp;
+                        <a href="/tags/spring/">spring</a>&nbsp;
                     </li>
                 
             </ul>
@@ -195,7 +206,15 @@
 
     
     
+        <span class="article-wordcount article-meta-item">
+            <i class="fas fa-file-word"></i>&nbsp;<span>11.7k 字</span>
+        </span>
     
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
     
 </div>
 
@@ -549,7 +568,7 @@
 <h3 id="统一日志框架-1"><a href="#统一日志框架-1" class="headerlink" title="统一日志框架"></a>统一日志框架</h3><p>我们在使用 Spring Boot 时，<strong>同样可能用到其他的框架</strong>，例如 Mybatis、Spring MVC、 Hibernate 等等，这些框架的底层都有自己的日志框架，<strong>此时我们也需要对日志框架进行统一</strong>。</p>
 <p>我们知道，统一日志框架的使用一共分为 3 步，Soring Boot 作为一款优秀的开箱即用的框架，<strong>已经为用户完成了其中 2 步：引入替换包和导入 SLF4J 实现</strong>。</p>
 <p>Spring Boot 的<strong>核心启动器 spring-boot-starter 引入了 spring-boot-starter-logging</strong>，使用 IDEA 查看其依赖关系，如下图。</p>
-<img src="http://c.biancheng.net/uploads/allimg/210726/154Z34204-2.png" alt="Spring Boot 依赖关系图"  />
+<img src="http://c.biancheng.net/uploads/allimg/210726/154Z34204-2.png" alt="Spring Boot 依赖关系图">
 
 <p>从图可知，<strong>spring-boot-starter-logging</strong> 的 Maven 依赖不但引入了 logback-classic （包含了日志框架 SLF4J 的实现），还引入了 log4j-to-slf4j（log4j 的替换包），jul-to-slf4j （JUL 的替换包），即 Spring Boot 已经为我们完成了统一日志框架的 3 个步骤中的 2 步。</p>
 <p>SpringBoot 底层使用 slf4j+logback 的方式记录日志，当我们引入了依赖了其他日志框架的第三方框架（例如 Hibernate）时，<strong>只需要把这个框架所依赖的日志框架排除</strong>，即可实现日志框架的统一，示例代码如下。</p>
@@ -719,7 +738,7 @@
 </ul>
 <h4 id="普通日志配置文件"><a href="#普通日志配置文件" class="headerlink" title="普通日志配置文件"></a>普通日志配置文件</h4><p>我们将 logback.xml、log4j2.xml 等不带 spring 标识的普通日志配置文件，放在项目的类路径下后，这些配置文件会跳过 Spring Boot，直接被日志框架加载。通过这些配置文件，我们就可以达到自定义日志配置的目的。</p>
 <h4 id="带有-spring-标识的日志配置文件"><a href="#带有-spring-标识的日志配置文件" class="headerlink" title="带有 spring 标识的日志配置文件"></a>带有 spring 标识的日志配置文件</h4><p>Spring Boot <strong>推荐</strong>用户使用 logback-spring.xml、log4j2-spring.xml 等这种<strong>带有 spring 标识的配置文件</strong>。这种配置文件被放在项目类路径后，<strong>不会直接被日志框架加载，而是由 Spring Boot 对它们进行解析，这样就可以使用 Spring Boot 的高级功能 Profile，实现在不同的环境中使用不同的日志配置。</strong></p>
-<p>&#x3D;&#x3D;两个自定义日志配置的示例见<a class="link"   target="_blank" rel="noopener" href="http://c.biancheng.net/spring_boot/log-config.html" >链接<i class="fas fa-external-link-alt"></i></a>&#x3D;&#x3D;</p>
+<p>&#x3D;&#x3D;两个自定义日志配置的示例见<a class="link" target="_blank" rel="noopener" href="http://c.biancheng.net/spring_boot/log-config.html">链接<i class="fas fa-external-link-alt"></i></a>&#x3D;&#x3D;</p>
 <h2 id="WEB启动器"><a href="#WEB启动器" class="headerlink" title="WEB启动器"></a>WEB启动器</h2><p><strong>Spring MVC 是 Spring 提供的一个基于 MVC 设计模式的轻量级 Web 开发框架，其本身就是 Spring 框架的一部分，可以与 Spring 无缝集成，性能方面具有先天的优越性，是当今业界最主流的 Web 开发框架之一。</strong></p>
 <p><strong>Spring Boot 是在 Spring 的基础上创建一款开源框架，它提供了 spring-boot-starter-web（Web 场景启动器） 来为 Web 开发予以支持。spring-boot-starter-web 为我们&#x3D;&#x3D;提供了嵌入的 Servlet 容器以及 SpringMVC 的依赖，并为 Spring MVC 提供了大量自动配置&#x3D;&#x3D;，可以适用于大多数 Web 开发场景。</strong></p>
 <h3 id="Spring-Boot-Web-快速开发"><a href="#Spring-Boot-Web-快速开发" class="headerlink" title="Spring Boot Web 快速开发"></a>Spring Boot Web 快速开发</h3><p>Spring Boot 为 Spring MVC 提供了自动配置，并在 Spring MVC 默认功能的基础上添加了以下特性：</p>
@@ -743,7 +762,7 @@
 </ul>
 <h3 id="WebJars-映射"><a href="#WebJars-映射" class="headerlink" title="WebJars 映射"></a>WebJars 映射</h3><p>为了让页面更加美观，让用户有更多更好的体验，Web 应用中通常会使用大量的 JS 和 CSS，例如 jQuery，Backbone.js 和 Bootstrap 等等。通常我们会将这些 Web 前端资源拷贝到 Java Web 项目的 webapp 相应目录下进行管理。但是 <strong>Spring Boot 项目是以 JAR 包的形式进行部署的</strong>，不存在 webapp 目录，那么 Web 前端资源该如何引入到 Spring Boot 项目中呢？</p>
 <p>WebJars 可以完美的解决上面的问题，它可以 Jar 形式为 Web 项目提供资源文件。</p>
-<p>WebJars 可以将 Web 前端资源（JS，CSS 等）打成一个个的 Jar 包，然后<strong>将这些 Jar 包部署到 Maven 中央仓库中进行统一管理</strong>，当 Spring Boot 项目中需要引入 Web 前端资源时，只需要访问 <a class="link"   target="_blank" rel="noopener" href="https://www.webjars.org/" >WebJars 官网<i class="fas fa-external-link-alt"></i></a>，找到所需资源的 pom 依赖，将其导入到项目中即可。</p>
+<p>WebJars 可以将 Web 前端资源（JS，CSS 等）打成一个个的 Jar 包，然后<strong>将这些 Jar 包部署到 Maven 中央仓库中进行统一管理</strong>，当 Spring Boot 项目中需要引入 Web 前端资源时，只需要访问 <a class="link" target="_blank" rel="noopener" href="https://www.webjars.org/">WebJars 官网<i class="fas fa-external-link-alt"></i></a>，找到所需资源的 pom 依赖，将其导入到项目中即可。</p>
 <p>所有通过 WebJars 引入的前端资源都存放在当前项目类路径（classpath）下的“&#x2F;META-INF&#x2F;resources&#x2F;webjars&#x2F;” 目录中。（以jar包的形式）</p>
 <p>Spring Boot通过 <strong>MVC 的自动配置类 WebMvcAutoConfiguration</strong>为这些WebJars前端资源提供了默认映射规则</p>
 <p>WebJars 的映射路径为“&#x2F;webjars&#x2F;<strong>”，即所有访问“&#x2F;webjars&#x2F;<strong>”的请求，都会去“</strong>classpath:&#x2F;META-INF&#x2F;resources&#x2F;webjars&#x2F;”</strong>查找 WebJars 前端资源。</p>
@@ -975,7 +994,7 @@
 <li><strong>addPathPatterns</strong>：该方法用于<strong>指定拦截路径</strong>，例如拦截路径为“&#x2F;**”，表示拦截所有请求，包括对静态资源的请求。</li>
 <li><strong>excludePathPatterns</strong>：该方法用于<strong>排除拦截路径</strong>，即指定不需要被拦截器拦截的请求。</li>
 </ul>
-<p><a class="link"   target="_blank" rel="noopener" href="http://c.biancheng.net/spring_boot/interceptor.html" >实现登录功能<i class="fas fa-external-link-alt"></i></a></p>
+<p><a class="link" target="_blank" rel="noopener" href="http://c.biancheng.net/spring_boot/interceptor.html">实现登录功能<i class="fas fa-external-link-alt"></i></a></p>
 <h2 id="默认异常处理"><a href="#默认异常处理" class="headerlink" title="默认异常处理"></a>默认异常处理</h2><h2 id="全局异常处理"><a href="#全局异常处理" class="headerlink" title="全局异常处理"></a>全局异常处理</h2>
         </div>
 
@@ -985,7 +1004,7 @@
             <ul class="post-tags-box">
                 
                     <li class="tag-item">
-                        <a href="/tags/java/">#java</a>&nbsp;
+                        <a href="/tags/spring/">#spring</a>&nbsp;
                     </li>
                 
             </ul>
@@ -998,7 +1017,7 @@
                     <div class="article-next">
                         <a class="next"
                            rel="next"
-                           href="/2022/05/16/SpringBoot%E5%AD%A6%E4%B9%A0/"
+                           href="/springboot%E5%AD%A6%E4%B9%A0/"
                         >
                             <span class="title flex-center">
                                 <span class="post-nav-title-item">SpringBoot学习</span>
@@ -1034,6 +1053,20 @@
             
             2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">lanyoooo</a>
         </div>
+        
+            <script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    <span id="busuanzi_container_site_uv">
+                        访问人数&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp;
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv">
+                        总访问量&nbsp;<span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
         
         <div class="theme-info info-item">
             由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
@@ -1125,6 +1158,35 @@
 
 
     
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
 
 </main>
 
@@ -1143,12 +1205,20 @@
 
 
 
+    
+<script src="/js/local-search.js"></script>
+
+
+
+
+    
+<script src="/js/code-copy.js"></script>
 
 
 
 
 
-<div class="post-scripts">
+<div class="post-scripts pjax">
     
         
 <script src="/js/left-side-toggle.js"></script>
@@ -1159,6 +1229,40 @@
 
     
 </div>
+
+
+    
+<script src="/js/libs/pjax.min.js"></script>
+
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+</script>
 
 
 
