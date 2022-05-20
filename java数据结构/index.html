@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="lanyo blog coding">
+    <meta name="description" content="lanyo的博客">
+    <meta name="author" content="lanyoooo">
+    
+    <title>
+        
+            java数据结构 |
+        
+        Lanyo&#39;s Blog
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/images/logo.jpg">
+    
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"lanyoooo.github.io","root":"/","language":"zh-CN","path":"search.json"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0099CC","avatar":"/images/touxiang.jpg","favicon":"/images/logo.jpg","article_img_align":"center","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":true},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"质胜文则野，文胜质则史。文质彬彬，然后君子。"},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":false}}},"local_search":{"enable":true,"preload":false},"code_copy":{"enable":true,"style":"mac"},"pjax":{"enable":true},"lazyload":{"enable":false},"version":"3.4.5"};
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
+  </script>
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <span class="pjax-progress-icon">
+            <i class="fas fa-circle-notch fa-spin"></i>
+        </span>
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                Lanyo&#39;s Blog
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/tags"
+                            >
+                                标签
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/tags">标签</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">java数据结构</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/touxiang.jpg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">lanyoooo</span>
+                        
+                            <span class="author-label">Lv2</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;
+        <span class="pc">2022-05-20 14:46:44</span>
+        <span class="mobile">2022-05-20 14:46</span>
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/java/">java</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fas fa-file-word"></i>&nbsp;<span>1.1k 字</span>
+        </span>
+    
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <h3 id="PriorityQueue-优先队列"><a href="#PriorityQueue-优先队列" class="headerlink" title="PriorityQueue 优先队列"></a>PriorityQueue 优先队列</h3><p>可以对其中的元素进行排序，数据类型可以是基本数据类型的包装（如Integer、Long等）或自定义的类。</p>
+<p>对于基本数据类型的包装器类，优先队列中元素默认排列顺序是升序排列。</p>
+<p><strong>默认比较器下堆顶的是最小的元素（即小顶堆）</strong>。</p>
+<p>但对于自己定义的类来说，需要自己定义比较器。</p>
+<p><strong><u>Java 使用 <code>PriorityQueue&lt;&gt;((x, y) -&gt; (y - x))</code> 可方便实现大顶堆。</u></strong></p>
+<p><strong>常用方法</strong>：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">peek()//返回队首元素</span><br><span class="line">poll()//返回队首元素，队首元素出队列</span><br><span class="line">add()//添加元素</span><br><span class="line">size()//返回队列元素个数</span><br><span class="line">isEmpty()//判断队列是否为空，为空返回true,不空返回false</span><br></pre></td></tr></table></figure>
+
+<p><strong>遍历</strong>：</p>
+<p>PriorityQueue的iterator（）不保证以任何特定顺序遍历队列元素。</p>
+<p>若想按特定顺序遍历，先将队列转成数组，然后排序遍历。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Object[] nn = queue.toArray();</span><br><span class="line">Arrays.sort(nn);</span><br></pre></td></tr></table></figure>
+
+<p><strong><u>使用优先队列的难点在于创建比较器</u></strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Comparator&lt;Object&gt; cmp = <span class="keyword">new</span> <span class="title class_">Comparator</span>&lt;Object&gt;() &#123;</span><br><span class="line">       <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">compare</span><span class="params">(Object o1, Object o2)</span> &#123;</span><br><span class="line">           <span class="comment">//升序</span></span><br><span class="line">           <span class="keyword">return</span> o1-o2;</span><br><span class="line">           <span class="comment">//降序</span></span><br><span class="line">           <span class="keyword">return</span> o2-o1;</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="LinkedList-链表"><a href="#LinkedList-链表" class="headerlink" title="LinkedList 链表"></a>LinkedList 链表</h3><p>LinkedList是一种常用的数据容器，与ArrayList相比，LinkedList的增删操作效率更高，而查改操作效率较低。</p>
+<p>LinkedList 实现了List 接口，能对它进行列表操作。</p>
+<p>LinkedList 实现了Deque 接口，即能将LinkedList当作双端队列使用。</p>
+<p>LinkedList 实现了java.io.Serializable接口，这意味着LinkedList支持序列化，能通过序列化去传输。</p>
+<p>常用方法：</p>
+<p>add();</p>
+<p>remove();</p>
+<p>get();</p>
+<h3 id="Stack栈"><a href="#Stack栈" class="headerlink" title="Stack栈"></a>Stack栈</h3><p><u><em><strong>现在使用栈，更多是用Deque</strong></em></u></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Stack&lt;泛型&gt; stack = <span class="keyword">new</span> <span class="title class_">Stack</span>&lt;&gt;();</span><br></pre></td></tr></table></figure>
+
+<p>常用方法：</p>
+<p>push();</p>
+<p>pop();</p>
+<p>peek();</p>
+<h3 id="Queue队列"><a href="#Queue队列" class="headerlink" title="Queue队列"></a>Queue队列</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Queue&lt;String&gt; queue = <span class="keyword">new</span> <span class="title class_">LinkedList</span>&lt;String&gt;();</span><br></pre></td></tr></table></figure>
+
+<p>常用方法：</p>
+<p>offer();</p>
+<p>查询第一个元素：</p>
+<p>element();	在队列为空时，返回一个异常</p>
+<p>peek();			在队列为空时，返回null</p>
+<p>取出第一个元素：</p>
+<p>remove();		在队列为空时抛出异常</p>
+<p>poll();				在队列为空时返回一个null</p>
+<h3 id="HashSet"><a href="#HashSet" class="headerlink" title="HashSet"></a>HashSet</h3><p>HashSet 基于 HashMap 来实现的，是一个<strong>不允许有重复元素</strong>的集合。</p>
+<p>HashSet <strong>允许有 null 值</strong>。</p>
+<p>HashSet 是<strong>无序</strong>的，即不会记录插入的顺序。</p>
+<p>HashSet <strong>不是线程安全的</strong>， 如果多个线程尝试同时修改 HashSet，则最终结果是不确定的。 您必须在多线程访问时显式同步对 HashSet 的并发访问。</p>
+<p>HashSet 实现了 Set 接口。</p>
+<p><strong>常用方法</strong>：</p>
+<p>add()；</p>
+<p>contains() </p>
+<p> remove() </p>
+<p>clear();</p>
+<p>size()</p>
+<h3 id="HashMap"><a href="#HashMap" class="headerlink" title="HashMap"></a>HashMap</h3><p>HashMap 是一个散列表，它存储的内容是<strong>键值对</strong>(key-value)映射。</p>
+<p>HashMap 实现了 Map 接口，<strong>根据键的 HashCode 值存储数据</strong>，具有很快的访问速度，最多允许一条记录的键为 null，<strong>不支持线程同步</strong>。</p>
+<p>HashMap 是<strong>无序</strong>的，即不会记录插入的顺序。</p>
+<p>HashMap 继承于AbstractMap，实现了 Map、Cloneable、java.io.Serializable 接口。</p>
+<p><strong>常用方法</strong>：</p>
+<ul>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/java/java-hashmap.html">https://www.runoob.com/java/java-hashmap.html<i class="fas fa-external-link-alt"></i></a></li>
+</ul>
+<p>put()</p>
+<p>get(key）</p>
+<p>remove(key)</p>
+<p>clear()</p>
+<p>size() </p>
+<p><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/java/java-hashmap-containskey.html">containsKey()<i class="fas fa-external-link-alt"></i></a></p>
+<p><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/java/java-hashmap-containsvalue.html">containsValue()<i class="fas fa-external-link-alt"></i></a></p>
+<h3 id="Set和List的区别"><a href="#Set和List的区别" class="headerlink" title="Set和List的区别"></a>Set和List的区别</h3><ul>
+<li>Set 接口实例存储的是<strong>无序的</strong>，<strong>不重复的</strong>数据。List 接口实例存储的是<strong>有序的</strong>，<strong>可以重复的</strong>元素。</li>
+<li>Set检索效率低下，删除和插入效率高，插入和删除不会引起元素位置改变 **&lt;实现类有HashSet,TreeSet&gt;**。</li>
+<li>List和数组类似，可以动态增长，根据实际存储的数据的长度自动增长List的长度。<u>查找元素效率高，插入删除效率低</u>，因为会引起其他元素位置改变 <strong>&lt;实现类有ArrayList,LinkedList,Vector&gt;</strong> 。</li>
+</ul>
+<h3 id="双端队列Deque："><a href="#双端队列Deque：" class="headerlink" title="双端队列Deque："></a>双端队列Deque：</h3><p>Deque可以用来实现双端队列、队列、堆栈</p>
+<p><img src="/java%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/image-20220316091048929.png" alt="image-20220316091048929"></p>
+<h3 id="StringBuilder："><a href="#StringBuilder：" class="headerlink" title="StringBuilder："></a>StringBuilder：</h3><p>当对字符串进行修改的时候，需要使用 StringBuffer 和 StringBuilder 类。</p>
+<p>和 String 类不同的是，StringBuffer 和 StringBuilder 类的对象能够被多次的修改，并且不产生新的未使用对象。</p>
+<p>在使用 StringBuffer 类时，每次都会对 StringBuffer 对象本身进行操作，而不是生成新的对象，<strong>所以如果需要对字符串进行修改推荐使用 StringBuffer。</strong></p>
+<p>StringBuilder 类在 Java 5 中被提出，它和 StringBuffer 之间的最大不同在于 StringBuilder 的方法不是线程安全的（不能同步访问）。</p>
+<p><strong>由于 StringBuilder 相较于 StringBuffer 有速度优势，所以多数情况下建议使用 StringBuilder 类。</strong></p>
+<p> <strong><u>在应用程序要求线程安全的情况下，则必须使用 StringBuffer 类。</u></strong></p>
+<h4 id="对于String与其他类型之间的类型互转："><a href="#对于String与其他类型之间的类型互转：" class="headerlink" title="对于String与其他类型之间的类型互转："></a>对于String与其他类型之间的类型互转：</h4><p>int -&gt; String    str &#x3D; String.valueOf(int num)</p>
+
+        </div>
+
+        
+
+        
+            <ul class="post-tags-box">
+                
+                    <li class="tag-item">
+                        <a href="/tags/java/">#java</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/%E5%89%91%E6%8C%87offer%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">剑指offer刷题记录</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/springboot%E5%AD%A6%E4%B9%A0%EF%BC%88runoob%EF%BC%89/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">SpringBoot学习（Runoob）</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2020</span>
+              -
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">lanyoooo</a>
+        </div>
+        
+            <script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    <span id="busuanzi_container_site_uv">
+                        访问人数&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp;
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv">
+                        总访问量&nbsp;<span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
+        </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#PriorityQueue-%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97"><span class="nav-text">PriorityQueue 优先队列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LinkedList-%E9%93%BE%E8%A1%A8"><span class="nav-text">LinkedList 链表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Stack%E6%A0%88"><span class="nav-text">Stack栈</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Queue%E9%98%9F%E5%88%97"><span class="nav-text">Queue队列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HashSet"><span class="nav-text">HashSet</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HashMap"><span class="nav-text">HashMap</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Set%E5%92%8CList%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-text">Set和List的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%8C%E7%AB%AF%E9%98%9F%E5%88%97Deque%EF%BC%9A"><span class="nav-text">双端队列Deque：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#StringBuilder%EF%BC%9A"><span class="nav-text">StringBuilder：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AF%B9%E4%BA%8EString%E4%B8%8E%E5%85%B6%E4%BB%96%E7%B1%BB%E5%9E%8B%E4%B9%8B%E9%97%B4%E7%9A%84%E7%B1%BB%E5%9E%8B%E4%BA%92%E8%BD%AC%EF%BC%9A"><span class="nav-text">对于String与其他类型之间的类型互转：</span></a></li></ol></li></ol>
+    </div>
+</div>
+        </aside>
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+    
+<script src="/js/local-search.js"></script>
+
+
+
+
+    
+<script src="/js/code-copy.js"></script>
+
+
+
+
+
+<div class="post-scripts pjax">
+    
+        
+<script src="/js/left-side-toggle.js"></script>
+
+<script src="/js/libs/anime.min.js"></script>
+
+<script src="/js/toc.js"></script>
+
+    
+</div>
+
+
+    
+<script src="/js/libs/pjax.min.js"></script>
+
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+</script>
+
+
+
+</body>
+</html>
