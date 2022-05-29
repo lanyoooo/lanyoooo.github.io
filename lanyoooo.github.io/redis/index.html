@@ -1,0 +1,1371 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="lanyo blog coding">
+    <meta name="description" content="lanyo的博客">
+    <meta name="author" content="lanyoooo">
+    
+    <title>
+        
+            Redis |
+        
+        Lanyo&#39;s Blog
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/images/logo.jpg">
+    
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"lanyoooo.github.io","root":"/","language":"zh-CN","path":"search.json"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0099CC","avatar":"/images/touxiang.jpg","favicon":"/images/logo.jpg","article_img_align":"center","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":true},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"质胜文则野，文胜质则史。文质彬彬，然后君子。"},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":false}}},"local_search":{"enable":true,"preload":false},"code_copy":{"enable":true,"style":"mac"},"pjax":{"enable":true},"lazyload":{"enable":false},"version":"3.4.5"};
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
+  </script>
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <span class="pjax-progress-icon">
+            <i class="fas fa-circle-notch fa-spin"></i>
+        </span>
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                Lanyo&#39;s Blog
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/tags"
+                            >
+                                标签
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/tags">标签</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">Redis</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/touxiang.jpg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">lanyoooo</span>
+                        
+                            <span class="author-label">Lv2</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;
+        <span class="pc">2022-05-16 13:22:08</span>
+        <span class="mobile">2022-05-16 13:22</span>
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/Redis/">Redis</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fas fa-file-word"></i>&nbsp;<span>12.4k 字</span>
+        </span>
+    
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <!-- toc -->
+
+<h2 id="NoSQL"><a href="#NoSQL" class="headerlink" title="NoSQL"></a>NoSQL</h2><h3 id="引入"><a href="#引入" class="headerlink" title="引入"></a>引入</h3><p>从开发项目的角度看，技术可以分为三类：</p>
+<ol>
+<li>解决功能性问题：java、jsp、RDBMS、Tomcat、HTML、Linux、JDBC、SVN</li>
+<li>解决功能性问题：Struts、Spring、SpringMVC、HIbernate、Mybatis</li>
+<li>解决性能问题：<strong>NoSQL</strong>、JAVA线程、Hadoop、Nginx、MQ、ElasticSearch</li>
+</ol>
+<p>redis就是一种典型的NoSQL技术</p>
+<p>项目的访问量增大以后，有两个问题需要解决：</p>
+<ul>
+<li><strong>CPU及内存的压力</strong></li>
+<li><strong>数据库的IO压力</strong></li>
+</ul>
+<p>采用集群&#x2F;分布式架构可以有效解决单体项目的问题，但是也会产生新的问题：</p>
+<p>比如Session，由于多服务器的存在，session如何存放才能让所有服务器都认识他就是一个问题</p>
+<p>可以采用：①存放在客户端cookie  （安全性无法保证）</p>
+<p>​					②session复制   （数据冗余、空间浪费） </p>
+<p>​					③使用NoSQL数据库存放用户信息（数据完全在内存中，不需要IO，速度也很快）</p>
+<p>当数据库中数据量很大时，为了优化性能，就可能用到**<u><em>分库分表</em></u>**的方法，但是这么做就会<u>破坏一定的业务逻辑</u>。</p>
+<p>  NoSQL数据库打破了<u>传统数据库以业务逻辑为依据</u>的存储模式。而<u><em>针对不同数据结构类型</em></u>改为以性能为最优先的存储方式</p>
+<p>NoSQL数据库可以直接作为缓存使用，可以提高读写速度，减少IO操作</p>
+<h3 id="定义："><a href="#定义：" class="headerlink" title="定义："></a>定义：</h3><p>NoSQL是Not only sql，泛指<strong>非关系型数据库</strong>。NoSQL不依赖业务逻辑方式存储，而<strong>以简单的Key-value方式进行存储</strong>。因此大大增加了数据库的扩展能力。</p>
+<ul>
+<li>不遵循SQL标准</li>
+<li><strong>不支持ACID</strong>（事务的四大特性——原子性、一致性、隔离性、持久性，并不是不支持事务）</li>
+<li>远超于SQL的性能。</li>
+</ul>
+<p><strong>适用的场景</strong>：</p>
+<ul>
+<li><p>对数据<strong>高并发</strong>的读写</p>
+</li>
+<li><p><strong>海量数据</strong>的读写</p>
+</li>
+<li><p>对<strong>数据高可扩展性</strong>的</p>
+</li>
+</ul>
+<p><strong>不适用的场景</strong>：</p>
+<ul>
+<li><p>需要事务支持</p>
+</li>
+<li><p>基于sql的结构化查询存储，处理复杂的关系，需要**<code>即席查询</code>**</p>
+</li>
+<li><p>（用不着sql的和用了sql也不行的情况下，就考虑用NoSQL</p>
+</li>
+</ul>
+<p>常见的<strong>NoSQL</strong>数据库：</p>
+<p><strong>Memcache</strong>：</p>
+<ul>
+<li>很早就出现的NoSQL数据库</li>
+<li>数据都在内存中，一般不持久化（关机就没了）</li>
+<li>支持简单的key-value，支持类型单一</li>
+<li>一般作为缓存数据库辅助持久化数据库</li>
+</ul>
+<p><strong>redis</strong>：</p>
+<ul>
+<li>几乎覆盖了memcache所有功能</li>
+<li>数据在内存中，支持持久化</li>
+<li>支持多种数据结构的存储</li>
+<li>一般作为缓存数据库辅助持久化数据库</li>
+</ul>
+<p><strong>MongoDB：</strong></p>
+<ul>
+<li><p>高性能、开源、模式自由的文档型数据库（类似JSON）</p>
+</li>
+<li><p>数据都在内存中，如果内存不足，会把数据存放到硬盘中</p>
+</li>
+<li><p>key-value模式，对value提供了丰富的查询功能</p>
+</li>
+<li><p>支持二进制数据以及大型对象</p>
+</li>
+</ul>
+<p><strong>行式数据库</strong>：将一行数据作为一个元素，方便查询，但是不方便统计</p>
+<p><strong>列式数据库</strong>：将数据的属性作为数据结构进行存储，方便统计，但是不方便查询</p>
+<h2 id="Redis"><a href="#Redis" class="headerlink" title="Redis"></a>Redis</h2><h3 id="特性："><a href="#特性：" class="headerlink" title="特性："></a>特性：</h3><ul>
+<li>开源的key-value存储系统</li>
+<li>value支持：string   list   set   zset    hash</li>
+<li>操作都是原子性的（<u>不论单个多个</u>）</li>
+<li>支持各种不同方式的排序</li>
+<li>数据缓存在内存中</li>
+<li>会周期性的把更新的数据写入磁盘</li>
+<li>实现了<strong>主从同步</strong></li>
+</ul>
+<p>场景：</p>
+<ul>
+<li>可以配合关系型数据库做高速缓存</li>
+<li>多样的数据结构存储数据</li>
+</ul>
+<h3 id="优势"><a href="#优势" class="headerlink" title="优势"></a>优势</h3><ul>
+<li><p><strong>性能极高</strong> – Redis能读的速度是<u>110000</u>次&#x2F;s,写的速度是<u>81000</u>次&#x2F;s 。</p>
+</li>
+<li><p><strong>丰富的数据类型</strong> – Redis支持二进制案例的 Strings, Lists, Hashes, Sets 及 Ordered Sets 数据类型操作。</p>
+</li>
+<li><p><strong>原子</strong> – Redis的所有操作都是原子性的，意思就是要么成功执行要么失败完全不执行。单个操作是原子性的。多个操作也支持事务，即原子性，通过MULTI和EXEC指令包起来。</p>
+</li>
+<li><p><strong>丰富的特性</strong> – Redis还支持 <u><em>publish&#x2F;subscribe, 通知, key 过期</em></u>等等特性。</p>
+</li>
+</ul>
+<h3 id="Redis与其他key-value存储有什么不同？"><a href="#Redis与其他key-value存储有什么不同？" class="headerlink" title="Redis与其他key-value存储有什么不同？"></a>Redis与其他key-value存储有什么不同？</h3><ul>
+<li>Redis有着<strong>更为复杂的数据结构</strong>并且提供对他们的原子性操作，这是一个不同于其他数据库的进化路径。Redis的数据类型都是<strong>基于基本数据结构的同时对程序员透明</strong>，无需进行额外的抽象。</li>
+<li>Redis<strong>运行在内存中但是可以持久化到磁盘</strong>，所以在对不同数据集进行高速读写时需要权衡内存，因为数据量不能大于硬件内存。在内存数据库方面的另一个优点是，<strong>相比在磁盘上相同的复杂的数据结构，在内存中操作起来非常简单</strong>，这样Redis可以做很多内部复杂性很强的事情。同时，<strong>在磁盘格式方面他们是紧凑的以追加的方式产生的，因为他们并不需要进行随机访问</strong>。</li>
+</ul>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>github上有windows的迁移版本，但是没有最新的Redis6。可以参照<a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/redis-install.html">这篇笔记<i class="fas fa-external-link-alt"></i></a>来安装。</p>
+<p>目前本机上已经装配了**<u>Redis 5.0.14</u>**。</p>
+<p>一些注意事项：</p>
+<ul>
+<li>安装路径在D盘</li>
+<li>可以通过文件夹路径前面加上cmd进入命令行</li>
+<li><strong>在使用redis客户端之前需要先启动服务器端</strong>——redis-server.exe（服务器端）</li>
+<li>同理，客户端是——redis-cli.exe。</li>
+</ul>
+<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p>可以通过编写redis,windows.conf文件来修改配置或者通过命令：CONFIG set</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">redis 127.0.0.1:6379&gt; CONFIG SET loglevel &quot;notice&quot;   ——实例</span><br><span class="line">redis 127.0.0.1:6379&gt; CONFIG SET CONFIG_SETTING_NAME NEW_CONFIG_VALUE ——语法 </span><br><span class="line">简而言之就是 set 属性名  值</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="常用参数："><a href="#常用参数：" class="headerlink" title="常用参数："></a>常用参数：</h4><p><strong><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/redis-conf.html">参数说明<i class="fas fa-external-link-alt"></i></a></strong></p>
+<ul>
+<li><p>port	端口号（默认6379）</p>
+</li>
+<li><p>bind    主机号</p>
+</li>
+<li><p>timeout：   客户端闲置多久后关闭连接（设置为0则永不关闭）</p>
+</li>
+<li><p>loglevel：日志级别，默认为notice，可选：debug、verbose、notice、warning</p>
+</li>
+<li><p>logfile：日志记录方式，默认stdout（标准输出），如果配置 Redis 为守护进程方式运行，而这里又配置为日志记录方式为标准输出，则日志将会发送给 &#x2F;dev&#x2F;null</p>
+</li>
+<li><p>databases：设置数据库的<strong>数量</strong>，默认数据库为0，可以使用<strong>SELECT</strong> 命令在连接上<u>指定数据库id</u></p>
+</li>
+<li><p>dbfilename：指定本地数据库文件名，默认值为 <strong><u><em>dump.rdb</em></u></strong></p>
+</li>
+<li><p>requirepass：设置 Redis 连接密码，如果配置了连接密码，客户端在连接 Redis 时需要通过 AUTH <password> 命令提供密码，默认关闭</password></p>
+</li>
+<li><p>maxclients：设置同一时间最大客户端连接数，默认无限制。<u>Redis 可以同时打开的客户端连接数为 Redis 进程可以打开的<strong>最大文件描述符数</strong></u>，如果设置 maxclients 0，表示不作限制。当客户端连接数到达限制时，Redis 会<strong>关闭新的连接并向客户端返回 max number of clients reached 错误信息</strong></p>
+</li>
+<li><p>太多了要用再自己看</p>
+</li>
+</ul>
+<p><strong>在配置密码时，要把密码配的复杂一点，在公网访问 redis,  因为 redis 的处理速度非常快，所以如果你的密码比较简单，很容易就会通过暴力破解破解出密码</strong></p>
+<h4 id="守护进程"><a href="#守护进程" class="headerlink" title="守护进程"></a>守护进程</h4><p>守护进程（Daemon Process），也就是通常说的 <strong>Daemon 进程（精灵进程）</strong>，是 Linux 中的后台服务进程。它是一个<u>生存期较长</u>的进程，通常<u>独立于控制终端</u>并且周期性地执行某种任务或等待处理某些发生的事件。</p>
+<p>守护进程是个特殊的孤儿进程，这种进程<strong>脱离终端</strong>，为什么要脱离终端呢？之所以脱离于终端是为了<strong>避免进程被任何终端所产生的信息所打断</strong>，其在执行过程中的信息也不在任何终端上显示。由于在 linux 中，每一个系统与用户进行交流的界面称为终端，<u>每一个从此终端开始运行的进程都会依附于这个终端，这个终端就称为这些进程的控制终端，当控制终端被关闭时，相应的进程都会自动关闭</u>。</p>
+<p>从终端开始的进程会随着终端被关闭而被关闭，所以守护进程不能依附于终端。</p>
+<h4 id="配置外网可访问"><a href="#配置外网可访问" class="headerlink" title="配置外网可访问"></a>配置外网可访问</h4><p>由于 redis 采用的安全策略，默认会只准许本地访问。所以要开放所有端口号</p>
+<p>修改 redis 的配置文件，将所有 bind 信息全部屏蔽。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># bind 192.168.1.100 10.0.0.1 </span><br><span class="line"># bind 192.168.1.8 </span><br><span class="line"># bind 127.0.0.1</span><br></pre></td></tr></table></figure>
+
+<p>修改完成后，需要重新启动 redis 服务。</p>
+<p>修改 Linux 的防火墙(iptables)，开启你的 redis 服务端口，默认是 6379。</p>
+<p><strong><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/w3cnote/redis-external-network.html">详情<i class="fas fa-external-link-alt"></i></a></strong></p>
+<p>（那既然是windows移植版本，就暂且不考虑这部分内容）</p>
+<h3 id="Redis数据类型"><a href="#Redis数据类型" class="headerlink" title="Redis数据类型"></a>Redis数据类型</h3><p>Redis支持五种数据类型：string（字符串），hash（哈希），list（列表），set（集合）及zset(sorted set：有序集合)。</p>
+<h4 id="string"><a href="#string" class="headerlink" title="string"></a>string</h4><p>string 是 redis <strong>最基本</strong>的类型，你可以理解成与 Memcached 一模一样的类型，<strong>一个 key 对应一个 value</strong>。</p>
+<p>string 类型是<strong>二进制安全</strong>的。意思是 redis 的 string 可以<strong>包含任何数据</strong>。比如jpg<strong>图片或者序列化的对象</strong>。</p>
+<p>string 类型是 Redis 最基本的数据类型，string 类型的值<strong>最大能存储 512MB</strong>。</p>
+<p><strong>可以使用SET和GET命令来写入和读取键值对</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">redis 127.0.0.1:6379&gt; SET runoob &quot;菜鸟教程&quot;</span><br></pre></td></tr></table></figure>
+
+<p>可以通过**<code>DEL key命令</code>**，删除指定的键值对</p>
+<h4 id="Hash"><a href="#Hash" class="headerlink" title="Hash"></a>Hash</h4><p>Redis hash 是一个<strong>键值(key&#x3D;&gt;value)对集合</strong>。</p>
+<p>Redis hash 是一个 <strong>string 类型的 field 和 value 的映射表，hash 特别适合用于存储对象</strong>。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">redis 127.0.0.1:6379&gt; HMSET runoob field1 &quot;Hello&quot; field2 &quot;World&quot;</span><br><span class="line">&quot;OK&quot;</span><br><span class="line">redis 127.0.0.1:6379&gt; HGET runoob field1</span><br><span class="line">&quot;Hello&quot;</span><br><span class="line">redis 127.0.0.1:6379&gt; HGET runoob field2</span><br><span class="line">&quot;World&quot;</span><br></pre></td></tr></table></figure>
+
+<p><strong>HMSET命令来创建Hash，HGET来读取Hash</strong></p>
+<p>每个 hash 可以存储 232 -1 键值对（40多亿）。</p>
+<h4 id="List"><a href="#List" class="headerlink" title="List"></a>List</h4><p>Redis 列表是<strong>简单的字符串列表</strong>，<u><em>按照插入顺序排序</em></u>。你可以添加一个元素到列表的<strong>头部（左边）或者尾部（右边）</strong>。</p>
+<p>添加元素使用命令：<code>lpush</code>，默认会将元素添加到头部，然后读取的时候也是先从头部开始读取。（<u>有点像栈</u>）</p>
+<ul>
+<li>相应的，从尾部开始添加元素用<code>rpush</code></li>
+<li>添加元素会得到<strong>返回值</strong>，对应的是列表的**<u><em>长度</em></u>**</li>
+</ul>
+<p>读取元素：<code>lrange</code>，需要指定起始位置和结束位置（从0开始，也就是从左边开始）</p>
+<p>列表最多可存储 232 - 1 元素 (4294967295, 每个列表可存储40多亿)。</p>
+<h4 id="Set（集合）"><a href="#Set（集合）" class="headerlink" title="Set（集合）"></a>Set（集合）</h4><p>Redis 的 Set 是 <strong>string</strong> 类型（<u>非键值对</u>）的<strong>无序集合</strong>。</p>
+<p>集合是通过<strong>哈希表</strong>实现的，所以添加，删除，查找的复杂度都是 **O(1)**。</p>
+<p>添加元素：</p>
+<ul>
+<li>使用<code>sadd</code>命令，可以一次性添加多个元素，会返回这次<u>成功添加的元素的个数</u></li>
+<li>元素的顺序确实偏向于<strong>无序存储</strong>。</li>
+<li>不会向集合中添加重复的元素。（添加失败）</li>
+</ul>
+<p>集合中最大的成员数为 232 - 1(4294967295, 每个集合可存储<strong>40多亿</strong>个成员)。</p>
+<p><strong>常用命令</strong>：</p>
+<table>
+<thead>
+<tr>
+<th align="center">命令</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">sadd</td>
+<td align="center">向set中添加元素</td>
+</tr>
+<tr>
+<td align="center">scard</td>
+<td align="center">返回set的大小</td>
+</tr>
+</tbody></table>
+<p><img src="/redis/image-20220502201651950.png" alt="image-20220502201651950.png"></p>
+<h4 id="zset-sorted-set：有序集合"><a href="#zset-sorted-set：有序集合" class="headerlink" title="zset(sorted set：有序集合)"></a>zset(sorted set：有序集合)</h4><p>Redis zset 和 set 一样也是<strong>string类型元素（非键值对）</strong>的集合,且不允许重复的成员。</p>
+<p>不同的是每个元素都会关联一个<strong>double类型的分数</strong>。redis正是通过分数来为集合中的成员进行从小到大的排序。</p>
+<p>zset的成员是唯一的,但<strong>分数(score)却可以重复</strong>。</p>
+<p><strong>添加元素</strong>：</p>
+<ul>
+<li><p><code>zadd</code>命令</p>
+</li>
+<li><p>在添加时需要给定元素的score，可以借此更改元素的score</p>
+</li>
+<li><p>不允许有重复元素，但可以有重复分数</p>
+</li>
+<li><p>通过<code>zrangebyscore</code>来查看所有数据</p>
+</li>
+</ul>
+<h4 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h4><table>
+<thead>
+<tr>
+<th align="left">类型</th>
+<th align="left">简介</th>
+<th align="left">特性</th>
+<th align="left">场景</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">String(字符串)</td>
+<td align="left">二进制安全</td>
+<td align="left">可以包含任何数据,比如jpg图片或者序列化的对象,一个键最大能存储512M</td>
+<td align="left">—</td>
+</tr>
+<tr>
+<td align="left">Hash(字典)</td>
+<td align="left">键值对集合,即编程语言中的Map类型</td>
+<td align="left">适合存储对象,并且可以像数据库中update一个属性一样只修改某一项属性值(Memcached中需要取出整个字符串反序列化成对象修改完再序列化存回去)</td>
+<td align="left">存储、读取、修改用户属性</td>
+</tr>
+<tr>
+<td align="left">List(列表)</td>
+<td align="left">链表(双向链表)</td>
+<td align="left">增删快,提供了操作某一段元素的API</td>
+<td align="left">1,最新消息排行等功能(比如朋友圈的时间线) 2,消息队列</td>
+</tr>
+<tr>
+<td align="left">Set(集合)</td>
+<td align="left">哈希表实现,元素不重复</td>
+<td align="left">1、添加、删除,查找的复杂度都是O(1) 2、为集合提供了求交集、并集、差集等操作</td>
+<td align="left">1、共同好友 2、利用唯一性,统计访问网站的所有独立ip 3、好友推荐时,根据tag求交集,大于某个阈值就可以推荐</td>
+</tr>
+<tr>
+<td align="left">Sorted Set(有序集合)</td>
+<td align="left">将Set中的元素增加一个权重参数score,元素按score有序排列</td>
+<td align="left">数据插入集合时,已经进行天然排序</td>
+<td align="left">1、排行榜 2、带权重的消息队</td>
+</tr>
+</tbody></table>
+<h3 id="注意："><a href="#注意：" class="headerlink" title="注意："></a>注意：</h3><p>Redis支持多个数据库，并且每个数据库的数据是隔离的不能共享，并且<strong>基于单机才有</strong>，如果是<u>集群就没有数据库的概念</u>。</p>
+<p>Redis是一个<strong>字典结构的存储服务器</strong>，而实际上一个Redis实例<strong>提供了多个用来存储数据的字典</strong>，客户端可以<strong>指定将数据存储在哪个字典中</strong>。这与我们熟知的<u>在一个关系数据库实例中可以创建多个数据库类似</u>，所以可以将其中的<strong>每个字典都理解成一个独立的数据库</strong>。</p>
+<p>每个数据库对外都是一个<strong>从0开始</strong>的递增数字命名，Redis<strong>默认支持16个数据库</strong>（可以通过配置文件支持更多，无上限），可以通过配置databases来修改这一数字。客户端与Redis建立连接后会<strong>自动选择0号数据库</strong>，不过可以随时<strong>使用SELECT命令更换数据库</strong>，如要选择1号数据库：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">redis&gt; SELECT 1</span><br><span class="line">OK</span><br><span class="line">redis [1] &gt; GET foo</span><br><span class="line">(nil)</span><br></pre></td></tr></table></figure>
+
+<p>然而这些以数字命名的数据库又与我们理解的数据库有所区别。首先<strong>Redis不支持自定义数据库的名字，每个数据库都以编号命名</strong>，开发者必须自己记录哪些数据库存储了哪些数据。另外Redis也<strong>不支持为每个数据库设置不同的访问密码</strong>，所以一个客户端要么可以访问全部数据库，要么连一个数据库也没有权限访问。最重要的一点是<strong>多个数据库之间并不是完全隔离的</strong>，比如<strong>FLUSHALL命令可以清空一个Redis实例中所有数据库中的数据</strong>。综上所述，这些数据库更像是一种命名空间，而不适宜存储不同应用程序的数据。比如可以使用0号数据库存储某个应用生产环境中的数据，使用1号数据库存储测试环境中的数据，但不适宜使用0号数据库存储A应用的数据而使用1号数据库B应用的数据，<strong>不同的应用应该使用不同的Redis实例存储数据</strong>。由于Redis非常轻量级，一<strong>个空Redis实例占用的内存只有1M左右，所以不用担心多个Redis实例会额外占用很多内存</strong>。</p>
+<h2 id="redis命令"><a href="#redis命令" class="headerlink" title="redis命令"></a>redis命令</h2><p>测试是否正常连接到数据库：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; ping</span><br><span class="line">PONG</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>远程连接</strong>：（服务器端命令行？）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$redis-cli -h 127.0.0.1 -p 6379 -a &quot;mypass&quot;</span><br><span class="line">redis 127.0.0.1:6379&gt;</span><br><span class="line">redis 127.0.0.1:6379&gt; PING</span><br><span class="line">PONG</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h3><h4 id="键Key"><a href="#键Key" class="headerlink" title="键Key"></a>键Key</h4><p>Redis 键命令用于管理 redis 的键。</p>
+<p>基本语法：redis 127.0.0.1:6379&gt; COMMAND <strong>KEY_NAME</strong></p>
+<p>与键相关基本命令：</p>
+<ol>
+<li><strong>del key</strong>——该命令用于在 key 存在时删除 key。</li>
+<li><strong>dump key</strong>——序列化给定 key ，并返回被序列化的值。</li>
+<li><strong>exist key</strong>——检查给定 key 是否存在。</li>
+<li><strong>EXPIRE key seconds</strong>——为给定 key 设置过期时间，以秒计。</li>
+<li><strong>EXPIREAT key timestamp</strong>——EXPIREAT 的作用和 EXPIRE 类似，都用于为 key 设置过期时间。 不同在于 EXPIREAT 命令接受的时间参数是 UNIX 时间戳(unix timestamp)。</li>
+<li><strong>PEXPIRE key milliseconds</strong>——设置 key 的过期时间以毫秒计。</li>
+<li><strong>MOVE key db</strong>—— 将当前数据库的 key 移动到给定的数据库 db 当中</li>
+<li><strong>PERSIST key</strong>——移除 key 的过期时间，key 将持久保持。</li>
+<li><strong>RANDOMKEY</strong>—— 从当前数据库中随机返回一个 key 。</li>
+<li><strong>RENAME key newkey</strong>——修改 key 的名称</li>
+<li><strong>TYPE key</strong> ——返回 key 所储存的值的类型。</li>
+</ol>
+<p>好多命令都和过期时间有关，<a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/redis-keys.html">详见<i class="fas fa-external-link-alt"></i></a></p>
+<h4 id="字符串string"><a href="#字符串string" class="headerlink" title="字符串string"></a>字符串string</h4><ol>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/strings-set.html"> SET key value<i class="fas fa-external-link-alt"></i></a> 设置指定 key 的值。</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/strings-get.html">GET key<i class="fas fa-external-link-alt"></i></a>获取指定 key 的值。</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/strings-getrange.html"> GETRANGE key start end<i class="fas fa-external-link-alt"></i></a> 返回 key 中字符串值的子字符</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/strings-getset.html">GETSET key value<i class="fas fa-external-link-alt"></i></a>将给定 key 的值设为 value ，并返回 key 的旧值(old value)。</li>
+<li>MGET [key1 key2..] 获取所有(一个或多个)给定 key 的值。</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/strings-setex.html"> SETEX key seconds value<i class="fas fa-external-link-alt"></i></a> 将值 value 关联到 key ，并将 key 的过期时间设为 seconds (以秒为单位)。</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/strings-setnx.html">SETNX key value<i class="fas fa-external-link-alt"></i></a>只有在 key 不存在时设置 key 的值。</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/strings-strlen.html"> STRLEN key<i class="fas fa-external-link-alt"></i></a> 返回 key 所储存的字符串值的长度。</li>
+<li>MSET [key value key value …]同时设置一个或多个 key-value 对。</li>
+<li>MSETNX [key value <a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/strings-msetnx.html">key value …]<i class="fas fa-external-link-alt"></i></a> 同时设置一个或多个 key-value 对，当且仅当所有给定 key 都不存在。</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/strings-incr.html"> INCR key<i class="fas fa-external-link-alt"></i></a> 将 key 中储存的数字值增一。</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/strings-incrby.html">INCRBY key increment<i class="fas fa-external-link-alt"></i></a>将 key 所储存的值加上给定的增量值（increment） 。</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/strings-incrbyfloat.html"> INCRBYFLOAT key increment<i class="fas fa-external-link-alt"></i></a> 将 key 所储存的值加上给定的浮点增量值（increment） 。</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/strings-decr.html"> DECR key<i class="fas fa-external-link-alt"></i></a> 将 key 中储存的数字值减一。</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/strings-decrby.html"> DECRBY key decrement<i class="fas fa-external-link-alt"></i></a> key 所储存的值减去给定的减量值（decrement） 。</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/strings-append.html">APPEND key value<i class="fas fa-external-link-alt"></i></a>如果 key 已经存在并且是一个字符串， APPEND 命令将指定的 value 追加到该 key 原来值（value）的末尾。</li>
+</ol>
+<p><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/redis-strings.html">部分未列出详见<i class="fas fa-external-link-alt"></i></a></p>
+<h4 id="哈希Hash"><a href="#哈希Hash" class="headerlink" title="哈希Hash"></a>哈希Hash</h4><p>对于hash，可以把key理解为map的名字</p>
+<p>把filed理解为map中键值对的键，value响应的就是键值对的值。</p>
+<ol>
+<li>hmset key 设置键     hget key 获得响应键的值</li>
+<li>HDEL key field1 [<a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/hashes-hdel.html">field2]<i class="fas fa-external-link-alt"></i></a> 删除一个或多个哈希表字段</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/hashes-hexists.html"> HEXISTS key field<i class="fas fa-external-link-alt"></i></a> 查看哈希表 key 中，指定的字段是否存在。</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/hashes-hget.html"> HGET key field<i class="fas fa-external-link-alt"></i></a> 获取存储在哈希表中指定字段的值。</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/hashes-hgetall.html">HGETALL key<i class="fas fa-external-link-alt"></i></a>获取在哈希表中指定 key 的所有字段和值</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/hashes-hincrby.html"> HINCRBY key field increment<i class="fas fa-external-link-alt"></i></a> 为哈希表 key 中的指定字段的整数值加上增量 increment 。</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/hashes-hincrbyfloat.html"> HINCRBYFLOAT key field increment<i class="fas fa-external-link-alt"></i></a> 为哈希表 key 中的指定字段的浮点数值加上增量 increment 。</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/hashes-hkeys.html"> HKEYS key<i class="fas fa-external-link-alt"></i></a> 获取所有哈希表中的字段（<strong>不包括值</strong>）</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/hashes-hlen.html">HLEN key<i class="fas fa-external-link-alt"></i></a>获取哈希表中<strong>字段的数量</strong></li>
+<li>HMGET key [field1 <a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/hashes-hmget.html">field2]<i class="fas fa-external-link-alt"></i></a> 获取所有给定字段的值</li>
+<li>HMSET key [field1 value1 <a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/hashes-hmset.html">field2 value2 ]<i class="fas fa-external-link-alt"></i></a>同时将多个 field-value (域-值)对设置（添加）到哈希表 key 中。</li>
+<li><a target="_blank" rel="noopener" href="https://www.runoob.com/redis/hashes-hset.html"> <strong>HSET key field value</strong></a> 将哈希表 key 中的字段 field 的值设为 value 。</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/hashes-hsetnx.html"> HSETNX key field value<i class="fas fa-external-link-alt"></i></a> 只有在<strong>字段 field 不存在时</strong>，设置（添加）哈希表字段的值。</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/hashes-hvals.html">HVALS key<i class="fas fa-external-link-alt"></i></a>获取哈希表中<strong>所有值</strong>。</li>
+<li>[HSCAN key cursor <a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/hashes-hscan.html">MATCH pattern] [COUNT count]<i class="fas fa-external-link-alt"></i></a><strong>迭代</strong>哈希表中的键值对。</li>
+</ol>
+<h4 id="列表list"><a href="#列表list" class="headerlink" title="列表list"></a>列表list</h4><ol>
+<li><p><strong>BLPOP</strong> key1[<a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/lists-blpop.html">key2 ] timeout<i class="fas fa-external-link-alt"></i></a><br><strong>移出并获取列表的第一个元素</strong>， 如果列表没有元素会阻塞列表直到等待超时或发现可弹出元素为止。</p>
+</li>
+<li><p>[BRPOP key1 <a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/lists-brpop.html">key2 ] timeout<i class="fas fa-external-link-alt"></i></a><br><strong>移出并获取列表的最后一个元素</strong>， 如果列表没有元素会阻塞列表直到等待超时或发现可弹出元素为止。</p>
+</li>
+<li><p><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/lists-brpoplpush.html">BRPOPLPUSH source destination timeout<i class="fas fa-external-link-alt"></i></a><br>从列表中弹出一个值，将弹出的元素左插入到另外一个列表中并返回它； 如果列表没有元素会阻塞列表直到等待超时或发现可弹出元素为止。</p>
+</li>
+<li><p><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/lists-lindex.html">LINDEX key index<i class="fas fa-external-link-alt"></i></a><br>通过索引获取列表中的元素</p>
+</li>
+<li><p><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/lists-linsert.html">LINSERT key BEFORE|AFTER pivot value<i class="fas fa-external-link-alt"></i></a><br>在列表的元素前或者后插入元素</p>
+</li>
+<li><p><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/lists-llen.html"> LLEN key<i class="fas fa-external-link-alt"></i></a> 获取列表长度</p>
+</li>
+<li><p><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/lists-lpop.html"> LPOP key<i class="fas fa-external-link-alt"></i></a> 移出并获取列表的第一个元素</p>
+</li>
+<li><p>[ LPUSH key value1 <a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/lists-lpush.html">value2]<i class="fas fa-external-link-alt"></i></a> 将一个或多个值（<strong>左</strong>）插入到列表头部</p>
+</li>
+<li><p><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/lists-lpushx.html">LPUSHX key value<i class="fas fa-external-link-alt"></i></a>将一个值插入到已存在的列表头部（？）</p>
+</li>
+<li><p><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/lists-lrange.html"> LRANGE key start stop<i class="fas fa-external-link-alt"></i></a> 获取列表指定范围内的元素</p>
+</li>
+<li><p><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/lists-lrem.html"> LREM key count value<i class="fas fa-external-link-alt"></i></a> 移除列表元素（count？？？）</p>
+</li>
+<li><p><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/lists-lset.html"> LSET key index value<i class="fas fa-external-link-alt"></i></a> 通过<strong>索引</strong>设置列表元素的值</p>
+</li>
+<li><p><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/lists-ltrim.html">LTRIM key start stop<i class="fas fa-external-link-alt"></i></a>对一个列表进行修剪(trim)，就是说，让列表只<strong>保留指定区间内</strong>的元素，不在指定区间之内的元素都将被删除。</p>
+</li>
+<li><p><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/lists-rpop.html"> RPOP key<i class="fas fa-external-link-alt"></i></a> 移除列表的<strong>最后一个元</strong>素，返回值为移除的元素。</p>
+</li>
+<li><p><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/lists-rpoplpush.html">RPOPLPUSH source destination<i class="fas fa-external-link-alt"></i></a>移除列表的最后一个元素，并将该元素<u>添加到另一个列表</u>并返回</p>
+</li>
+<li><p>[ RPUSH key value1 <a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/lists-rpush.html">value2]<i class="fas fa-external-link-alt"></i></a> 在列表中（<strong>右</strong>）添加一个或多个值</p>
+</li>
+<li><p><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/lists-rpushx.html"> RPUSHX key value<i class="fas fa-external-link-alt"></i></a> 为<strong>已存在的列表</strong>添加值</p>
+</li>
+</ol>
+<h4 id="集合Set"><a href="#集合Set" class="headerlink" title="集合Set"></a>集合Set</h4><ol>
+<li>[ SADD key member1 <a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/sets-sadd.html">member2]<i class="fas fa-external-link-alt"></i></a> 向集合添加一个或多个成员</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/sets-scard.html">SCARD key<i class="fas fa-external-link-alt"></i></a>获取集合的成员数</li>
+<li>[ SDIFF key1 <a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/sets-sdiff.html">key2]<i class="fas fa-external-link-alt"></i></a> 返回第一个集合与其他<strong>集合之间</strong>的差异。</li>
+<li>[SDIFF<strong>STORE</strong> destination key1 <a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/sets-sdiffstore.html">key2]<i class="fas fa-external-link-alt"></i></a>返回给定所有集合的<strong>差集</strong>并<strong>存储在 destination 中</strong></li>
+<li>[SINTER key1 <a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/sets-sinter.html">key2]<i class="fas fa-external-link-alt"></i></a>返回给定所有集合的<strong>交集</strong></li>
+<li>[SINTER<strong>STORE</strong> destination key1 <a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/sets-sinterstore.html">key2]<i class="fas fa-external-link-alt"></i></a>返回给定所有集合的<strong>交集</strong>并存储在 destination 中</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/sets-sismember.html"> SISMEMBER key member<i class="fas fa-external-link-alt"></i></a> 判断 member 元素是否是集合 key 的成员</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/sets-smembers.html"> SMEMBERS key<i class="fas fa-external-link-alt"></i></a> 返回集合中的所有成员</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/sets-smove.html"> SMOVE source destination member<i class="fas fa-external-link-alt"></i></a> 将 member 元素从 source 集合移动到 destination 集合</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/sets-spop.html"> SPOP key<i class="fas fa-external-link-alt"></i></a> 移除并返回集合中的一个<strong>随机</strong>元素</li>
+<li>[SRANDMEMBER key <a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/sets-srandmember.html">count]<i class="fas fa-external-link-alt"></i></a>返回集合中一个或多个随机数(<u><strong>count</strong>???</u>)</li>
+<li>[SREM key member1 <a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/sets-srem.html">member2]<i class="fas fa-external-link-alt"></i></a>移除集合中一个或多个成员</li>
+<li>[ SUNION key1 <a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/sets-sunion.html">key2]<i class="fas fa-external-link-alt"></i></a> 返回<strong>所有给定集合的并集</strong></li>
+<li>[ SUNION<strong>STORE</strong> destination key1 <a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/sets-sunionstore.html">key2]<i class="fas fa-external-link-alt"></i></a> 所有给定集合的并集存储在 destination 集合中</li>
+<li>[ SSCAN key cursor <a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/sets-sscan.html">MATCH pattern] [COUNT count]<i class="fas fa-external-link-alt"></i></a> <strong>迭代</strong>集合中的元素</li>
+</ol>
+<h4 id="有序集合zset"><a href="#有序集合zset" class="headerlink" title="有序集合zset"></a>有序集合zset</h4><ol>
+<li><p>[ ZADD key score1 member1 <a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/sorted-sets-zadd.html">score2 member2]<i class="fas fa-external-link-alt"></i></a> 向有序集合<strong>添加</strong>一个或多个成员，<strong>或更新</strong>已存在成员的分数</p>
+</li>
+<li><p><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/sorted-sets-zcard.html"> ZCARD key<i class="fas fa-external-link-alt"></i></a> 获取有序集合的成员数</p>
+</li>
+<li><p><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/sorted-sets-zcount.html">ZCOUNT key min max<i class="fas fa-external-link-alt"></i></a>计算在有序集合中<strong>指定区间分数</strong>的<u>成员数</u></p>
+</li>
+<li><p><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/sorted-sets-zincrby.html">ZINCRBY key increment member<i class="fas fa-external-link-alt"></i></a>有序集合中对指定成员的<strong>分数加上增量</strong> increment</p>
+</li>
+<li><p>[ZINTERSTORE destination numkeys key <a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/sorted-sets-zinterstore.html">key …]<i class="fas fa-external-link-alt"></i></a><br>计算给定的一个或多个有序集的交集并将结果集存储在新的有序集合 destination 中</p>
+</li>
+<li><p><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/sorted-sets-zlexcount.html">ZLEXCOUNT key min max<i class="fas fa-external-link-alt"></i></a>在有序集合中计算指定字典区间内成员数量（？）</p>
+</li>
+<li><p>[ ZRANGE key start stop <a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/sorted-sets-zrange.html">WITHSCORES]<i class="fas fa-external-link-alt"></i></a> 通过索引区间返回有序集合<strong>指定区间内</strong>的成员</p>
+</li>
+<li><p>[ZRANGEBYLEX key min max <a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/sorted-sets-zrangebylex.html">LIMIT offset count]<i class="fas fa-external-link-alt"></i></a>通过字典区间返回有序集合的成员</p>
+</li>
+<li><p>[ZRANGEBYSCORE key min max <a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/sorted-sets-zrangebyscore.html">WITHSCORES] [LIMIT]<i class="fas fa-external-link-alt"></i></a>通过<strong>分数</strong>返回有序集合指定区间内的<u>成员</u></p>
+</li>
+<li><p><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/sorted-sets-zrank.html">ZRANK key member<i class="fas fa-external-link-alt"></i></a>返回有序集合中<strong>指定成员的索引</strong></p>
+</li>
+<li><p>[ZREM key member <a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/sorted-sets-zrem.html">member …]<i class="fas fa-external-link-alt"></i></a>移除有序集合中的一个或多个成员</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.runoob.com/redis/sorted-sets-zremrangebylex.html">ZREMRANGEBY<strong>LEX</strong> key min max</a>移除有序集合中给定的<strong>字典区间</strong>的所有成员</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.runoob.com/redis/sorted-sets-zremrangebyrank.html">ZREMRANGEBY<strong>RANK</strong> key start stop</a>移除有序集合中给定的<strong>排名区间</strong>的所有成员</p>
+</li>
+<li><p><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/sorted-sets-zremrangebyscore.html">ZREMRANGEBYSCORE key min max<i class="fas fa-external-link-alt"></i></a>移除有序集合中给定的<strong>分数区间</strong>的所有成员</p>
+</li>
+<li><p>[ZREVRANGE key start stop <a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/sorted-sets-zrevrange.html">WITHSCORES]<i class="fas fa-external-link-alt"></i></a>返回有序集中指定区间内的成员，<strong>通过索引</strong>，<u>分数从高到低</u></p>
+</li>
+<li><p>[ZREVRANGEBYSCORE key max min <a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/sorted-sets-zrevrangebyscore.html">WITHSCORES]<i class="fas fa-external-link-alt"></i></a><br>返回有序集中指定分数区间内的成员，分数从高到低排序</p>
+</li>
+<li><p><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/sorted-sets-zrevrank.html">ZREVRANK key member<i class="fas fa-external-link-alt"></i></a><br>返回有序集合中指定<strong>成员的排名</strong>，有序集成员<strong>按分数值递减(从大到小)排序</strong></p>
+</li>
+<li><p><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/sorted-sets-zscore.html">ZSCORE key member<i class="fas fa-external-link-alt"></i></a>返回有序集中，成员的分数值</p>
+</li>
+<li><p>[ ZUNIONSTORE destination numkeys key <a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/sorted-sets-zunionstore.html">key …]<i class="fas fa-external-link-alt"></i></a> </p>
+<p>计算给定的一个或多个有序集的<strong>并集</strong>，并<u>存储在新的 key 中</u></p>
+</li>
+<li><p>[ZSCAN key cursor <a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/sorted-sets-zscan.html">MATCH pattern] [COUNT count]<i class="fas fa-external-link-alt"></i></a><br><strong>迭代</strong>有序集合中的元素（包括元素成员和元素分值）</p>
+</li>
+</ol>
+<p><strong>注意</strong>：</p>
+<p>在redis sorted sets里面当items<strong>内容大于64</strong>的时候同时使用了<strong>hash和skiplist</strong>两种设计实现。这也会为了排序和查找性能做的优化。所以如上可知： </p>
+<p>添加和删除都需要修改skiplist，所以复杂度为O(log(n))。 </p>
+<p>但是如果仅仅是查找元素的话可以直接使用hash，其复杂度为O(1) </p>
+<p>其他的range操作复杂度一般为O(log(n))</p>
+<p>当然如果是小于64的时候，因为是采用了ziplist的设计，其时间复杂度为O(n)</p>
+<h3 id="HyperLogLog"><a href="#HyperLogLog" class="headerlink" title="HyperLogLog"></a>HyperLogLog</h3><p>Redis HyperLogLog 是用来做<u><strong>基数统计</strong></u>的算法，HyperLogLog 的优点是，在输入元素的数量或者体积非常非常大时，计算基数<strong>所需的空间总是固定 的、并且是很小的</strong>。</p>
+<p>在 Redis 里面，每个 HyperLogLog 键只需要花费 <strong>12 KB 内存</strong>，就可以计算接近 2^64 个不同元素的基 数。这和计算基数时，元素越多耗费内存就越多的集合形成鲜明对比。</p>
+<p>但是，因为 HyperLogLog 只会根据输入元素来计算基数，而<strong>不会储存输入元素本身</strong>，所以 HyperLogLog 不能像集合那样，返回输入的各个元素。</p>
+<h4 id="什么是基数"><a href="#什么是基数" class="headerlink" title="什么是基数?"></a>什么是基数?</h4><p>比如数据集 {1, 3, 5, 7, 5, 7, 8}， 那么这个数据集的基数集为 {1, 3, 5 ,7, 8}, 基数(不重复元素)为5。 基数估计就是在误差可接受的范围内，快速计算基数。（<u>distinct元素个数</u>）</p>
+<h4 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h4><ol>
+<li>[PFADD key element <a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/hyperloglog-pfadd.html">element …]<i class="fas fa-external-link-alt"></i></a>添加指定元素到 HyperLogLog 中。</li>
+<li>[PFCOUNT key <a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/hyperloglog-pfcount.html">key …]<i class="fas fa-external-link-alt"></i></a>返回给定 HyperLogLog 的基数估算值。（<u>统计基数</u>）</li>
+<li>[PFMERGE destkey sourcekey <a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/hyperloglog-pfmerge.html">sourcekey …]<i class="fas fa-external-link-alt"></i></a>将多个 HyperLogLog 合并为一个 HyperLogLog</li>
+</ol>
+<h3 id="发布订阅"><a href="#发布订阅" class="headerlink" title="发布订阅"></a>发布订阅</h3><p>Redis 发布订阅 (pub&#x2F;sub) 是一种<strong>消息通信模式</strong>：发送者 (pub) 发送消息，订阅者 (sub) 接收消息。</p>
+<p>Redis <strong>客户端可以订阅任意数量的频道</strong>。</p>
+<p>订阅者和频道的关系：</p>
+<p><img src="https://www.runoob.com/wp-content/uploads/2014/11/pubsub1.png" alt="img"></p>
+<p>当有新消息通过 PUBLISH 命令发送给频道 channel1 时， 这个消息就会被发送给订阅它的三个客户端：</p>
+<p><img src="https://www.runoob.com/wp-content/uploads/2014/11/pubsub2.png" alt="img"></p>
+<h4 id="实例："><a href="#实例：" class="headerlink" title="实例："></a>实例：</h4><ol>
+<li><p>开启一个client，（创建并）连接到一个频道：</p>
+<p><img src="/redis/image-20220503134453831.png" alt="image-20220503134453831"></p>
+</li>
+<li><p>再开启一个client，（连接并）向频道发送信息</p>
+<p><img src="/redis/image-20220503134538193.png" alt="image-20220503134538193"></p>
+</li>
+<li><p>在第一个client中接收到消息</p>
+<p><img src="/redis/image-20220503134615836.png" alt="image-20220503134615836"></p>
+</li>
+</ol>
+<h4 id="常用命令-1"><a href="#常用命令-1" class="headerlink" title="常用命令"></a>常用命令</h4><ol>
+<li>[<strong>PSUBSCRIBE</strong> pattern <a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/pub-sub-psubscribe.html">pattern …]<i class="fas fa-external-link-alt"></i></a>订阅一个或多个符合给定模式的频道。</li>
+<li>[PUBSUB subcommand <a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/pub-sub-pubsub.html">argument [argument …]]<i class="fas fa-external-link-alt"></i></a>查看订阅与发布系统状态。</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/pub-sub-publish.html">PUBLISH channel message<i class="fas fa-external-link-alt"></i></a>将信息发送到指定的频道。</li>
+<li>[PUNSUBSCRIBE <a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/pub-sub-punsubscribe.html">pattern [pattern …]]<i class="fas fa-external-link-alt"></i></a><strong>退订</strong>所有给定模式的频道。</li>
+<li>[SUBSCRIBE channel <a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/pub-sub-subscribe.html">channel …]<i class="fas fa-external-link-alt"></i></a>订阅给定的一个或多个频道的信息。</li>
+<li>[UNSUBSCRIBE <a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/pub-sub-unsubscribe.html">channel [channel …]]<i class="fas fa-external-link-alt"></i></a>指<strong>退订</strong>给定的频道。</li>
+</ol>
+<h3 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h3><p>Redis 事务可以<strong>一次执行多个命令</strong>， 并且带有以下三个重要的保证：</p>
+<ul>
+<li>批量操作在发送 EXEC 命令前被放入队列缓存。</li>
+<li>收到 EXEC 命令后进入事务执行，<u>事务中任意命令执行失败，其余的命令依然被执行</u>。</li>
+<li>在事务执行过程，其他客户端提交的命令请求<u>不会插入到事务执行命令序列</u>中。</li>
+</ul>
+<p>一个事务从开始到执行会经历以下三个阶段：</p>
+<ul>
+<li>开始事务。</li>
+<li>命令入队。</li>
+<li>执行事务。</li>
+</ul>
+<h4 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h4><p><img src="/redis/image-20220503140231957.png" alt="image-20220503140231957"></p>
+<p>以 <strong>MULTI</strong> 开始一个事务， 然后将多个命令入队到事务中， 最后由 <strong>EXEC</strong> 命令触发事务， 一并执行事务中的所有命令。</p>
+<p>单<strong>个 Redis 命令的执行是原子性的</strong>，但 Redis 没有在事务上增加任何维持原子性的机制，所以 <strong>Redis 事务的执行<u>并不是原子性</u>的</strong>。</p>
+<p>事务可以理解为一个<strong>打包的批量执行脚本</strong>，但批量指令并非原子化的操作，<strong>中间某条指令的失败不会导致前面已做指令的回滚，也不会造成后续的指令不做</strong>。（允许失败）</p>
+<p><strong>Redis 官方文档对此给出的解释是：</strong></p>
+<ol>
+<li>Redis 操作失败的原因只可能是<strong>语法错误</strong>或者<strong>错误的数据库类型操作</strong>，这些都是在开发层面能发现的问题<strong>不会进入到生产环境，因此不需要回滚</strong>。</li>
+<li><u>Redis 内部设计推崇简单和高性能，因此不需要回滚能力。</u></li>
+</ol>
+<h4 id="常用命令-2"><a href="#常用命令-2" class="headerlink" title="常用命令"></a>常用命令</h4><ol>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/transactions-discard.html">DISCARD<i class="fas fa-external-link-alt"></i></a>取消事务，放弃执行事务块内的所有命令。（使用位置同exec）</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/transactions-exec.html">EXEC<i class="fas fa-external-link-alt"></i></a>执行所有事务块内的命令。</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/transactions-multi.html">MULTI<i class="fas fa-external-link-alt"></i></a>标记一个事务块的开始。</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/transactions-unwatch.html"> UNWATCH<i class="fas fa-external-link-alt"></i></a> 取消 <u>WATCH 命令对所有 key 的监视</u>。</li>
+<li>[WATCH key <a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/transactions-watch.html">key …]<i class="fas fa-external-link-alt"></i></a><br><strong><u>监视</u><strong>一个(或多个) key ，</strong>如果在事务执行之前这个(或这些) key 被其他命令所改动，那么事务将被打断</strong>。</li>
+</ol>
+<h3 id="脚本"><a href="#脚本" class="headerlink" title="脚本"></a>脚本</h3><p>Redis 脚本使用 <strong>Lua 解释器</strong>来执行脚本。 Redis 2.6 版本通过内嵌支持 Lua 环境。执行脚本的常用命令为 <strong>EVAL</strong>。</p>
+<p>eval的基本语法：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">EVAL script **numkeys** key [key ...] arg [arg ...]</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="示例-1"><a href="#示例-1" class="headerlink" title="示例"></a>示例</h4><p><img src="/redis/image-20220503141436819.png" alt="image-20220503141436819"></p>
+<p>注意：是<code>keys</code>和<code>argv</code></p>
+<h4 id="常用命令-3"><a href="#常用命令-3" class="headerlink" title="常用命令"></a>常用命令</h4><ol>
+<li>[EVAL script numkeys key <a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/scripting-eval.html">key …] arg [arg …]<i class="fas fa-external-link-alt"></i></a>执行 Lua 脚本。</li>
+<li>[EVAL<strong>SHA</strong> <em><strong>sha1</strong></em> numkeys key <a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/scripting-evalsha.html">key …] arg [arg …]<i class="fas fa-external-link-alt"></i></a>执行 Lua 脚本。</li>
+<li>[SCRIPT EXISTS script <a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/scripting-script-exists.html">script …]<i class="fas fa-external-link-alt"></i></a>查看指定的脚本<strong>是否已经被保存在缓存当中</strong>。</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/scripting-script-flush.html"> SCRIPT FLUSH<i class="fas fa-external-link-alt"></i></a> 从脚本<strong>缓存中移除</strong>所有脚本。</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/scripting-script-kill.html"> SCRIPT KILL<i class="fas fa-external-link-alt"></i></a> <strong>杀死</strong>当前正在运行的 Lua 脚本。</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/scripting-script-load.html">SCRIPT LOAD script<i class="fas fa-external-link-alt"></i></a>将<strong>脚本 script 添加到脚本缓存中</strong>，但<strong>并不立即执行</strong>这个脚本。</li>
+</ol>
+<h3 id="连接"><a href="#连接" class="headerlink" title="连接"></a>连接</h3><p>Redis 连接命令主要是<strong>用于连接 redis 服务</strong>。</p>
+<p><strong>常用命令</strong>：</p>
+<ol>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/connection-auth.html"> AUTH password<i class="fas fa-external-link-alt"></i></a> 验证密码是否正确</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/connection-echo.html">ECHO message<i class="fas fa-external-link-alt"></i></a>打印字符串</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/connection-ping.html">PING<i class="fas fa-external-link-alt"></i></a>查看服务是否运行</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/connection-quit.html">QUIT<i class="fas fa-external-link-alt"></i></a>关闭当前连接</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/connection-select.html">SELECT index<i class="fas fa-external-link-alt"></i></a>切换到指定的数据库</li>
+</ol>
+<h3 id="服务器"><a href="#服务器" class="headerlink" title="服务器"></a>服务器</h3><p>Redis 服务器命令主要是用于<strong>管理 redis 服务</strong>。</p>
+<h4 id="常用命令："><a href="#常用命令：" class="headerlink" title="常用命令："></a>常用命令：</h4><ol>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/server-bgrewriteaof.html"> BGREWRITEAOF<i class="fas fa-external-link-alt"></i></a> <strong>异步执行</strong>一个 AOF（AppendOnly File） 文件重写操作</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/server-bgsave.html">BGSAVE<i class="fas fa-external-link-alt"></i></a>在后台异步<strong>保存</strong>当前数据库的数据<strong>到磁盘</strong></li>
+<li>[CLIENT KILL <a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/server-client-kill.html">ip:port] [ID client-id]<i class="fas fa-external-link-alt"></i></a>关闭客户端连接</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/server-client-list.html"> CLIENT LIST<i class="fas fa-external-link-alt"></i></a> 获取连接到服务器的<strong>客户端连接列表</strong></li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/server-client-getname.html"> CLIENT GETNAME<i class="fas fa-external-link-alt"></i></a> 获取连接的名称</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/server-client-pause.html">CLIENT PAUSE timeout<i class="fas fa-external-link-alt"></i></a>在指定时间内终止运行来自客户端的命令</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/server-client-setname.html">CLIENT SETNAME connection-name<i class="fas fa-external-link-alt"></i></a>设置当前连接的名称</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/server-cluster-slots.html">CLUSTER SLOTS<i class="fas fa-external-link-alt"></i></a>获取集群节点的映射数组</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/server-command.html"> COMMAND<i class="fas fa-external-link-alt"></i></a> 获取 Redis 命令详情数组</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/server-command-count.html">COMMAND COUNT<i class="fas fa-external-link-alt"></i></a>获取 Redis 命令总数</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/server-command-getkeys.html"> COMMAND GETKEYS<i class="fas fa-external-link-alt"></i></a> 获取给定命令的所有键</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/server-time.html"> TIME<i class="fas fa-external-link-alt"></i></a> 返回当前服务器时间</li>
+<li>[COMMAND INFO command-name <a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/server-command-info.html">command-name …]<i class="fas fa-external-link-alt"></i></a>获取指定 Redis 命令描述的数组</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/server-config-get.html">CONFIG GET parameter<i class="fas fa-external-link-alt"></i></a>获取指定配置参数的值</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/server-config-rewrite.html">CONFIG REWRITE<i class="fas fa-external-link-alt"></i></a>对启动 Redis 服务器时所指定的 redis.conf 配置文件进行改写</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/server-config-set.html"> CONFIG SET parameter value<i class="fas fa-external-link-alt"></i></a> 修改 redis 配置参数，无需重启</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/server-config-resetstat.html"> CONFIG RESETSTAT<i class="fas fa-external-link-alt"></i></a> 重置 INFO 命令中的某些统计数据</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/server-dbsize.html"> DBSIZE<i class="fas fa-external-link-alt"></i></a> 返回当前数据库的 key 的数量</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/server-debug-object.html">DEBUG OBJECT key<i class="fas fa-external-link-alt"></i></a>获取 key 的调试信息</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/server-debug-segfault.html">DEBUG SEGFAULT<i class="fas fa-external-link-alt"></i></a>让 Redis <strong>服务崩溃</strong>？</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/server-flushall.html"> FLUSHALL<i class="fas fa-external-link-alt"></i></a> 删除<u>所有数据库</u>的所有key</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/server-flushdb.html">FLUSHDB<i class="fas fa-external-link-alt"></i></a>删除<u>当前数据库</u>的所有key</li>
+<li>[ INFO <a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/server-info.html">section]<i class="fas fa-external-link-alt"></i></a> 获取 Redis 服务器的各种信息和统计数值</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/server-lastsave.html">LASTSAVE<i class="fas fa-external-link-alt"></i></a>返回最近一次 Redis 成功将数据保存到磁盘上的时间，以 UNIX 时间戳格式表示</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/server-monitor.html"> MONITOR<i class="fas fa-external-link-alt"></i></a> 实时打印出 Redis 服务器接收到的命令，调试用</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/server-role.html">ROLE<i class="fas fa-external-link-alt"></i></a>返回<strong>主从实例所属的角色</strong></li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/server-save.html"> SAVE<i class="fas fa-external-link-alt"></i></a> <strong>同步保存数据到硬盘</strong></li>
+<li>[SHUTDOWN <a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/server-shutdown.html">NOSAVE] [SAVE]<i class="fas fa-external-link-alt"></i></a><strong>异步保存</strong>数据到硬盘，<strong>并关闭服务器</strong></li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/server-slaveof.html">SLAVEOF host port<i class="fas fa-external-link-alt"></i></a>将当前服务器转变为指定服务器的<strong>从属服务器</strong>(slave server)</li>
+<li>[SLOWLOG subcommand <a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/server-showlog.html">argument]<i class="fas fa-external-link-alt"></i></a>管理 redis 的<strong>慢日志</strong></li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/server-sync.html">SYNC<i class="fas fa-external-link-alt"></i></a>用于<strong>复制功能</strong>(replication)的内部命令</li>
+</ol>
+<h3 id="GEO"><a href="#GEO" class="headerlink" title="GEO"></a>GEO</h3><p>Redis GEO 主要用于<strong>存储地理位置信息</strong>，并对存储的信息进行操作，该功能在 Redis 3.2 版本新增。</p>
+<p>Redis GEO 操作方法有：</p>
+<ul>
+<li>geoadd：添加地理位置的坐标。</li>
+<li>geopos：获取地理位置的坐标。</li>
+<li>geodist：<u>计算两个位置之间的距离</u>。</li>
+<li><em>georadius</em>：根据用户给定的经纬度坐标来获取指定范围内的地理位置集合。</li>
+<li><em>georadiusbymember</em>：根据储存在位置集合里面的<strong>某个地点</strong>获取指定范围内的地理位置集合。</li>
+<li>geohash：返回一个或多个位置对象的 geohash 值。</li>
+</ul>
+<h4 id="geoadd"><a href="#geoadd" class="headerlink" title="geoadd"></a>geoadd</h4><p>geoadd 用于<strong>存储指定的地理空间位置</strong>，可以将一个或多个<strong>经度</strong>(longitude)、<strong>纬度</strong>(latitude)、<strong>位置名称</strong>(member)添加到指定的 key 中。</p>
+<p>geoadd 语法格式如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GEOADD key longitude latitude member [longitude latitude member ...]</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例</strong>：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">redis&gt; GEOADD Sicily 13.361389 38.115556 &quot;Palermo&quot; 15.087269 37.502669 &quot;Catania&quot;</span><br><span class="line">(integer) 2</span><br><span class="line">redis&gt; GEODIST Sicily Palermo Catania</span><br><span class="line">&quot;166274.1516&quot;</span><br><span class="line">redis&gt; GEORADIUS Sicily 15 37 100 km</span><br><span class="line">1) &quot;Catania&quot;</span><br><span class="line">redis&gt; GEORADIUS Sicily 15 37 200 km</span><br><span class="line">1) &quot;Palermo&quot;</span><br><span class="line">2) &quot;Catania&quot;</span><br><span class="line">redis&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="geopos"><a href="#geopos" class="headerlink" title="geopos"></a>geopos</h4><p>geopos 用于从给定的 key 里返回所有<strong>指定名称(member)的位置</strong>（经度和纬度），不存在的返回 nil。</p>
+<p>geopos 语法格式如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GEOPOS key member [member ...]</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例</strong>：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">redis&gt; GEOADD Sicily 13.361389 38.115556 &quot;Palermo&quot; 15.087269 37.502669 &quot;Catania&quot;</span><br><span class="line">(integer) 2</span><br><span class="line">redis&gt; GEOPOS Sicily Palermo Catania NonExisting</span><br><span class="line">1) 1) &quot;13.36138933897018433&quot;</span><br><span class="line">   2) &quot;38.11555639549629859&quot;</span><br><span class="line">2) 1) &quot;15.08726745843887329&quot;</span><br><span class="line">   2) &quot;37.50266842333162032&quot;</span><br><span class="line">3) (nil)</span><br><span class="line">redis&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="geodist"><a href="#geodist" class="headerlink" title="geodist"></a>geodist</h4><p>geodist 用于返回两个给定位置之间的距离。</p>
+<p>geodist 语法格式如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GEODIST key member1 member2 [m|km|ft|mi]</span><br></pre></td></tr></table></figure>
+
+<p>member1 member2 为两个地理位置。</p>
+<p>最后一个参数是距离单位：</p>
+<ul>
+<li>m ：米，默认单位。</li>
+<li>km ：千米。</li>
+<li>mi ：英里。</li>
+<li>ft ：英尺。</li>
+</ul>
+<p><strong>示例:</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">redis&gt; GEOADD Sicily 13.361389 38.115556 &quot;Palermo&quot; 15.087269 37.502669 &quot;Catania&quot;</span><br><span class="line">(integer) 2</span><br><span class="line">redis&gt; GEODIST Sicily Palermo Catania</span><br><span class="line">&quot;166274.1516&quot;</span><br><span class="line">redis&gt; GEODIST Sicily Palermo Catania km</span><br><span class="line">&quot;166.2742&quot;</span><br><span class="line">redis&gt; GEODIST Sicily Palermo Catania mi</span><br><span class="line">&quot;103.3182&quot;</span><br><span class="line">redis&gt; GEODIST Sicily Foo Bar</span><br><span class="line">(nil)</span><br><span class="line">redis&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="georadius、georadiusbymember"><a href="#georadius、georadiusbymember" class="headerlink" title="georadius、georadiusbymember"></a>georadius、georadiusbymember</h4><p>georadius 以<strong>给定的经纬度为中心</strong>， 返回键包含的位置元素当中， 与中心的距离不超过给定最大距离的所有位置元素。</p>
+<p>georadiusbymember 和 GEORADIUS 命令一样， 都可以找出位于<strong>指定范围内的元素</strong>， 但是 georadiusbymember 的<strong>中心点是由给定的位置元素决定</strong>的， 而不是使用经度和纬度来决定中心点。</p>
+<p>georadius 与 georadiusbymember 语法格式如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">GEORADIUS key longitude latitude radius m|km|ft|mi [WITHCOORD] [WITHDIST] [WITHHASH] [COUNT count] [ASC|DESC] [STORE key] [STOREDIST key]</span><br><span class="line">GEORADIUSBYMEMBER key member radius m|km|ft|mi [WITHCOORD] [WITHDIST] [WITHHASH] [COUNT count] [ASC|DESC] [STORE key] [STOREDIST key]</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>WITHDIST: 在返回位置元素的同时， 将位置元素与中心之间的<strong>距离也一并返回</strong>。</li>
+<li>WITHCOORD: 将位置元素的<strong>经度和纬度也一并返回</strong>。</li>
+<li>WITHHASH: 以 52 位有符号整数的形式， 返回位置元素经过原始 geohash 编码的有序集合分值。 这个选项主要用于底层应用或者调试， 实际中的作用并不大。</li>
+<li>COUNT 限定返回的<strong>记录数</strong>。</li>
+<li>ASC: 查找结果根据距离<strong>从近到远排序</strong>。</li>
+<li>DESC: 查找结果根据<strong>从远到近排序</strong>。</li>
+</ul>
+<p><strong>georadius示例：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">redis&gt; GEOADD Sicily 13.361389 38.115556 &quot;Palermo&quot; 15.087269 37.502669 &quot;Catania&quot;</span><br><span class="line">(integer) 2</span><br><span class="line">redis&gt; GEORADIUS Sicily 15 37 200 km WITHDIST</span><br><span class="line">1) 1) &quot;Palermo&quot;</span><br><span class="line">   2) &quot;190.4424&quot;</span><br><span class="line">2) 1) &quot;Catania&quot;</span><br><span class="line">   2) &quot;56.4413&quot;</span><br><span class="line">redis&gt; GEORADIUS Sicily 15 37 200 km WITHCOORD</span><br><span class="line">1) 1) &quot;Palermo&quot;</span><br><span class="line">   2) 1) &quot;13.36138933897018433&quot;</span><br><span class="line">      2) &quot;38.11555639549629859&quot;</span><br><span class="line">2) 1) &quot;Catania&quot;</span><br><span class="line">   2) 1) &quot;15.08726745843887329&quot;</span><br><span class="line">      2) &quot;37.50266842333162032&quot;</span><br><span class="line">redis&gt; GEORADIUS Sicily 15 37 200 km WITHDIST WITHCOORD</span><br><span class="line">1) 1) &quot;Palermo&quot;</span><br><span class="line">   2) &quot;190.4424&quot;</span><br><span class="line">   3) 1) &quot;13.36138933897018433&quot;</span><br><span class="line">      2) &quot;38.11555639549629859&quot;</span><br><span class="line">2) 1) &quot;Catania&quot;</span><br><span class="line">   2) &quot;56.4413&quot;</span><br><span class="line">   3) 1) &quot;15.08726745843887329&quot;</span><br><span class="line">      2) &quot;37.50266842333162032&quot;</span><br><span class="line">redis&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>georadiusbymember示例</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">redis&gt; GEOADD Sicily 13.583333 37.316667 &quot;Agrigento&quot;</span><br><span class="line">(integer) 1</span><br><span class="line">redis&gt; GEOADD Sicily 13.361389 38.115556 &quot;Palermo&quot; 15.087269 37.502669 &quot;Catania&quot;</span><br><span class="line">(integer) 2</span><br><span class="line">redis&gt; GEORADIUSBYMEMBER Sicily Agrigento 100 km</span><br><span class="line">1) &quot;Agrigento&quot;</span><br><span class="line">2) &quot;Palermo&quot;</span><br><span class="line">redis&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="geohash"><a href="#geohash" class="headerlink" title="geohash"></a>geohash</h4><ul>
+<li><p>Redis GEO 使用 geohash 来<strong>保存地理位置的坐标</strong>。</p>
+</li>
+<li><p>geohash 用于获取一个或多个位置元素的 geohash 值。</p>
+</li>
+<li><p>geohash 语法格式如下：</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GEOHASH key member [member ...]</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>示例：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">redis&gt; GEOADD Sicily 13.361389 38.115556 &quot;Palermo&quot; 15.087269 37.502669 &quot;Catania&quot;</span><br><span class="line">(integer) 2</span><br><span class="line">redis&gt; GEOHASH Sicily Palermo Catania</span><br><span class="line">1) &quot;sqc8b49rny0&quot;</span><br><span class="line">2) &quot;sqdtr74hyu0&quot;</span><br><span class="line">redis&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="Stream"><a href="#Stream" class="headerlink" title="Stream"></a>Stream</h3><p>Redis Stream 是 Redis 5.0 版本新增加的数据结构。</p>
+<p>Redis Stream 主要用于<strong>消息队列</strong>（MQ，Message Queue），Redis 本身是有一个 Redis 发布订阅 (<strong>pub&#x2F;sub</strong>) 来实现消息队列的功能，但它有个缺点就是<strong>消息无法持久化</strong>，如果出现网络断开、Redis 宕机等，消息就会被丢弃。简单来说发布订阅 (pub&#x2F;sub) 可以分发消息，但无法记录历史消息。</p>
+<p>而 Redis Stream 提供了<strong>消息的持久化和主备复制功能</strong>，可以让任何客户端访问任何时刻的数据，并且能记住每一个客户端的访问位置，还能保证消息不丢失。</p>
+<p>Redis Stream 的结构如下所示，它有一个<strong>消息链表</strong>，将所有加入的消息都串起来，每个消息都有一个唯一的 <code>ID</code> 和对应的<strong>内容</strong>：</p>
+<p><img src="https://www.runoob.com/wp-content/uploads/2020/09/en-us_image_0167982791.png" alt="img"></p>
+<p>每个 Stream 都有<strong>唯一的名称</strong>，它就是 Redis 的 <strong>key</strong>，在我们首次使用 xadd 指令追加消息时自动创建。</p>
+<p>上图解析：</p>
+<ul>
+<li><strong>Consumer Group</strong> ：消费组，使用 XGROUP CREATE 命令创建，一个消费组有多个消费者(Consumer)。</li>
+<li><strong>last_delivered_id</strong> ：游标，每个消费组会有个游标 last_delivered_id，<u><em>任意一个消费者读取了消息都会使游标 last_delivered_id 往前移动</em></u>。</li>
+<li><strong>pending_ids</strong> ：消费者(Consumer)的状态变量，作用是维护消费者的未确认的 id。 pending_ids 记录了当前已经被客户端读取的消息，但是还没有 ack (Acknowledge character：确认字符）。</li>
+</ul>
+<h4 id="消息队列相关命令："><a href="#消息队列相关命令：" class="headerlink" title="消息队列相关命令："></a><strong>消息队列相关命令：</strong></h4><ul>
+<li><strong>XADD</strong> - 添加消息到末尾</li>
+<li><strong>XTRIM</strong> - 对流进行修剪，限制长度</li>
+<li><strong>XDEL</strong> - 删除消息</li>
+<li><strong>XLEN</strong> - 获取流包含的元素数量，即消息长度</li>
+<li><strong>XRANGE</strong> - 获取消息列表，会自动过滤已经删除的消息</li>
+<li><strong>XREVRANGE</strong> - 反向获取消息列表，ID 从大到小</li>
+<li><strong>XREAD</strong> - 以阻塞或非阻塞方式获取消息列表</li>
+</ul>
+<h4 id="消费者组相关命令："><a href="#消费者组相关命令：" class="headerlink" title="消费者组相关命令："></a><strong>消费者组相关命令：</strong></h4><ul>
+<li><strong>XGROUP CREATE</strong> - 创建消费者组</li>
+<li><strong>XREADGROUP GROUP</strong> - 读取消费者组中的消息</li>
+<li><strong>XACK</strong> - 将消息标记为”已处理”</li>
+<li><strong>XGROUP SETID</strong> - 为消费者组设置新的最后递送消息ID</li>
+<li><strong>XGROUP DELCONSUMER</strong> - 删除消费者</li>
+<li><strong>XGROUP DESTROY</strong> - 删除消费者组</li>
+<li><strong>XPENDING</strong> - 显示待处理消息的相关信息</li>
+<li><strong>XCLAIM</strong> - 转移消息的归属权</li>
+<li><strong>XINFO</strong> - 查看流和消费者组的相关信息；</li>
+<li><strong>XINFO GROUPS</strong> - 打印消费者组的信息；</li>
+<li><strong>XINFO STREAM</strong> - 打印流信息</li>
+</ul>
+<h4 id="XADD"><a href="#XADD" class="headerlink" title="XADD"></a>XADD</h4><p>使用 XADD 向队列添加消息，如果指定的队列不存在，则创建一个队列，XADD 语法格式：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">XADD key ID field value [field value ...]</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>key</strong> ：队列名称，如果不存在就创建</li>
+<li><strong>ID</strong> ：消息 id，我们使用 * 表示由 redis 生成，可以自定义，但是要自己保证递增性。</li>
+<li><strong>field value</strong> ： 记录。</li>
+</ul>
+<p><strong>示例</strong>：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">redis&gt; XADD mystream * name Sara surname OConnor</span><br><span class="line">&quot;1601372323627-0&quot;</span><br><span class="line">redis&gt; XADD mystream * field1 value1 field2 value2 field3 value3</span><br><span class="line">&quot;1601372323627-1&quot;</span><br><span class="line">redis&gt; XLEN mystream</span><br><span class="line">(integer) 2</span><br><span class="line">redis&gt; XRANGE mystream - +</span><br><span class="line">1) 1) &quot;1601372323627-0&quot;</span><br><span class="line">   2) 1) &quot;name&quot;</span><br><span class="line">      2) &quot;Sara&quot;</span><br><span class="line">      3) &quot;surname&quot;</span><br><span class="line">      4) &quot;OConnor&quot;</span><br><span class="line">2) 1) &quot;1601372323627-1&quot;</span><br><span class="line">   2) 1) &quot;field1&quot;</span><br><span class="line">      2) &quot;value1&quot;</span><br><span class="line">      3) &quot;field2&quot;</span><br><span class="line">      4) &quot;value2&quot;</span><br><span class="line">      5) &quot;field3&quot;</span><br><span class="line">      6) &quot;value3&quot;</span><br><span class="line">redis&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="XTRIM"><a href="#XTRIM" class="headerlink" title="XTRIM"></a>XTRIM</h4><p>使用 XTRIM 对流进行<strong>修剪，限制长度</strong>， 语法格式：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">XTRIM key MAXLEN [~] count</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>key</strong> ：队列名称</li>
+<li><strong>MAXLEN</strong> ：长度</li>
+<li><strong>count</strong> ：数量</li>
+</ul>
+<p><strong>示例：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; XADD mystream * field1 A field2 B field3 C field4 D</span><br><span class="line">&quot;1601372434568-0&quot;</span><br><span class="line">127.0.0.1:6379&gt; XTRIM mystream MAXLEN 2</span><br><span class="line">(integer) 0</span><br><span class="line">127.0.0.1:6379&gt; XRANGE mystream - +</span><br><span class="line">1) 1) &quot;1601372434568-0&quot;</span><br><span class="line">   2) 1) &quot;field1&quot;</span><br><span class="line">      2) &quot;A&quot;</span><br><span class="line">      3) &quot;field2&quot;</span><br><span class="line">      4) &quot;B&quot;</span><br><span class="line">      5) &quot;field3&quot;</span><br><span class="line">      6) &quot;C&quot;</span><br><span class="line">      7) &quot;field4&quot;</span><br><span class="line">      8) &quot;D&quot;</span><br><span class="line">127.0.0.1:6379&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="XDEL"><a href="#XDEL" class="headerlink" title="XDEL"></a>XDEL</h4><p>使用 XDEL 删除消息，语法格式：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">XDEL key ID [ID ...]</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>key</strong>：队列名称</li>
+<li><strong>ID</strong> ：消息 ID</li>
+</ul>
+<p><strong>示例：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&gt; XADD mystream * a 1</span><br><span class="line">1538561698944-0</span><br><span class="line">&gt; XADD mystream * b 2</span><br><span class="line">1538561700640-0</span><br><span class="line">&gt; XADD mystream * c 3</span><br><span class="line">1538561701744-0</span><br><span class="line">&gt; XDEL mystream 1538561700640-0</span><br><span class="line">(integer) 1</span><br><span class="line">127.0.0.1:6379&gt; XRANGE mystream - +</span><br><span class="line">1) 1) 1538561698944-0</span><br><span class="line">   2) 1) &quot;a&quot;</span><br><span class="line">      2) &quot;1&quot;</span><br><span class="line">2) 1) 1538561701744-0</span><br><span class="line">   2) 1) &quot;c&quot;</span><br><span class="line">      2) &quot;3&quot;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="XLEN"><a href="#XLEN" class="headerlink" title="XLEN"></a>XLEN</h4><p>使用 XLEN 获取流包含的元素数量，即消息长度，语法格式：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">XLEN key</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>key</strong>：队列名称</li>
+</ul>
+<p><strong>示例：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">redis&gt; XADD mystream * item 1</span><br><span class="line">&quot;1601372563177-0&quot;</span><br><span class="line">redis&gt; XADD mystream * item 2</span><br><span class="line">&quot;1601372563178-0&quot;</span><br><span class="line">redis&gt; XADD mystream * item 3</span><br><span class="line">&quot;1601372563178-1&quot;</span><br><span class="line">redis&gt; XLEN mystream</span><br><span class="line">(integer) 3</span><br><span class="line">redis&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="XRANGE"><a href="#XRANGE" class="headerlink" title="XRANGE"></a>XRANGE</h4><p>使用 XRANGE 获取消息列表，会自动过滤已经删除的消息 ，语法格式：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">XRANGE key start end [COUNT count]</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>key</strong> ：队列名</li>
+<li><strong>start</strong> ：开始值， <strong>-</strong> 表示最小值</li>
+<li><strong>end</strong> ：结束值， <strong>+</strong> 表示最大值</li>
+<li><strong>count</strong> ：数量</li>
+</ul>
+<p><strong>示例：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">redis&gt; XADD writers * name Virginia surname Woolf</span><br><span class="line">&quot;1601372577811-0&quot;</span><br><span class="line">redis&gt; XADD writers * name Jane surname Austen</span><br><span class="line">&quot;1601372577811-1&quot;</span><br><span class="line">redis&gt; XADD writers * name Toni surname Morrison</span><br><span class="line">&quot;1601372577811-2&quot;</span><br><span class="line">redis&gt; XADD writers * name Agatha surname Christie</span><br><span class="line">&quot;1601372577812-0&quot;</span><br><span class="line">redis&gt; XADD writers * name Ngozi surname Adichie</span><br><span class="line">&quot;1601372577812-1&quot;</span><br><span class="line">redis&gt; XLEN writers</span><br><span class="line">(integer) 5</span><br><span class="line">redis&gt; XRANGE writers - + COUNT 2</span><br><span class="line">1) 1) &quot;1601372577811-0&quot;</span><br><span class="line">   2) 1) &quot;name&quot;</span><br><span class="line">      2) &quot;Virginia&quot;</span><br><span class="line">      3) &quot;surname&quot;</span><br><span class="line">      4) &quot;Woolf&quot;</span><br><span class="line">2) 1) &quot;1601372577811-1&quot;</span><br><span class="line">   2) 1) &quot;name&quot;</span><br><span class="line">      2) &quot;Jane&quot;</span><br><span class="line">      3) &quot;surname&quot;</span><br><span class="line">      4) &quot;Austen&quot;</span><br><span class="line">redis&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="XREVRANGE"><a href="#XREVRANGE" class="headerlink" title="XREVRANGE"></a>XREVRANGE</h4><p>使用 XREVRANGE 获取消息列表，会<strong>自动过滤已经删除的消息</strong> ，语法格式：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">XREVRANGE key end start [COUNT count]</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>key</strong> ：队列名</li>
+<li><strong>end</strong> ：结束值， <strong>+</strong> 表示最大值</li>
+<li><strong>start</strong> ：开始值， <strong>-</strong> 表示最小值</li>
+<li><strong>count</strong> ：数量</li>
+</ul>
+<p><strong>示例：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">redis&gt; XADD writers * name Virginia surname Woolf</span><br><span class="line">&quot;1601372731458-0&quot;</span><br><span class="line">redis&gt; XADD writers * name Jane surname Austen</span><br><span class="line">&quot;1601372731459-0&quot;</span><br><span class="line">redis&gt; XADD writers * name Toni surname Morrison</span><br><span class="line">&quot;1601372731459-1&quot;</span><br><span class="line">redis&gt; XADD writers * name Agatha surname Christie</span><br><span class="line">&quot;1601372731459-2&quot;</span><br><span class="line">redis&gt; XADD writers * name Ngozi surname Adichie</span><br><span class="line">&quot;1601372731459-3&quot;</span><br><span class="line">redis&gt; XLEN writers</span><br><span class="line">(integer) 5</span><br><span class="line">redis&gt; XREVRANGE writers + - COUNT 1</span><br><span class="line">1) 1) &quot;1601372731459-3&quot;</span><br><span class="line">   2) 1) &quot;name&quot;</span><br><span class="line">      2) &quot;Ngozi&quot;</span><br><span class="line">      3) &quot;surname&quot;</span><br><span class="line">      4) &quot;Adichie&quot;</span><br><span class="line">redis&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="XREAD"><a href="#XREAD" class="headerlink" title="XREAD"></a>XREAD</h4><p>使用 XREAD 以阻塞或非阻塞方式获取消息列表 ，语法格式：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">XREAD [COUNT count] [BLOCK milliseconds] STREAMS key [key ...] id [id ...]</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>count</strong> ：数量</li>
+<li><strong>milliseconds</strong> ：可选，阻塞毫秒数，没有设置就是非阻塞模式</li>
+<li><strong>key</strong> ：队列名</li>
+<li><strong>id</strong> ：消息 ID</li>
+</ul>
+<p><strong>示例：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"># 从 Stream 头部读取两条消息</span><br><span class="line">&gt; XREAD COUNT 2 STREAMS mystream writers 0-0 0-0</span><br><span class="line">1) 1) &quot;mystream&quot;</span><br><span class="line">   2) 1) 1) 1526984818136-0</span><br><span class="line">         2) 1) &quot;duration&quot;</span><br><span class="line">            2) &quot;1532&quot;</span><br><span class="line">            3) &quot;event-id&quot;</span><br><span class="line">            4) &quot;5&quot;</span><br><span class="line">            5) &quot;user-id&quot;</span><br><span class="line">            6) &quot;7782813&quot;</span><br><span class="line">      2) 1) 1526999352406-0</span><br><span class="line">         2) 1) &quot;duration&quot;</span><br><span class="line">            2) &quot;812&quot;</span><br><span class="line">            3) &quot;event-id&quot;</span><br><span class="line">            4) &quot;9&quot;</span><br><span class="line">            5) &quot;user-id&quot;</span><br><span class="line">            6) &quot;388234&quot;</span><br><span class="line">2) 1) &quot;writers&quot;</span><br><span class="line">   2) 1) 1) 1526985676425-0</span><br><span class="line">         2) 1) &quot;name&quot;</span><br><span class="line">            2) &quot;Virginia&quot;</span><br><span class="line">            3) &quot;surname&quot;</span><br><span class="line">            4) &quot;Woolf&quot;</span><br><span class="line">      2) 1) 1526985685298-0</span><br><span class="line">         2) 1) &quot;name&quot;</span><br><span class="line">            2) &quot;Jane&quot;</span><br><span class="line">            3) &quot;surname&quot;</span><br><span class="line">            4) &quot;Austen&quot;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="XGROUP-CREATE"><a href="#XGROUP-CREATE" class="headerlink" title="XGROUP CREATE**"></a>XGROUP CREATE**</h4><p>使用 XGROUP CREATE 创建消费者组，语法格式：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">XGROUP [CREATE key groupname id-or-$] [SETID key groupname id-or-$] [DESTROY key groupname] [DELCONSUMER key groupname consumername]</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>key</strong> ：队列名称，如果不存在就创建</li>
+<li><strong>groupname</strong> ：组名。</li>
+<li><strong>$</strong> ： 表示从尾部开始消费，只接受新消息，当前 Stream 消息会全部忽略。</li>
+</ul>
+<p>从头开始消费:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">XGROUP CREATE mystream consumer-group-name 0-0  </span><br></pre></td></tr></table></figure>
+
+<p>从尾部开始消费:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">XGROUP CREATE mystream consumer-group-name $</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="XREADGROUP-GROUP"><a href="#XREADGROUP-GROUP" class="headerlink" title="XREADGROUP GROUP**"></a>XREADGROUP GROUP**</h4><p>使用 XREADGROUP GROUP 读取消费组中的消息，语法格式：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">XREADGROUP GROUP group consumer [COUNT count] [BLOCK milliseconds] [NOACK] STREAMS key [key ...] ID [ID ...]</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>group</strong> ：消费组名</li>
+<li><strong>consumer</strong> ：消费者名。</li>
+<li><strong>count</strong> ： 读取数量。</li>
+<li><strong>milliseconds</strong> ： 阻塞毫秒数。</li>
+<li><strong>key</strong> ： 队列名。</li>
+<li><strong>ID</strong> ： 消息 ID。</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">XREADGROUP GROUP consumer-group-name consumer-name COUNT 1 STREAMS mystream &gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="redis高级教程"><a href="#redis高级教程" class="headerlink" title="redis高级教程"></a>redis高级教程</h2><h3 id="数据备份与恢复"><a href="#数据备份与恢复" class="headerlink" title="数据备份与恢复"></a>数据备份与恢复</h3><p>Redis <strong>SAVE</strong> 命令用于创建当前数据库的<strong>备份</strong>。</p>
+<p>该命令将在 redis 安装目录中创建<strong>dump.rdb</strong>文件。</p>
+<p>创建 redis 备份文件也可以使用命令 <strong>BGSAVE</strong>，该命令在<strong>后台执行</strong>。</p>
+<p>如果需要<strong>恢复数据</strong>，只需将备份文件 (dump.rdb) 移动到 redis 安装目录并启动服务即可。获取 redis 目录可以使用 <strong>CONFIG</strong> 命令，如下所示：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">redis 127.0.0.1:6379&gt; CONFIG GET dir</span><br><span class="line">1) &quot;dir&quot;</span><br><span class="line">2) &quot;/usr/local/redis/bin&quot;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="安全"><a href="#安全" class="headerlink" title="安全"></a>安全</h3><p>我们可以<strong>通过 redis 的配置文件设置密码参数</strong>，这样客户端连接到 redis 服务就需要密码验证，这样可以让你的 redis 服务更安全。</p>
+<p><strong>设置密码</strong>：config set requirepass “**********”</p>
+<p>设置密码后客户端会要求登录才能操作数据库</p>
+<p><strong>登录</strong>：AUTH “password”</p>
+<h3 id="性能测试"><a href="#性能测试" class="headerlink" title="性能测试"></a>性能测试</h3><p>Redis 性能测试是通过同时执行多个命令实现的。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">redis-benchmark [option] [option value]</span><br></pre></td></tr></table></figure>
+
+<p><strong>注意</strong>：该命令是在 <strong>redis 的目录下执行</strong>的，而不是 redis 客户端的内部指令。</p>
+<p>有点麻烦，没有测试，<a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/redis-benchmarks.html">详见<i class="fas fa-external-link-alt"></i></a></p>
+<h3 id="客户端连接"><a href="#客户端连接" class="headerlink" title="客户端连接"></a>客户端连接</h3><p>Redis 通过监听一个 <strong>TCP 端口</strong>或者 <strong>Unix socket</strong> 的方式来接收来自客户端的连接，当一个连接建立后，Redis 内部会进行以下一些操作：</p>
+<ul>
+<li>首先，客户端 socket 会被设置为<strong>非阻塞模式</strong>，因为 Redis 在网络事件处理上采用的是<strong>非阻塞多路复用模型</strong>。</li>
+<li>然后为这个 socket 设置 TCP_NODELAY 属性，禁用 Nagle 算法</li>
+<li>然后创建一个可读的文件事件用于监听这个客户端 socket 的数据发送</li>
+</ul>
+<p>在 Redis2.4 中，最大连接数是被直接硬编码在代码里面的，而在2.6版本中这个值变成可配置的。</p>
+<p>maxclients 的默认值是 10000，你也可以在redis-server –maxclients <strong>100000</strong> 中对这个值进行修改。</p>
+<p>在<strong>服务启动时</strong>设置最大连接数为 100000：redis-server –maxclients 100000</p>
+<p><img src="/redis/image-20220503153600760.png" alt="image-20220503153600760"></p>
+<h3 id="管道技术"><a href="#管道技术" class="headerlink" title="管道技术"></a>管道技术</h3><p>Redis是一种<strong>基于客户端-服务端模型以及请求&#x2F;响应协议的TCP服务</strong>。这意味着通常情况下一个请求会遵循以下步骤：</p>
+<ul>
+<li>客户端向服务端发送一个查询请求，并监听Socket返回，通常是以阻塞模式，等待服务端响应。</li>
+<li>服务端处理命令，并将结果返回给客户端。</li>
+</ul>
+<p>Redis 管道技术可以在<strong>服务端未响应时</strong>，客户端可以继续向服务端发送请求，并<strong>最终一次性读取所有服务端的响应</strong>。</p>
+<p>管道技术最显著的优势是<strong>提高了 redis 服务的性能</strong>。</p>
+<p><a class="link" target="_blank" rel="noopener" href="https://www.runoob.com/redis/redis-pipelining.html">详见<i class="fas fa-external-link-alt"></i></a></p>
+<h3 id="分区"><a href="#分区" class="headerlink" title="分区"></a>分区</h3><p>分区是分割数据到<strong>多个Redis实例</strong>的处理过程，因此每个实例只保存key的一个子集。</p>
+<p><strong>优势</strong>：</p>
+<ul>
+<li>通过利用多台计算机内存的和值，允许我们<strong>构造更大的数据库</strong>。</li>
+<li>通过多核和多台计算机，允许我们<strong>扩展计算能力</strong>；通过多台计算机和网络适配器，允许我们<strong>扩展网络带宽</strong>。</li>
+</ul>
+<p><strong>不足</strong>：</p>
+<p>redis的一些特性在分区方面表现的不是很好：</p>
+<ul>
+<li>涉及<strong>多个key的操作通常是不被支持的</strong>。举例来说，当两个set映射到不同的redis实例上时，你就不能对这两个set执行交集操作。</li>
+<li>涉及<strong>多个key的redis事务不能使用</strong>。</li>
+<li>当使用分区时，<strong>数据处理较为复杂</strong>，比如你需要处理多个rdb&#x2F;aof文件，并且从多个实例和主机备份持久化文件。</li>
+<li><strong>增加或删除容量也比较复杂</strong>。redis集群大多数支持在运行时增加、删除节点的透明数据平衡的能力，但是类似于客户端分区、代理等其他系统则不支持这项特性。然而，一种叫做presharding的技术对此是有帮助的。</li>
+</ul>
+<p>Redis 有两种类型分区。 假设有4个Redis实例 R0，R1，R2，R3，和类似user:1，user:2这样的表示用户的多个key，对既定的key有多种不同方式来选择这个key存放在哪个实例中。也就是说，<strong>有不同的系统来映射某个key到某个Redis服务</strong>。</p>
+<h4 id="范围分区"><a href="#范围分区" class="headerlink" title="范围分区"></a>范围分区</h4><p><strong>最简单</strong>的分区方式是按范围分区，就是<strong>映射一定范围的对象到特定的Redis实例</strong>。</p>
+<p>比如，<u>ID从0到10000的用户会保存到实例R0，ID从10001到 20000的用户会保存到R1</u>，以此类推。</p>
+<p>这种方式是可行的，并且在实际中使用，<strong>不足就是要有一个区间范围到实例的映射表</strong>。这个表要被管理，同时还需要各 种对象的映射表，通常对Redis来说并非是好的方法。</p>
+<h4 id="哈希分表"><a href="#哈希分表" class="headerlink" title="哈希分表"></a>哈希分表</h4><p>另外一种分区方法是hash分区。这<strong>对任何key都适用</strong>，也无需是object_name:这种形式，像下面描述的一样简单：</p>
+<ul>
+<li>用一个hash函数将key转换为一个数字，比如使用crc32 hash函数。对key foobar执行crc32(foobar)会输出类似93024922的整数。</li>
+<li>对这个整数取模，将其转化为0-3之间的数字，就可以将这个整数映射到4个Redis实例中的一个了。93024922 % 4 &#x3D; 2，就是说key foobar应该被存到R2实例中。注意：取模操作是取除的余数，通常在多种编程语言中用%操作符实现。</li>
+</ul>
+<h2 id="Java使用redis"><a href="#Java使用redis" class="headerlink" title="Java使用redis"></a>Java使用redis</h2><p>需要安装redis服务、Java的redis驱动（jar包）</p>
+<p>连接服务：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Jedis</span> <span class="variable">jedis</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Jedis</span>(<span class="string">&quot;localhost&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>密码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jedis.auth(<span class="string">&quot;password&quot;</span>); </span><br></pre></td></tr></table></figure>
+
+<p>设置字符串数据：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jedis.set(&quot;key&quot;, &quot;value&quot;);</span><br></pre></td></tr></table></figure>
+
+<p>获取字符串数据：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jedis.get(<span class="string">&quot;key&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="Redis-Java-List-列表-实例"><a href="#Redis-Java-List-列表-实例" class="headerlink" title="Redis Java List(列表) 实例"></a>Redis Java List(列表) 实例</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"><span class="keyword">import</span> redis.clients.jedis.Jedis;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">RedisListJava</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="comment">//连接本地的 Redis 服务</span></span><br><span class="line">        <span class="type">Jedis</span> <span class="variable">jedis</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Jedis</span>(<span class="string">&quot;localhost&quot;</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;连接成功&quot;</span>);</span><br><span class="line">        <span class="comment">//存储数据到列表中</span></span><br><span class="line">        jedis.lpush(<span class="string">&quot;site-list&quot;</span>, <span class="string">&quot;Runoob&quot;</span>);</span><br><span class="line">        jedis.lpush(<span class="string">&quot;site-list&quot;</span>, <span class="string">&quot;Google&quot;</span>);</span><br><span class="line">        jedis.lpush(<span class="string">&quot;site-list&quot;</span>, <span class="string">&quot;Taobao&quot;</span>);</span><br><span class="line">        <span class="comment">// 获取存储的数据并输出</span></span><br><span class="line">        List&lt;String&gt; list = jedis.lrange(<span class="string">&quot;site-list&quot;</span>, <span class="number">0</span> ,<span class="number">2</span>);</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>; i&lt;list.size(); i++) &#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;列表项为: &quot;</span>+list.get(i));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="Redis-Java-Keys-实例"><a href="#Redis-Java-Keys-实例" class="headerlink" title="Redis Java Keys 实例"></a>Redis Java Keys 实例</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Iterator;</span><br><span class="line"><span class="keyword">import</span> java.util.Set;</span><br><span class="line"><span class="keyword">import</span> redis.clients.jedis.Jedis;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">RedisKeyJava</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="comment">//连接本地的 Redis 服务</span></span><br><span class="line">        <span class="type">Jedis</span> <span class="variable">jedis</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Jedis</span>(<span class="string">&quot;localhost&quot;</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;连接成功&quot;</span>);</span><br><span class="line"> </span><br><span class="line">        <span class="comment">// 获取数据并输出</span></span><br><span class="line">        Set&lt;String&gt; keys = jedis.keys(<span class="string">&quot;*&quot;</span>); </span><br><span class="line">        Iterator&lt;String&gt; it=keys.iterator() ;   </span><br><span class="line">        <span class="keyword">while</span>(it.hasNext())&#123;   </span><br><span class="line">            <span class="type">String</span> <span class="variable">key</span> <span class="operator">=</span> it.next();   </span><br><span class="line">            System.out.println(key);   </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="小总结"><a href="#小总结" class="headerlink" title="小总结"></a>小总结</h3><p>在java中使用redis，通过jedis对象即可。</p>
+<p>调用的函数就相当于在client中的命令。</p>
+<p>显然在使用redis的时候，需要像使用mysql一样，在配置文件中配置相关的属性。</p>
+
+        </div>
+
+        
+
+        
+            <ul class="post-tags-box">
+                
+                    <li class="tag-item">
+                        <a href="/tags/Redis/">#Redis</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/%E5%85%AB%E8%82%A1%E6%96%87-java%E5%9F%BA%E7%A1%80/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">八股文-java基础</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2020</span>
+              -
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">lanyoooo</a>
+        </div>
+        
+            <script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    <span id="busuanzi_container_site_uv">
+                        访问人数&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp;
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv">
+                        总访问量&nbsp;<span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
+        </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#NoSQL"><span class="nav-text">NoSQL</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%95%E5%85%A5"><span class="nav-text">引入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89%EF%BC%9A"><span class="nav-text">定义：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Redis"><span class="nav-text">Redis</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%89%B9%E6%80%A7%EF%BC%9A"><span class="nav-text">特性：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%98%E5%8A%BF"><span class="nav-text">优势</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Redis%E4%B8%8E%E5%85%B6%E4%BB%96key-value%E5%AD%98%E5%82%A8%E6%9C%89%E4%BB%80%E4%B9%88%E4%B8%8D%E5%90%8C%EF%BC%9F"><span class="nav-text">Redis与其他key-value存储有什么不同？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85"><span class="nav-text">安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE"><span class="nav-text">配置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E5%8F%82%E6%95%B0%EF%BC%9A"><span class="nav-text">常用参数：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%88%E6%8A%A4%E8%BF%9B%E7%A8%8B"><span class="nav-text">守护进程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E5%A4%96%E7%BD%91%E5%8F%AF%E8%AE%BF%E9%97%AE"><span class="nav-text">配置外网可访问</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Redis%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="nav-text">Redis数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#string"><span class="nav-text">string</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Hash"><span class="nav-text">Hash</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#List"><span class="nav-text">List</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Set%EF%BC%88%E9%9B%86%E5%90%88%EF%BC%89"><span class="nav-text">Set（集合）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#zset-sorted-set%EF%BC%9A%E6%9C%89%E5%BA%8F%E9%9B%86%E5%90%88"><span class="nav-text">zset(sorted set：有序集合)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="nav-text">应用场景</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B3%A8%E6%84%8F%EF%BC%9A"><span class="nav-text">注意：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#redis%E5%91%BD%E4%BB%A4"><span class="nav-text">redis命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="nav-text">基本数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%94%AEKey"><span class="nav-text">键Key</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2string"><span class="nav-text">字符串string</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%93%88%E5%B8%8CHash"><span class="nav-text">哈希Hash</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%97%E8%A1%A8list"><span class="nav-text">列表list</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%9B%86%E5%90%88Set"><span class="nav-text">集合Set</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9C%89%E5%BA%8F%E9%9B%86%E5%90%88zset"><span class="nav-text">有序集合zset</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HyperLogLog"><span class="nav-text">HyperLogLog</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%9F%BA%E6%95%B0"><span class="nav-text">什么是基数?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="nav-text">常用命令</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%91%E5%B8%83%E8%AE%A2%E9%98%85"><span class="nav-text">发布订阅</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9E%E4%BE%8B%EF%BC%9A"><span class="nav-text">实例：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4-1"><span class="nav-text">常用命令</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8B%E5%8A%A1"><span class="nav-text">事务</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A4%BA%E4%BE%8B"><span class="nav-text">示例</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4-2"><span class="nav-text">常用命令</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%84%9A%E6%9C%AC"><span class="nav-text">脚本</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A4%BA%E4%BE%8B-1"><span class="nav-text">示例</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4-3"><span class="nav-text">常用命令</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%9E%E6%8E%A5"><span class="nav-text">连接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="nav-text">服务器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%EF%BC%9A"><span class="nav-text">常用命令：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GEO"><span class="nav-text">GEO</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#geoadd"><span class="nav-text">geoadd</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#geopos"><span class="nav-text">geopos</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#geodist"><span class="nav-text">geodist</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#georadius%E3%80%81georadiusbymember"><span class="nav-text">georadius、georadiusbymember</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#geohash"><span class="nav-text">geohash</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Stream"><span class="nav-text">Stream</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97%E7%9B%B8%E5%85%B3%E5%91%BD%E4%BB%A4%EF%BC%9A"><span class="nav-text">消息队列相关命令：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B6%88%E8%B4%B9%E8%80%85%E7%BB%84%E7%9B%B8%E5%85%B3%E5%91%BD%E4%BB%A4%EF%BC%9A"><span class="nav-text">消费者组相关命令：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#XADD"><span class="nav-text">XADD</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#XTRIM"><span class="nav-text">XTRIM</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#XDEL"><span class="nav-text">XDEL</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#XLEN"><span class="nav-text">XLEN</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#XRANGE"><span class="nav-text">XRANGE</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#XREVRANGE"><span class="nav-text">XREVRANGE</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#XREAD"><span class="nav-text">XREAD</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#XGROUP-CREATE"><span class="nav-text">XGROUP CREATE**</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#XREADGROUP-GROUP"><span class="nav-text">XREADGROUP GROUP**</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#redis%E9%AB%98%E7%BA%A7%E6%95%99%E7%A8%8B"><span class="nav-text">redis高级教程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%A4%87%E4%BB%BD%E4%B8%8E%E6%81%A2%E5%A4%8D"><span class="nav-text">数据备份与恢复</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E5%85%A8"><span class="nav-text">安全</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95"><span class="nav-text">性能测试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%A2%E6%88%B7%E7%AB%AF%E8%BF%9E%E6%8E%A5"><span class="nav-text">客户端连接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AE%A1%E9%81%93%E6%8A%80%E6%9C%AF"><span class="nav-text">管道技术</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E5%8C%BA"><span class="nav-text">分区</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%8C%83%E5%9B%B4%E5%88%86%E5%8C%BA"><span class="nav-text">范围分区</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%93%88%E5%B8%8C%E5%88%86%E8%A1%A8"><span class="nav-text">哈希分表</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java%E4%BD%BF%E7%94%A8redis"><span class="nav-text">Java使用redis</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Redis-Java-List-%E5%88%97%E8%A1%A8-%E5%AE%9E%E4%BE%8B"><span class="nav-text">Redis Java List(列表) 实例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Redis-Java-Keys-%E5%AE%9E%E4%BE%8B"><span class="nav-text">Redis Java Keys 实例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B0%8F%E6%80%BB%E7%BB%93"><span class="nav-text">小总结</span></a></li></ol></li></ol>
+    </div>
+</div>
+        </aside>
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+    
+<script src="/js/local-search.js"></script>
+
+
+
+
+    
+<script src="/js/code-copy.js"></script>
+
+
+
+
+
+<div class="post-scripts pjax">
+    
+        
+<script src="/js/left-side-toggle.js"></script>
+
+<script src="/js/libs/anime.min.js"></script>
+
+<script src="/js/toc.js"></script>
+
+    
+</div>
+
+
+    
+<script src="/js/libs/pjax.min.js"></script>
+
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+</script>
+
+
+
+</body>
+</html>
