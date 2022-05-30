@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="lanyo blog coding">
+    <meta name="description" content="lanyo的博客">
+    <meta name="author" content="lanyoooo">
+    
+    <title>
+        
+            计算机视觉考前复习 |
+        
+        Lanyo&#39;s Blog
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/images/logo.jpg">
+    
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"lanyoooo.github.io","root":"/","language":"zh-CN","path":"search.json"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0099CC","avatar":"/images/touxiang.jpg","favicon":"/images/logo.jpg","article_img_align":"center","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":true},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"质胜文则野，文胜质则史。文质彬彬，然后君子。"},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":false}}},"local_search":{"enable":true,"preload":false},"code_copy":{"enable":true,"style":"mac"},"pjax":{"enable":true},"lazyload":{"enable":false},"version":"3.4.5"};
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
+  </script>
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <span class="pjax-progress-icon">
+            <i class="fas fa-circle-notch fa-spin"></i>
+        </span>
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                Lanyo&#39;s Blog
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/tags"
+                            >
+                                标签
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/tags">标签</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">计算机视觉考前复习</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/touxiang.jpg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">lanyoooo</span>
+                        
+                            <span class="author-label">Lv2</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;
+        <span class="pc">2022-05-29 14:52:34</span>
+        <span class="mobile">2022-05-29 14:52</span>
+    </span>
+    
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fas fa-file-word"></i>&nbsp;<span>3.4k 字</span>
+        </span>
+    
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <h2 id="第一章-绪论"><a href="#第一章-绪论" class="headerlink" title="第一章 绪论"></a>第一章 绪论</h2><p><u><strong>视感觉</strong>：从分子的层次和观点来理解人类对光的反映的基本性质。</u></p>
+<p><u><strong>视知觉</strong>：论述人们从客观世界接收到视觉刺激后如何反应以及反映所采用的方式。</u></p>
+<p>研究方法：仿生学、工程方法。</p>
+<p><strong>目标</strong>：</p>
+<ul>
+<li><u>建立计算机视觉系统完成各种视觉任务。</u></li>
+<li>以对计算机视觉的研究来<u>探索人脑视觉工作机理。</u></li>
+</ul>
+<p><strong>图像</strong>：辐射强度模式的空间分布。</p>
+<p><strong>类别：</strong></p>
+<ul>
+<li><strong>模拟图像</strong>：从连续的客观场景直接观察到、一个用二维数组来表示的图像</li>
+<li><strong>数字图像</strong>：把连续的模拟图像在坐标空间XY和性质空间F都<u>离散化了</u>的图像。</li>
+</ul>
+<p><strong>像素之间的关系：</strong></p>
+<ul>
+<li>邻接：对于两个像素p、q，如果p在q的邻域中，则说两个像素邻接。</li>
+<li>连接：p和q邻接，且灰度值满足某个相似准则。</li>
+<li>连通：互相不直接连接，但是都在某个像素的邻域内，并且都满足某个像素准则。</li>
+<li>通路：两个像素之间有一系列连接的像素使得p和q连通，则这些像素构成p和q之间的通路。</li>
+</ul>
+<p><strong>像素间的距离：</strong></p>
+<p>欧氏距离、街区距离、棋盘距离。<mark style="background-color：colorName/hexOfColor">（计算题）</mark></p>
+<h2 id="第二章-图像采集"><a href="#第二章-图像采集" class="headerlink" title="第二章 图像采集"></a>第二章 图像采集</h2><p>采集装置：传感器、数字化器件</p>
+<p><strong>CCD摄像机</strong>：具有非常快的快门速度</p>
+<p><strong>CMOS摄像机</strong>：低功耗、小尺寸、总体成本低。</p>
+<p><strong>CID摄像机</strong>：随机访问，不会产生图像浮散。</p>
+<p><strong>基本性能指标：</strong></p>
+<p>线性响应、灵敏度、信噪比（越高越好）、阴影（不均匀度）、快门速度、读取速率</p>
+<p><strong>重合模型</strong>：摄像机坐标系统和世界坐标系统重合。</p>
+<p>通过投影变换将世界坐标系的东西投影到摄像机坐标系上。</p>
+<p>4-点映射。</p>
+<p>归一化摄像机：**<u>焦距为1的特定摄像机</u>**，也指一种简化的重合模型。</p>
+<p><strong>当焦距减半</strong>，成像尺寸也会缩减到一半</p>
+<p>当<strong>传感器密度减半</strong>，成像尺寸也减半。</p>
+<p><strong>分离模型</strong></p>
+<p>图像平面（原点）与世界坐标系统的位置偏差用矢量D表示，分量有Dx、Dy、Dz</p>
+<p>摄像机的<strong>扫视角</strong>：x和X轴的夹角</p>
+<p>摄像机的<strong>倾斜角</strong>：z和Z轴的夹角。</p>
+<p>若将XY平面视作地球的赤道面，Z轴指向北极，<strong>那么扫视角对应经度，倾斜角对应纬度</strong>、</p>
+<p><strong>亮度成像模型</strong></p>
+<p>图像采集的过程可以看做一个将客观景物的<strong>光辐射强度</strong>转化为<strong>图像灰度</strong>的过程。</p>
+<p><strong>照度：</strong><br>$$<br>E &#x3D; k \frac{cos i}{d^2}&#x3D;  \frac{kh}{d^3}<br>$$</p>
+<p><strong>空间分辨率：</strong>即数字化的空间<strong>采样点数</strong>（与采样点数有关，采样越密，分的越清）</p>
+<p><strong>幅度分辨率：</strong>即采样点值的<strong>量化级数</strong>（量化灰度级数，级数越多，分辨率越高）</p>
+<p><strong>结构光法：</strong></p>
+<ul>
+<li><p>直接获得<strong>深度信息</strong>。</p>
+</li>
+<li><p>利用照明中的几何信息来提取景物自身的几何信息。</p>
+</li>
+<li><p>成像高度包含了<strong>3D的深度信息</strong>。</p>
+</li>
+<li><p>也包含了物体的沿y方向的<strong>厚度信息</strong>。</p>
+</li>
+</ul>
+<p><strong>什么是摄像机的标定</strong>？</p>
+<p>根据一组<strong>基准点</strong>计算出相机的<strong>内外部参数</strong>的过程。</p>
+<ul>
+<li>外部参数：即摄像机姿态参数。**<u>自转角、进动角、章动角</u>**、Tx    Ty   Tz</li>
+<li>内部参数：即摄像机自身参数。焦距、镜头失真系数k、<strong>不确定性图像尺度因子u</strong>、图像平面原点的计算机图像坐标。</li>
+<li><u>k：镜头径向畸变引起的误差系数</u></li>
+<li><u>u：图像获取硬件和摄像机扫描硬件之间的误差。</u></li>
+</ul>
+<p><u>如果u已知，只需要一组共面基准点；如果未知，需要一组不共面的基准点。</u></p>
+<p><strong>目的是什么</strong>？</p>
+<p>让摄像机的坐标系统和世界坐标系统对齐。</p>
+<p><strong>客观场景-&gt;数字图像的四步</strong>：<mark style="background-color：colorName/hexOfColor">☆☆☆</mark></p>
+<ol>
+<li><strong>世界坐标</strong>到<strong>摄像机3D坐标</strong>的变换。（分离模型变为重合模型）</li>
+<li>从<strong>摄像机坐标</strong>到<strong>无失真成像平面</strong>理想坐标（投影变换矩阵）</li>
+<li>从<strong>无失真成像平面</strong>理想坐标到受镜头畸变而偏移的<strong>实际成像平面</strong>坐标。</li>
+<li>从<strong>成像平面坐标</strong>到<strong>图像坐标</strong>的变换。（连续坐标变为离散坐标）</li>
+</ol>
+<p><strong>标定参数：</strong></p>
+<ol>
+<li>标定<strong>旋转矩阵R</strong>和<strong>平移矢量T</strong></li>
+<li>标定<strong>焦距λ</strong></li>
+<li>标定<strong>镜头径向失真系数k</strong></li>
+<li>标定<strong>不确定性图像尺度因子μ</strong></li>
+</ol>
+<h2 id="第三章"><a href="#第三章" class="headerlink" title="第三章"></a>第三章</h2><p>几何失真校正：<strong>空间变换</strong>、<strong>灰度插值</strong>。</p>
+<p>图像增强：直方图修正——均衡化、规定化。P51</p>
+<p>消除噪声的方法：<u>参与运算的像素越多的方法越好</u>。</p>
+<h2 id="第四章-基元检测"><a href="#第四章-基元检测" class="headerlink" title="第四章 基元检测"></a>第四章 基元检测</h2><p>一阶微分算子给出梯度，也称作梯度算子<mark style="background-color：colorName/hexOfColor">（计算题）</mark></p>
+<p>分别计算x和y方向的两个偏导分量</p>
+<p><strong>梯度就是两个方向上的偏导。</strong></p>
+<p><strong>prewitt sobel  robert</strong></p>
+<p>二阶导数算子：拉普拉斯算子、<strong>对噪声敏感</strong>、<strong>模板中正邻负</strong></p>
+<p><strong>马尔算子</strong>：在拉普拉斯算子基础上，先平滑，再检测。<strong>过零点</strong>作边缘点。</p>
+<p><strong>坎尼算子</strong>：满足三个准则↓</p>
+<ul>
+<li>信噪比准则</li>
+<li>定位精度准则</li>
+<li>单边缘响应准则</li>
+</ul>
+<p>susan算子：</p>
+<p><strong>核同值区（USAN）</strong>原理。</p>
+<ul>
+<li>直边缘：usan一半。</li>
+<li>交点处：usan约1&#x2F;4</li>
+</ul>
+<p>利用usan面积的变化可检测边缘或者角点。</p>
+<p><strong>特点</strong>：</p>
+<ul>
+<li>不需要积分运算</li>
+<li>响应效果随着边缘的平滑或模糊而<strong>增强</strong></li>
+<li>提供<strong>不依赖于模板尺寸</strong>的边缘精度（控制参数简单）</li>
+</ul>
+<p><strong>哈夫变换;</strong></p>
+<p><strong>点线对偶性</strong>：图像空间<strong>共线的点</strong>对应参数空间<strong>相交的线</strong>。</p>
+<p>竖直的线使用极坐标方程，<strong>点-正弦曲线对偶性</strong>。</p>
+<h2 id="第五章-目标分割"><a href="#第五章-目标分割" class="headerlink" title="第五章 目标分割"></a>第五章 目标分割</h2><p>轮廓搜索：图搜索、动态规划。</p>
+<p><strong>动态规划</strong>：使用启发性知识，**<u>步骤见P96</u>**</p>
+<p>并不能保证发现区局最小代价通路。</p>
+<p><strong>阈值分割</strong>：</p>
+<p>大于阈值取1，小于阈值取0，最终得到二值图像。</p>
+<p>关键在于选取合适的阈值：</p>
+<p><strong>全局阈值</strong>：仅根据图像本身f(x,y)来选取。</p>
+<p><strong>局部阈值</strong>：根据f(x,y)和像素周围局部区域性质q(x,y)</p>
+<p><strong>动态阈值</strong>：根据f(x,y)和q(x,y)，以及像素坐标位置(x,y)选取、</p>
+<p>前两种阈值可称为固定阈值。</p>
+<p><strong>全局阈值的选取</strong>：</p>
+<ul>
+<li><u><strong>极小值点阈值</strong></u>——找到曲线中的谷。</li>
+<li><strong>最大凸残差</strong>——凸包与实际差值最大的位置。</li>
+</ul>
+<p><strong>特征空间聚类</strong>：</p>
+<p>结合了阈值化分割和标记。</p>
+<p>k-means聚类：将一个特征空间分成k个聚类。</p>
+<ol>
+<li>任意选k个初始类均值。</li>
+<li>在每一次迭代，将每个特征点付给——类的均值与其最接近的类。</li>
+<li>所有点都分类之后，更新所有类的均值。</li>
+<li>如果类的均值不再随着迭代次数变化，则说明算法收敛。</li>
+</ol>
+<h2 id="第六章-目标表达和描述"><a href="#第六章-目标表达和描述" class="headerlink" title="第六章 目标表达和描述"></a>第六章 目标表达和描述</h2><p><strong>链码</strong>：4-方向链码、8-方向链码。</p>
+<p>不同起点有着不同的链码。</p>
+<p><strong>归一化链码</strong>：先得到一个任意起点的链码，再将这个序列循环，直至得到其值最小的序列。</p>
+<p>平移不会改变链码，但是旋转会改变。</p>
+<p>链码旋转归一化：链码的<strong>差分码</strong>。（具有旋转不变性）</p>
+<p><strong>计算差分码：x - y，总要确保 y 大于 x  ，如果 y 小于 x， 就将其加上链码的方向数再算。</strong></p>
+<p><strong>缝隙码</strong>：连接两个相邻轮廓像素的<strong>中心</strong>。</p>
+<p><strong>凸包</strong>：由边界凸起形成线段并将原形状完全包括的最小多边形。</p>
+<p><strong>凸残差</strong>：凸包减去原形状。</p>
+<p><strong>分段点</strong>：凸包边界和原形状一般都有重叠部分，重叠部分和凸包边界的分段点就是。</p>
+<p><strong>边界标记</strong>：</p>
+<ol>
+<li><strong>距离为角度的函数</strong>（**<u>重心</u>**）</li>
+<li>fai-s曲线</li>
+<li>斜率密度函数</li>
+<li>距离为弧长的函数（弧长与角度有关）</li>
+</ol>
+<p><strong>四叉树</strong>：</p>
+<p>目标节点（白色）、背景节点（黑色）、混合节点（黑色）。</p>
+<p>每个混合节点都还可以再分四个节点。</p>
+<p>一个n级的四叉树，节点总数N最多有<br>$$<br>\frac{3}{4}4^n<br>$$</p>
+<p><strong>外接盒</strong>：包含目标区域的最小长方形。</p>
+<p><strong>围盒</strong>：最小包围长方形。（<strong>MER</strong>）</p>
+<p><strong>凸包</strong>：包含目标区域的最小<strong>凸形</strong>。</p>
+<p><strong>骨架</strong>：</p>
+<p>如果对于P，在边界B上有两个及以上的点到P的距离最小，则认为P是骨架点。（与边界点距离最小）</p>
+<p><u>骨架与距离有关，也就与距离度量有关。</u></p>
+<p><strong>计算骨架</strong>：</p>
+<ol>
+<li>标记并除去满足以下条件的点：<ol>
+<li>2 &lt;&#x3D; N(p) &lt;&#x3D; 6</li>
+<li>S(p) &#x3D; 1</li>
+<li>p2 * p4 * p6 &#x3D; 0</li>
+<li>p4 * p6 * p8 &#x3D; 0</li>
+</ol>
+</li>
+<li>标记并除去满足以下条件的点：<ol>
+<li>2 &lt;&#x3D; N(p) &lt;&#x3D; 6</li>
+<li>S(p) &#x3D; 1</li>
+<li>p2 * p4 * p8 &#x3D; 0</li>
+<li>p2 * p6 * p8 &#x3D; 0</li>
+</ol>
+</li>
+</ol>
+<ul>
+<li><strong>条件1为了保护线段端点或者深入区域的点</strong></li>
+<li><strong>条件2保护了宽度为单个像素的线段（边界）</strong></li>
+<li><strong>条件3、4保护了右、下角，左、上角。</strong></li>
+</ul>
+<p><strong>边界长度</strong>：包围区域的轮廓的周长</p>
+<p><u>4-方向连通边界：要求点的8邻域内有不属于R的点。</u></p>
+<p><u>8-方向连通边界：要求点的4邻域内有不属于R的点。</u></p>
+<p><strong>边界长度：</strong></p>
+<p>边界上相隔最远的两个点之间的距离。（主轴、长轴）</p>
+<p>短轴：与长轴垂直且是边界间最远两点的线段。</p>
+<p><strong>边界形状数</strong>：基于链码，是值最小的（链码的）差分码。</p>
+<p>也可以是链码的<strong>差分码的归一化值</strong>。</p>
+<p>阶数：形状数的长度。随着阶数的增加，对应的可能的形状数也会很快增加。低阶形状数对应的形状有限。</p>
+<p><strong>计算:</strong><mark style="background-color：colorName/hexOfColor">（计算题）</mark></p>
+<ol>
+<li>求出围盒</li>
+<li>划分围盒为多个小正方形，将与边界有50%以上面积重合的小正方形选为边界的模拟。</li>
+<li>根据小正方形组成的边界的模拟来得出链码，然后得到差分码，然后得到形状数。</li>
+</ol>
+<p><strong>轮廓形状矩阵:</strong><mark style="background-color：colorName/hexOfColor">P127</mark></p>
+<p>可看做是一个刻<strong>画目标轮廓的矢量</strong>，记录了轮廓上<strong>各点的相对位置</strong>。</p>
+<ol>
+<li><p>获取轮廓</p>
+</li>
+<li><p>对轮廓采样得到离散点</p>
+</li>
+<li><p>划分扇区，划分圆环。</p>
+</li>
+<li><p><strong>对每个点，将其放在圆的中心，记录其他点在扇区、圆环中的分布情况。</strong></p>
+<p><strong>（矩阵行：环数，矩阵列：扇形区数）</strong></p>
+</li>
+<li><p>对每个点的统计得到的就是<strong>形状矩阵</strong>。</p>
+</li>
+</ol>
+<p><strong>区域不变矩：</strong><mark style="background-color：colorName/hexOfColor">（计算题）</mark></p>
+<p><strong>区域拒</strong>是用所有属于区域内的点计算出来的。</p>
+<p>p+q阶矩 &#x3D; <strong>所有求和【x^p * y^q * f(x,y)】</strong></p>
+<p>区域矩唯一的被f(x,y)所确定。</p>
+<p><strong>中心距</strong>：</p>
+<p><strong>拓扑描述符：</strong><mark style="background-color：colorName/hexOfColor">（计算题）</mark></p>
+<p>与尺寸无关，不收畸变变形的影响。</p>
+<p><strong>欧拉数</strong>：E &#x3D; C - H。 C：联通组员个数。  H：孔洞数。</p>
+<p>欧拉数描述的是区域的连通性。</p>
+<p>欧拉公式：<strong>V - B + F &#x3D; E &#x3D; C - H</strong>。 <strong>欧拉数可以取负数。</strong></p>
+<h2 id="第七章-纹理分析"><a href="#第七章-纹理分析" class="headerlink" title="第七章 纹理分析"></a>第七章 纹理分析</h2><p><strong>局部二值模式</strong>：</p>
+<p>用<strong>LBP算子</strong>遍历图中像素，得到像素对应的标号，用直方图统计所有的标号，得到的直方图就可以作为区域的**<u>纹理描述符</u>**。</p>
+<p><mark style="background-color：colorName/hexOfColor"><strong>注意：LBP算子从正右方向开始，逆时针顺序。而骨架化算法从正上方向开始，逆时针顺序。</strong></mark></p>
+<p><strong>均匀模式：</strong>整个循环中<strong>最多包含两个</strong><u>从0到1或者从1到0的过渡</u>，就说这个二值模式是均匀的。</p>
+<h2 id="第八章-形状分析"><a href="#第八章-形状分析" class="headerlink" title="第八章 形状分析"></a>第八章 形状分析</h2><p><strong>形状紧凑型描述符：</strong></p>
+<ul>
+<li><strong>外观比</strong>：R &#x3D; L &#x2F; W</li>
+<li><strong>形状因子</strong>：F &#x3D; B^2 &#x2F; 4πA     （B为周长，A为面积）   <strong>F&gt;&#x3D;1</strong></li>
+<li><strong>球状性</strong>： S &#x3D; Ri &#x2F; Rc</li>
+<li><strong>圆形性</strong></li>
+<li><strong>偏心率</strong></li>
+<li><strong>3-D形状相似性</strong></li>
+</ul>
+<p><strong>形状复杂性描述符</strong></p>
+<p><strong>简单描述符：</strong></p>
+<ul>
+<li><strong><u>细度比例：形状因子的倒数</u></strong></li>
+<li><strong>面积周长比</strong></li>
+<li><strong>矩形度</strong></li>
+<li><strong>与边界的平均距离</strong></li>
+<li>轮廓温度（热力学）</li>
+</ul>
+<p><strong>饱和度：</strong></p>
+<p><u><em><strong>目标在其围盒中的充满程度。</strong></em></u></p>
+<p><strong><u>属于目标的像素个数与整个围盒所包含的像素个数之比。</u></strong></p>
+<p><strong>多边形计算：</strong></p>
+<ul>
+<li><p>基于收缩的<strong>最小周长多边形法</strong></p>
+</li>
+<li><p>基于<strong>聚合</strong>的最小均方误差线段逼近法</p>
+<ul>
+<li><u><em>将点在误差内聚合到某一点，将所有聚合了的点相连得到</em></u>。</li>
+</ul>
+</li>
+<li><p>基于<strong>分散</strong>的最小均方误差线段逼近法</p>
+<ul>
+<li><u><em>先连接最远的两个像素，然后进一步在误差内找到最远的能分散的点</em></u></li>
+</ul>
+</li>
+</ul>
+<p><strong>轮廓曲率：</strong></p>
+<p><strong>与几何特征的关系：</strong></p>
+<ul>
+<li>连续0曲率：直线</li>
+<li>连续非0曲率：圆弧段</li>
+<li>局部<strong>最大曲率绝对值</strong>：<strong>角点</strong></li>
+<li>局部<strong>最大曲率正值</strong>：凸角点</li>
+<li>局部<strong>最大曲率负值</strong>：凹角点</li>
+</ul>
+<p><strong>离散曲率：</strong></p>
+<p>rk(p) &#x3D; | 1 - cos θ  |</p>
+<h2 id="第九章-立体视觉"><a href="#第九章-立体视觉" class="headerlink" title="第九章 立体视觉"></a>第九章 立体视觉</h2><p><strong>立体视觉模块：</strong></p>
+<ol>
+<li>摄像机标定</li>
+<li>图像获取</li>
+<li>特征提取</li>
+<li>立体匹配</li>
+<li>3-D信息恢复</li>
+<li>后处理</li>
+</ol>
+<p><strong>双目横向模式：</strong></p>
+<p><strong>两个单目系统</strong>在<strong>水平方向上</strong>并列放置。两个镜头中心的连线称为系统的基线B。</p>
+<p>双目系统观察同一个景物所得到的两幅图像中该景物的视像位置不同，就产生了<strong>视差</strong>。</p>
+<p><strong>视差：</strong> d &#x3D; x1 - x2  - Ｂ。</p>
+
+        </div>
+
+        
+
+        
+
+        
+            <div class="article-nav">
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/springmvc/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">SpringMVC</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2020</span>
+              -
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">lanyoooo</a>
+        </div>
+        
+            <script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    <span id="busuanzi_container_site_uv">
+                        访问人数&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp;
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv">
+                        总访问量&nbsp;<span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
+        </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0-%E7%BB%AA%E8%AE%BA"><span class="nav-text">第一章 绪论</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E5%9B%BE%E5%83%8F%E9%87%87%E9%9B%86"><span class="nav-text">第二章 图像采集</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%89%E7%AB%A0"><span class="nav-text">第三章</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E5%9F%BA%E5%85%83%E6%A3%80%E6%B5%8B"><span class="nav-text">第四章 基元检测</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%BA%94%E7%AB%A0-%E7%9B%AE%E6%A0%87%E5%88%86%E5%89%B2"><span class="nav-text">第五章 目标分割</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E5%85%AD%E7%AB%A0-%E7%9B%AE%E6%A0%87%E8%A1%A8%E8%BE%BE%E5%92%8C%E6%8F%8F%E8%BF%B0"><span class="nav-text">第六章 目标表达和描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%83%E7%AB%A0-%E7%BA%B9%E7%90%86%E5%88%86%E6%9E%90"><span class="nav-text">第七章 纹理分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E5%85%AB%E7%AB%A0-%E5%BD%A2%E7%8A%B6%E5%88%86%E6%9E%90"><span class="nav-text">第八章 形状分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B9%9D%E7%AB%A0-%E7%AB%8B%E4%BD%93%E8%A7%86%E8%A7%89"><span class="nav-text">第九章 立体视觉</span></a></li></ol>
+    </div>
+</div>
+        </aside>
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+    
+<script src="/js/local-search.js"></script>
+
+
+
+
+    
+<script src="/js/code-copy.js"></script>
+
+
+
+
+
+<div class="post-scripts pjax">
+    
+        
+<script src="/js/left-side-toggle.js"></script>
+
+<script src="/js/libs/anime.min.js"></script>
+
+<script src="/js/toc.js"></script>
+
+    
+</div>
+
+
+    
+<script src="/js/libs/pjax.min.js"></script>
+
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+</script>
+
+
+
+</body>
+</html>
